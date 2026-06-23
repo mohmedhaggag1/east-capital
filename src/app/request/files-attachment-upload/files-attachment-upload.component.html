@@ -1,0 +1,203 @@
+<ion-content scrollbar allowAllScreens="true" padding [class.busy]="activeMask">
+  <div class="container" *ngIf="studentAc.remain_value > 0">
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;">
+      <img loading="lazy" style="max-height: 20rem;max-width: 20rem;" src="../assets/images/pay.svg">
+    </div>
+
+    <div class="row">
+      <h4 style="text-align: center; color: #ce6720;">{{ "Please Pay Admission Fees" | i18n :
+        "corr.pleasePayAdmissionFeesAttachment" }}</h4>
+    </div>
+  </div>
+  <div class="container" *ngIf="studentAc.remain_value === 0">
+    <mat-tab-group mat-stretch-tabs [dir]="(direction) ? 'rtl' : 'ltr'" dynamicHeight>
+     
+      <mat-tab *ngIf="studentAc.request_status !== 1 ">
+        <ng-template mat-tab-label>
+          <mat-icon style="color: #0b89f0;"
+            matTooltip="{{ 'fileUpload' | i18n : 'corr.fileAttachment.fileUpload' }}">attach_file</mat-icon>
+          {{ "fileUpload" | i18n : "corr.fileAttachment.fileUpload" }}
+        </ng-template>
+        <div class="form-group">
+
+          <ion-row>
+            <ion-col>
+              <button mat-stroked-button (click)="moveToSelectedTab(1)" *ngIf="attachmentList.length > 0"
+                style="color: darkblue;width: -webkit-fill-available;display: flex;justify-content: center;">
+                <mat-icon matTooltip="{{ 'upload_documents' | i18n : 'corr.uploadFiles.uploadDocuments' }}">visibility
+                </mat-icon>
+                {{ 'Click Here To View The Uploaded Files ... ' | i18n : 'corr.fileAttachment.viewFilesBtn' }}
+              </button>
+            </ion-col>
+          </ion-row>
+
+          <ion-list style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <ion-item *ngFor="let element of attachmentDataSource.data; let i = index">
+              <div class="drop-zone"
+                style="display: flex; flex-direction: column; align-items: flex-start;margin: 1rem;">
+                <h6 style="text-align: center; width: -webkit-fill-available; color: #00BCD4; font-weight: bold;">
+                  {{"Total Uploaded Files" | i18n : "corr.totalUploadedFiles" }}
+                  <span style="color: orangered;">{{ttlFileOnType(element)}}</span>
+                </h6>
+                <h5 style="text-align: center;color: darkblue; font-weight: bold;"><mat-icon>attach_file</mat-icon>
+                  {{element.attachTypeDescr[lang]}}
+                </h5>
+
+                <input style="display: none;" [id]="'fileInput_' + i" type="file" class="form-control"
+                  (change)="onChange(fileInput , element)" #fileInput multiple>
+                <button style="text-align: center;" mat-stroked-button class="btn-upload-card"
+                  (click)="triggerFileInputClick(i)">
+                  <mat-icon>upload</mat-icon> &nbsp;
+                  {{ "fileUploadMultiple" | i18n : "corr.fileUploadMultiple" }}
+                </button>
+
+                <span *ngIf="element.upFile?.files"
+                  style="display: flex; flex-direction: column; color: darkblue; align-items: flex-end; width: -webkit-fill-available;padding-left: 1rem;padding-right: 1rem;max-height: 15vh; overflow: scroll;">
+                  <span style="border-bottom: 1px solid;border-color: #9dbcce;"
+                    *ngFor="let file of element.upFile.files">
+                    {{file.name}}
+                    &nbsp;
+                    <mat-icon style="color: darkred;" (click)="deleteRowFile(element , file )">delete_forever</mat-icon>
+                  </span>
+                </span>
+              </div>
+            </ion-item>
+          </ion-list>
+
+          <div class="row" style="display: flex; justify-content: center; align-items: center;">
+            <button style="text-align: center;" mat-stroked-button class="btn-upload" (click)="onUploadFiles()">
+              <mat-icon>upload</mat-icon> &nbsp;
+              {{ "uploadFiles" | i18n : "corr.uploadFiles.uploadFiles" }}
+            </button>
+          </div>
+          <!--Flag variable is used here-->
+          <div class="container" *ngIf="loading">
+            <mat-progress-bar mode="determinate" [value]="prsentageVal"></mat-progress-bar>
+            <h3>{{uploadMsg}} {{prsentageVal}}</h3>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon style="color: #f99108;"
+            matTooltip="{{ 'fileView' | i18n : 'corr.fileAttachment.fileView' }}">visibility</mat-icon>
+          {{ 'fileView' | i18n : 'corr.fileAttachment.fileView' }}
+        </ng-template>
+
+        <div class="no-data" [hidden]="(attachmentList.length > 0)" style="    color: darkblue;">
+          {{ 'noFilesFound' | i18n : 'corr.fileAttachment.noFilesFound' }}
+        </div>
+
+        <div class="container-fluid" [hidden]="(attachmentList.length === 0)">
+          <ion-row>
+            <ion-col>
+              <button mat-stroked-button (click)="moveToSelectedTab(0)"
+                style="color: darkblue;width: -webkit-fill-available;display: flex;justify-content: center;">
+                <mat-icon matTooltip="{{ 'upload_documents' | i18n : 'corr.uploadFiles.uploadDocuments' }}">cloud_upload
+                </mat-icon>
+                {{ 'upload_documents' | i18n : 'corr.uploadFiles.uploadDocuments' }}
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-list style=" display: flex;flex-wrap: wrap;justify-content: center;justify-content: flex-start;">
+                <ion-item *ngFor="let item of attachmentList">
+                  <ion-card class="ess-card" style="width: 17rem;height: 14rem;">
+                    <ion-card-header style="    height: 10.1rem;">
+                      <ion-card-title>
+                        <div class="form-row" style="display: flex;">
+                          <div style="width: 80%;">
+                            <h6 style="color: darkblue; font-weight: bold;"><ion-icon name="attach-outline"></ion-icon>
+                              {{ item.attachTypeDescr[lang]}}</h6>
+                          </div>
+                          <div style="width: 20%;">
+                            <button mat-mini-fab color="warn" (click)="deleteDocumentRecord(item)"
+                              matTooltip="{{ 'delete' | i18n : 'corr.fileAttachment.delete' }}"
+                              style="    display: flex; align-items: center; justify-content: center;"
+                              *ngIf="(studentAc.request_status !== 1 && !item.isFileLock)">
+                              <mat-icon>delete_forever</mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </ion-card-title>
+                      <ion-card-subtitle> {{item.file_name}} </ion-card-subtitle>
+                      <ion-card-subtitle>
+                        <span style="color: brown;" *ngIf="(studentAc.request_status === 1 || item.isFileLock)">
+                          {{ 'File is reviewed' | i18n : 'corr.fileIsReviewedLocked' }}
+                        </span>
+                      </ion-card-subtitle>
+
+                    </ion-card-header>
+                    <ion-card-actions style="display: flex;">
+                      <button mat-stroked-button (click)="viewDocumentRecord(item , myDialog)" color="primary"
+                        style="width: -webkit-fill-available;"
+                        *ngIf="(item.file_type.includes('audio') || item.file_type.includes('video') || item.file_type.includes('pdf'))">
+                        <mat-icon
+                          matTooltip="{{ 'viewDoc' | i18n : 'corr.fileAttachment.viewDoc' }}">visibility</mat-icon>
+                        {{ 'viewDoc' | i18n : 'corr.fileAttachment.viewDoc' }}
+                      </button>
+
+                      <button mat-stroked-button (click)="downloadRecord(item)"
+                        style="color: green;width: -webkit-fill-available;">
+                        <mat-icon
+                          matTooltip="{{ 'load_documents' | i18n : 'corr.fileAttachment.load_documents' }}">cloud_download
+                        </mat-icon>
+                        {{ 'load_documents' | i18n : 'corr.fileAttachment.load_documents' }}
+                      </button>
+                    </ion-card-actions>
+                  </ion-card>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</ion-content>
+
+<ng-template #myDialog style="z-index: 800;">
+  <div [dir]="(direction) ? 'rtl' : 'ltr'" class="insertDialog" mat-dialog-title>
+    <div class="row" style="    display: flex; align-items: center;width: -webkit-fill-available;">
+      <div class="col" style="width: -webkit-fill-available;">
+
+        <ion-button mat-mini-fab color="danger" [matTooltip]="'Close'" matDialogClose>
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="col" style="width: -webkit-fill-available;display: flex; justify-content: flex-end;">
+        <button mat-mini-fab (click)="downloadRecord(selectedRow)"
+          style="background: #1b84d8;display: flex;align-items: center;justify-content: center;"
+          [matTooltip]="i18n.get('corr.global.downloadOriginalFile', 'Download Original File')"> <mat-icon
+            style="color: white;">download</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <mat-dialog-content style="max-height: 87vh;">
+
+    <div *ngIf="showVideo" style=" display: flex; align-items: center; justify-content: center;">
+      <video width="500px" height="400px" controls #videoPlayer>
+        <source src="{{ selectedRow.download_pdf }}" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div *ngIf="showAudio" style="    display: flex; align-items: center; justify-content: center;">
+      <audio width="500px" height="400px" controls #audioPlayer>
+        <source src="{{ selectedRow.download_pdf }}" />
+        Your browser does not support the audio tag.
+      </audio>
+    </div>
+
+    <div class="pdf-scroll-wrapper" *ngIf="showPdf">
+      <pdf-viewer [src]="selectedRow.download_pdf" [render-text]="true" [render-text-mode]="1"
+        [external-link-target]="'blank'" [show-borders]="false" [show-all]="true" style="display: block;">
+      </pdf-viewer>
+    </div>
+
+  </mat-dialog-content>
+</ng-template>

@@ -1,0 +1,293 @@
+<div style="display: flex;align-items: flex-end;" [dir]="(direction) ? 'rtl' : 'ltr'" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <button style=" display: flex; align-items: center; justify-content: center;" mat-mini-fab color="secondary"
+    [matTooltip]="i18n.get('i18.global.close', 'Close')" matDialogClose>
+    <mat-icon style="color: darkred;">close</mat-icon>
+  </button>
+  &nbsp;
+  <h4 style="font-weight: bolder;color: white;">{{'studentApplicationForm' | i18n : 'corr.studentApplicationForm'}}
+  </h4>
+</div>
+<div class="row">
+  <button
+    style="display: flex; align-items: center; justify-content: center; font-weight: bolder; background: #3F51B5; color: white; margin-top: 1rem;"
+    mat-stroked-button (click)="generatePdf()">
+    {{'studentApplicationForm' | i18n : 'corr.studentApplicationForm'}}
+  </button>
+
+</div>
+<div class="container" id="print1" style="max-height: 50vh; overflow-y: scroll">
+  <div class="row" style="display: flex; justify-content: flex-end;">
+    <img loading="lazy" class="elementor-widget-image print-logo" style="margin: 1rem; padding: 0.5rem;" alt="Admission Portal"
+      src="assets/images/{{logo}}" />
+  </div>
+  <div class="row" style="display: flex;justify-content: center;border: 1px solid;border-color: #9e9e9e9c;">
+    <h2 style="text-align: center; font-weight: bolder; color: #9E9E9E;padding-top: 0.5rem;">Student Application</h2>
+  </div>
+  <div class="row" style="display: flex;justify-content: center;padding-bottom: 0.5rem;">
+    <div class="col col-master">Application ID#</div>
+    <div class="col col-data">{{studentAc.username}}</div>
+  </div>
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master">Date/Time</div>
+    <div class="col col-data">{{studentAc.insert_timestamp}}</div>
+  </div>
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master">Applied Semester</div>
+    <div class="col col-data">
+      <mat-select [(ngModel)]="studentAc.open_semester_id" name="open_semester_id" disabled="true">
+        <mat-option *ngFor="let comboxRec of comboxArrOpenSemester" [value]="comboxRec.id">
+          {{comboxRec.name[lang]}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master">Student Information</div>
+    <div class="col col-data">
+      <div class="row">
+        <div class="col col-sub-master">Student Full Name</div>
+        <div class="col col-sub-data">
+          {{studentAc.first_name_en}}
+          {{studentAc.middle_name_en}}
+          {{studentAc.grand_name_en}}
+          {{studentAc.surname_en}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Nationality</div>
+        <div class="col col-sub-data">
+          <mat-select [(ngModel)]="studentAc.country_id" name="country_id" disabled="true">
+            <mat-option *ngFor="let comboxRec of comboxArrNationality" [value]="comboxRec.id">
+              {{ comboxRec.name[lang]}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">National ID</div>
+        <div class="col col-sub-data">{{studentAc.citizen_serial}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Date of Birth</div>
+        <div class="col col-sub-data">{{studentAc.birth_date}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master"> Contact Information</div>
+    <div class="col col-data">
+      <div class="row">
+        <div class="col col-sub-master">Student Phone number</div>
+        <div class="col col-sub-data">{{studentContactData.mobile_country_code}}{{studentContactData.mobile}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Student Email</div>
+        <div class="col col-sub-data">{{studentContactData.email}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Address</div>
+        <div class="col col-sub-data">{{studentContactData.adress}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master">Academic Interest</div>
+    <div class="col col-data">
+      <div class="row">
+        <div class="col col-sub-master">First Choice</div>
+        <div class="col col-sub-data"><mat-select [(ngModel)]="wishesArray[0].academy_code" name="academy_code"
+            *ngIf="wishesArray[0]" disabled="true">
+            <mat-option *ngFor="let comboxRec of comboxArrAcademy" [value]="comboxRec.id">
+              {{ comboxRec.name[lang]}}
+            </mat-option>
+          </mat-select></div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Second Choice</div>
+        <div class="col col-sub-data"><mat-select [(ngModel)]="wishesArray[1].academy_code" name="academy_code"
+            disabled="true" *ngIf="wishesArray[1]">
+            <mat-option *ngFor="let comboxRec of comboxArrAcademy" [value]="comboxRec.id">
+              {{ comboxRec.name[lang]}}
+            </mat-option>
+          </mat-select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master">
+      Parents Information
+    </div>
+    <div class="col col-data">
+      <div class="row">
+        <div class="col col-sub-master">1st Guardian Name</div>
+        <div class="col col-sub-data" style="display: flex;align-items: center;justify-content: center;">
+          {{parentContactData1.relative_relation_name}} /
+          <mat-select style="width: fit-content;" [(ngModel)]="parentContactData1.relative_relation_id"
+            name="relative_relation_id" disabled="true">
+            <mat-option *ngFor="let comboxRec of comboxArr_relative_relation_id" [value]="comboxRec.id">
+              {{ comboxRec.name[lang]}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Number</div>
+        <div class="col col-sub-data">{{parentContactData1.mobile_country_code}}{{parentContactData1.mobile}}</div>
+      </div>
+      <!-- <div class="row">
+        <div class="col col-sub-master">NID</div>
+        <div class="col col-sub-data">{{parentContactData1.citizen_serial}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Profession</div>
+        <div class="col col-sub-data">{{parentContactData1.job}}</div>
+      </div> -->
+      <div class="row">
+        <div class="col col-sub-master">Email</div>
+        <div class="col col-sub-data">{{parentContactData1.email}}</div>
+      </div>
+      <!--  2 -->
+      <!-- <div class="row">
+        <div class="col col-sub-master">2st Guardian Name</div>
+        <div class="col col-sub-data" style="display: flex;align-items: center;justify-content: center;">
+          <span *ngIf="parentContactData2.id > 0">{{parentContactData2.relative_relation_name}} /
+            <mat-select style="width: fit-content;" [(ngModel)]="parentContactData2.relative_relation_id"
+              name="relative_relation_id" disabled="true">
+              <mat-option *ngFor="let comboxRec of comboxArr_relative_relation_id" [value]="comboxRec.id">
+                {{ comboxRec.name[lang]}}
+              </mat-option>
+            </mat-select>
+          </span>
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col col-sub-master">Number</div>
+        <div class="col col-sub-data"><span
+            *ngIf="parentContactData2.id > 0">{{parentContactData2.mobile_country_code}}{{parentContactData2.mobile}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">NID</div>
+        <div class="col col-sub-data">{{parentContactData2.citizen_serial}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Profession</div>
+        <div class="col col-sub-data">{{parentContactData2.job}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Email</div>
+        <div class="col col-sub-data">{{parentContactData2.adress}}</div>
+      </div> -->
+      <!-- End 2 -->
+
+      <!--  3 -->
+      <!-- <div class="row">
+        <div class="col col-sub-master">3st Guardian Name</div>
+        <div class="col col-sub-data" style="display: flex;align-items: center;justify-content: center;">
+          <span *ngIf="parentContactData3.id > 0">{{parentContactData3.relative_relation_name}} /
+            <mat-select style="width: fit-content;" [(ngModel)]="parentContactData3.relative_relation_id"
+              name="relative_relation_id" disabled="true">
+              <mat-option *ngFor="let comboxRec of comboxArr_relative_relation_id" [value]="comboxRec.id">
+                {{ comboxRec.name[lang]}}
+              </mat-option>
+            </mat-select>
+          </span>
+        </div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col col-sub-master">Number</div>
+        <div class="col col-sub-data"><span
+            *ngIf="parentContactData3.id > 0">{{parentContactData3.mobile_country_code}}{{parentContactData3.mobile}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">NID</div>
+        <div class="col col-sub-data">{{parentContactData3.citizen_serial}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Profession</div>
+        <div class="col col-sub-data">{{parentContactData3.job}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Email</div>
+        <div class="col col-sub-data">{{parentContactData3.adress}}</div>
+      </div> -->
+      <!-- End 3 -->
+    </div>
+  </div>
+
+  <div class="row" style="display: flex;justify-content: center;">
+    <div class="col col-master"> Student Certificate information</div>
+    <div class="col col-data">
+      <div class="row">
+        <div class="col col-sub-master">Hight School Name</div>
+        <div class="col col-sub-data">
+          <mat-select *ngIf="studentAc.certificate_school_id !== '0' && studentAc.certificate_school_id !== ''"
+            [(ngModel)]="studentAc.certificate_school_id" name="certificate_school_id" disabled="true">
+            <mat-option *ngFor="let comboxRec of comboxArr_school_id " [value]="comboxRec.id">
+              {{comboxRec.name[lang]}}
+            </mat-option>
+            <mat-option [value]="'0'">{{'other_certificate' | i18n : 'corr.other_certificate'}}</mat-option>
+          </mat-select>
+          <span *ngIf="studentAc.certificate_school_id === '0' || studentAc.certificate_school_id === ''">
+            {{studentAc.school_name}}
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sub-master">Certificate</div>
+        <div class="col col-sub-data">
+          <mat-select [(ngModel)]="studentAc.pre_university_degree" name="pre_university_degree" disabled="true">
+            <mat-option *ngFor="let comboxRec of comboxArrDegreeType" [value]="comboxRec.id">
+              {{ comboxRec.name[lang]}}
+            </mat-option>
+          </mat-select>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="display: flex;justify-content: center;padding-bottom: 0.5rem;">
+    <div class="col col-master">Number of Documents uploaded</div>
+    <div class="col col-data">{{attachmentList.length}}</div>
+  </div>
+
+  <div class="row" style="display: flex;justify-content: center;padding-bottom: 0.5rem;">
+    <div class="col col-master">Transfer information</div>
+    <div class="col col-data" style="display: flex; justify-content: center;">
+      <div class="row" *ngFor="let row of transformerUniversitiesArr">
+        <mat-select [(ngModel)]="row.university_id" name="university_id" disabled="true">
+          <mat-option *ngFor="let comboxRec of comboxArr_recognized_universities" [value]="comboxRec.id">
+            {{ comboxRec.name[lang]}}
+          </mat-option>
+        </mat-select>
+
+        <mat-select [(ngModel)]="row.collage_id" name="collage_id" disabled="true">
+          <mat-option *ngFor="let comboxRec of comboxArr_recognized_collages" [value]="comboxRec.id">
+            {{ comboxRec.name[lang]}}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row" style="display: flex;justify-content: center;padding-bottom: 0.5rem;">
+    <div class="col col-master">Achievements</div>
+    <div class="col col-data" style="display: flex; justify-content: center;">
+      <div *ngFor="let row of studentRequestAchievementsArr">
+        <mat-select [(ngModel)]="row.achievement_id" name="achievement_id" disabled="true">
+          <mat-option *ngFor="let comboxRec of comboxArr_achievement" [value]="comboxRec.id">
+            {{ comboxRec.name[lang]}}
+          </mat-option>
+        </mat-select>
+        &nbsp;
+      </div>
+    </div>
+  </div> -->
+</div>

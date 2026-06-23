@@ -1,0 +1,36 @@
+<div style="display: flex;align-items: flex-end;" [dir]="(direction) ? 'rtl' : 'ltr'" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <button style=" display: flex; align-items: center; justify-content: center;" mat-mini-fab color="secondary"
+    [matTooltip]="i18n.get('i18.global.close', 'Close')" matDialogClose>
+    <mat-icon style="color: darkred;">close</mat-icon>
+  </button>
+  &nbsp;
+  <h4 style="font-weight: bolder;color: white;">{{'welcomeMessageTitle' | i18n : 'corr.welcomeMessageTitle'}}</h4>
+</div>
+<div class="row" style="display: flex;align-items: center;justify-content: center;">
+  <img loading="lazy" style="max-height: 10rem;max-width: 10rem;" src="../assets/images/done.gif">
+</div>
+<div class="row">
+  <h5 style="color: darkgoldenrod;text-align: center;">{{thanksMessage | i18n_field: 'message'}}</h5>
+</div>
+<mat-card>
+  <div class="row" style="display: flex;align-items: center;justify-content: center;">
+    <mat-label style="width: unset;">{{ "User Name" | i18n : "corr.login.userName" }}</mat-label>
+  </div>
+  <div class="row" style="display: flex;align-items: center;justify-content: center;">
+    <span style="width: unset;">{{userRecord.username}}</span>
+  </div>
+
+  <div class="row" style="display: flex;align-items: center;justify-content: center;">
+    <mat-label style="width: unset;">{{ "Password" | i18n : "corr.login.userPassword" }}</mat-label>
+  </div>
+  <div class="row" style="display: flex;align-items: center;justify-content: center;">
+    <span style="width: unset;"> {{userRecord.password}}</span>
+  </div>
+</mat-card>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="accept()">
+    {{'Login In' | i18n : 'corr.welcomeLoginIn'}}
+  </button>
+</div>

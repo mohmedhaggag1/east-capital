@@ -1,0 +1,204 @@
+<ion-content scrollbar allowAllScreens="true" padding>
+
+  <div class="container" *ngIf="studentAc.remain_value > 0">
+    <div class="row" style="display: flex;align-items: center;justify-content: center;">
+      <img loading="lazy" style="max-height: 20rem;max-width: 20rem;" src="../assets/images/pay.svg">
+    </div>
+    <div class="row">
+      <h4 style="text-align: center; color: #ce6720;">{{ "Please Pay Admission Fees" | i18n :
+        "corr.pleasePayAdmissionFeesInterview" }}</h4>
+    </div>
+  </div>
+
+  <div class="container" [class.busy]="activeMask" *ngIf="studentAc.remain_value === 0 ">
+
+    <div class="no-data" *ngIf="interviewSlotesArr.length === 0">
+      {{ '"No Slotes Data Found "' | i18n: 'corr.noSlotesData' }}
+    </div>
+
+    <div class="row" *ngIf="interviewSlotesArr.length > 0">
+
+      <div class="col" style="display: flex; align-items: flex-start; flex-wrap: wrap;">
+        <div class="row" style="width: -webkit-fill-available;">
+          <div style="width: -webkit-fill-available;display: flex;padding-top: 1rem;">
+            <div class="flex" style="width: -webkit-fill-available;">
+              <mat-form-field class="searchTxt" appearance="null" floatLabel="never">
+                <input matInput placeholder="{{ 'Search' | i18n: 'corr.global.search'}}" (keyup)="applyFilterSlotes()"
+                  [(ngModel)]="filterValue" name="filterValue">
+                <mat-icon class="search-icon" matPrefix>search</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="flex" style="display: flex;">
+              <button mat-mini-fab (click)="getInterviewSlotes()"
+                style="background: #263663; color: white; display: flex; align-items: center;justify-content: center;">
+                <mat-icon>refresh </mat-icon>
+              </button>
+              &nbsp;
+              <button mat-mini-fab [matMenuTriggerFor]="belowMenu"
+                style="background: #263663; color: white; display: flex; align-items: center;justify-content: center;">
+                <mat-icon>filter_alt </mat-icon>
+              </button>
+
+              <mat-menu #belowMenu="matMenu" yPosition="below" [hasBackdrop]="false">
+                <div style="width:fit-content;display: flex; justify-content: flex-start;margin: 0.5rem;">
+                  <button mat-mini-fab
+                    style="    background: #263663; display: flex; justify-content: center; align-items: center;">
+                    <mat-icon style="color: #F44336;cursor: pointer;font-weight: bolder;">close</mat-icon>
+                  </button>
+
+                </div>
+                <div class="row" style="width:fit-content; max-height: 50vh; overflow-y: scroll;margin: 0.5rem;">
+                  <div class="row" style="display: flex;text-align: center;align-items: center;"
+                    (click)="$event.stopPropagation()">
+                    <div class="col"
+                      style="font-weight: bolder;flex-basis: min-content;color: #3F51B5; font-size: small;">
+                      {{ 'Filter by days' | i18n: 'corr.searchByDay' }}
+                      &nbsp;
+                      <button mat-icon-button color="primary" (click)="selectAll();$event.stopPropagation();">
+                        <mat-icon>done_all</mat-icon>
+                      </button>
+                      &nbsp;
+                      <button mat-icon-button color="primary" (click)="deselectAll();$event.stopPropagation();">
+                        <mat-icon>remove_done</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <mat-divider class="mat-divider-horizontal"></mat-divider>
+                  <mat-selection-list #categoresList class="full" style="font-weight: bolder;"
+                    (selectionChange)="onSelectionChange();">
+                    <mat-list-option role="listitem" *ngFor="let row of interviewSlotesArr"
+                      class="custom-mat-list-option"
+                      style="border-bottom: 1px solid; border-bottom-color: #008b8b3b; color: darkblue;"
+                      [value]="row.interview_date" (click)="$event.stopPropagation()">
+                      <div class="list-item-content">
+                        &nbsp;
+                        <span>{{ row.interview_date }}</span>
+                      </div>
+                    </mat-list-option>
+                  </mat-selection-list>
+                </div>
+              </mat-menu>
+
+            </div>
+          </div>
+        </div>
+        <div class="row"
+          style="display: flex; flex-wrap: wrap; width: -webkit-fill-available; background: gainsboro;  padding: 0.5rem;font-weight: bolder;"
+          *ngIf="allow_period_to_edit > 0">
+          <mat-icon style="color: #F44336; height: unset; width: unset;">warning_amber</mat-icon>
+          <span style="color: #F44336;width: fit-content;">{{'warn Change Appointment' |
+            i18n:'corr.appointmentWarnAllowEditPeriod'}} &nbsp; {{allow_period_to_edit}} &nbsp; {{'day' |
+            i18n:'corr.day'}} </span>
+        </div>
+        <div class="row"
+          style="display: flex; flex-wrap: wrap; width: -webkit-fill-available; background: gainsboro; padding: 0.5rem; font-weight: bolder; align-items: center;"
+          *ngIf="selectedInterviewSlotes.id > 0">
+          <mat-icon style="color: darkblue; height: unset; width: unset;">schedule</mat-icon>
+          <span style="color: darkblue;width: fit-content;">{{'selectedInterviewSlote' |
+            i18n:'corr.selectedInterviewSlote'}}</span>&nbsp;
+          <span style="color: darkblue;width: fit-content;">{{selectedInterviewSlotes.interview_date}} &nbsp;
+            {{'from_time' | i18n:'corr.from_time'}} &nbsp; {{selectedInterviewSlotes.from_time}} &nbsp;
+            {{'to_time' | i18n:'corr.to_time'}} &nbsp; {{selectedInterviewSlotes.to_time}}</span>
+
+          <button style="width: fit-content;" mat-stroked-button (click)="deleteAppointment(selectedInterviewSlotes)"
+            *ngIf="selectedInterviewSlotes.taken_by_student_code === studentAc.student_code">
+            <mat-icon style="color: darkred!important;">event_busy</mat-icon>
+            &nbsp;
+            <span style="color: darkred!important;font-weight: bolder;">
+              {{ 'Cancel Appointment' | i18n: 'corr.cancelAppointment' }}
+            </span>
+          </button>
+          &nbsp;
+          <button style="width: fit-content;" mat-stroked-button (click)="joinInterview(selectedInterviewSlotes)"
+            *ngIf="((selectedInterviewSlotes.meeting_details) && (selectedInterviewSlotes.taken_by_student_code === studentAc.student_code))">
+            <mat-icon style="color: #FF9800!important;">interpreter_mode</mat-icon>
+            &nbsp;
+            <span style="color: #FF9800!important;font-weight: bolder;">
+              {{ 'Join Interview' | i18n: 'corr.joinInterview' }}
+            </span>
+          </button>
+          &nbsp;
+          <div style="width: fit-content; display: flex; flex-wrap: nowrap; align-items: center;"
+            *ngIf="((!selectedInterviewSlotes.meeting_details) && (selectedInterviewSlotes.taken_by_student_code === studentAc.student_code))">
+            <mat-icon style="color: #FF9800!important;">hourglass_empty</mat-icon>
+            <span style="color: #FF9800!important;font-weight: bolder;">
+              {{ 'pending Create Microsoft Teams' | i18n: 'corr.pendingCreateMicrosoftTeams' }}
+            </span>
+          </div>
+
+        </div>
+        <div class="row"
+          style="max-height: 50vh; overflow-y: scroll; display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px;">
+          <mat-card class="ess-card schedule-card" style="width: fit-content;"
+            *ngFor="let subRow of sloteArr | paginate: { id: 'sloteArr',itemsPerPage: 15, currentPage: p1 }">
+            <mat-card-title style="display: flex; align-items: stretch; flex-wrap: nowrap; justify-content: center;">
+              <mat-icon style="color: darkblue;">calendar_month</mat-icon>
+              &nbsp;
+              <h6 style="color: darkblue;">{{subRow.interview_date}}</h6>
+            </mat-card-title>
+            <mat-card-content>
+              <div class="field">
+                <span class="label">{{'from_time' | i18n:'corr.from_time'}}</span>
+                <span class="value">{{ subRow.from_time }}</span>
+              </div>
+              <div class="field">
+                <span class="label">{{'to_time' | i18n:'corr.to_time'}}</span>
+                <span class="value">{{ subRow.to_time }}</span>
+              </div>
+              <div class="field" *ngIf="(subRow.taken_by_student_code)">
+                <mat-icon style="color: darkgreen;height: unset; width: unset;overflow: unset;">
+                  check_circle
+                </mat-icon>
+                <span
+                  style="font-weight: bolder; color: darkgreen; width: -webkit-fill-available; text-align: center;">{{'is_taken'
+                  | i18n:'corr.is_taken'}}</span>
+              </div>
+            </mat-card-content>
+            <mat-card-actions style="display: flex; align-items: center; flex-direction: column;">
+              <button class="full-width" mat-stroked-button (click)="takeAppointment(subRow)"
+                *ngIf="(!subRow.taken_by_student_code && !isThereAppointment)">
+                <mat-icon style="color: darkblue!important;">done_outline</mat-icon>
+                &nbsp;
+                <span style="color: darkblue!important;font-weight: bolder;">
+                  {{ 'Take Appointment' | i18n: 'corr.takeAppointment' }}
+                </span>
+              </button>
+              <button class="full-width" mat-stroked-button (click)="deleteAppointment(subRow)"
+                *ngIf="subRow.taken_by_student_code === studentAc.student_code">
+                <mat-icon style="color: darkred!important;">event_busy</mat-icon>
+                &nbsp;
+                <span style="color: darkred!important;font-weight: bolder;">
+                  {{ 'Cancel Appointment' | i18n: 'corr.cancelAppointment' }}
+                </span>
+              </button>
+              <button class="full-width" style="margin-top: 0.5rem;" mat-stroked-button (click)="joinInterview(subRow)"
+                *ngIf="((subRow.meeting_details) && (subRow.taken_by_student_code === studentAc.student_code))">
+                <mat-icon style="color: #FF9800!important;">interpreter_mode</mat-icon>
+                &nbsp;
+                <span style="color: #FF9800!important;font-weight: bolder;">
+                  {{ 'Join Interview' | i18n: 'corr.joinInterview' }}
+                </span>
+              </button>
+              <div class="full-width" style="margin-top: 0.5rem;display: flex; flex-wrap: nowrap; align-items: center;"
+                *ngIf="((!subRow.meeting_details) && (subRow.taken_by_student_code === studentAc.student_code))">
+                <mat-icon style="color: #FF9800!important;">hourglass_empty</mat-icon>
+                <span style="color: #FF9800!important;font-weight: bolder;">
+                  {{ 'pending Create Microsoft Teams' | i18n: 'corr.pendingCreateMicrosoftTeams' }}
+                </span>
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+
+        <div class="row"
+          style="display: flex; align-items: center; justify-content: center; width: -webkit-fill-available; padding-top: 1rem;">
+          <pagination-controls id="sloteArr" *ngIf="sloteArr.length > 0" style="justify-content: center;"
+            (pageChange)="p1 = $event" class="pagination">
+          </pagination-controls>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

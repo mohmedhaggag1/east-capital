@@ -1,0 +1,82 @@
+<div class="container" [dir]="(direction) ? 'rtl' : 'ltr'">
+  <div style="display: flex; align-items: flex-end;" [dir]="(direction) ? 'rtl' : 'ltr'" class="insertDialog"
+    mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+    <button mat-mini-fab style=" display: flex; align-items: center; justify-content: center;" color="secondary"
+      [matTooltip]="i18n.get('corr.global.close', 'Close')" matDialogClose>
+      <mat-icon style="color: darkred;">close</mat-icon>
+    </button>
+
+    &nbsp;
+    <h4>{{title}}</h4>
+  </div>
+
+  <mat-dialog-content style="max-height: 87vh;">
+
+    <div *ngIf="!isIFrame && pdfSrcFile" class="tool-bar-pdf"
+      style="margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
+
+      <button mat-icon-button (click)="goToFirstPage()" [disabled]="page <= 1"
+        matTooltip="{{ i18n.get('corr.global.first', 'First') }}">
+        <mat-icon>first_page</mat-icon>
+      </button>
+
+      <button mat-icon-button (click)="goToLastPage()" [disabled]="page >= totalPages"
+        matTooltip="{{ i18n.get('corr.global.last', 'Last') }}">
+        <mat-icon>last_page</mat-icon>
+      </button>
+
+      <button mat-stroked-button color="primary" style="font-weight: bolder;" (click)="goToPreviousPage()"
+        [disabled]="page <= 1">
+        {{ i18n.get('corr.global.previous', 'Previous') }}
+      </button>
+
+      <span>Page {{ page }} of {{ totalPages }}</span>
+
+      <button mat-stroked-button color="primary" style="font-weight: bolder;" (click)="goToNextPage()"
+        [disabled]="page >= totalPages">
+        {{ i18n.get('corr.global.next', 'Next') }}
+      </button>
+
+      <mat-form-field style="width: 8rem;">
+        <mat-label>{{ i18n.get('corr.global.goTopage', 'Go to page') }} </mat-label>
+        <input matInput type="number" [min]="1" [max]="totalPages" [(ngModel)]="goToPageNumber"
+          (keyup.enter)="goToPage()">
+      </mat-form-field>
+
+      <button mat-stroked-button color="primary" style="font-weight: bolder;" (click)="goToPage()"
+        [disabled]="!goToPageNumber || goToPageNumber < 1 || goToPageNumber > totalPages">
+        {{ i18n.get('corr.global.go', 'Go') }}
+      </button>
+
+      <button mat-icon-button (click)="zoomIn()" matTooltip="{{ i18n.get('corr.global.zoomIn', 'zoomIn') }}">
+        <mat-icon style="color: green;">zoom_in</mat-icon>
+      </button>
+
+      <button mat-icon-button (click)="zoomOut()" matTooltip="{{ i18n.get('corr.global.zoomOut', 'zoomOut') }}">
+        <mat-icon style="color: orangered;">zoom_out</mat-icon>
+      </button>
+
+      <button mat-icon-button (click)="zoomFull()" matTooltip="{{ i18n.get('global.zoomFull', 'zoomFull') }}">
+        <mat-icon style="color: darkblue;">height</mat-icon>
+      </button>
+
+      <button mat-stroked-button color="primary"
+        style="font-weight: bolder;width: -webkit-fill-available;text-align: center;color: white;background: darkblue;"
+        (click)="downloadFile()">
+        <mat-icon style="color: white;">download</mat-icon>
+        {{ i18n.get('corr.global.download', 'Download') }}
+      </button>
+
+    </div>
+
+
+    <pdf-viewer *ngIf="!isIFrame && pdfSrcFile" [src]="pdfSrcFile" [page]="page" [render-text]="true"
+      [render-text-mode]="1" [external-link-target]="'blank'" [show-borders]="false" [show-all]="false" [zoom]="zoom"
+      [original-size]="!isAutoresize" [fit-to-page]="true" [autoresize]="isAutoresize"
+      (after-load-complete)="onPdfLoad($event)" style="display: block;">
+    </pdf-viewer>
+
+    <iframe *ngIf="isIFrame" [src]="pdfSrcIFrame" width="750" height="550">
+    </iframe>
+  </mat-dialog-content>
+</div>

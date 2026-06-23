@@ -1,0 +1,10 @@
+<!-- FawryPay Checkout Button -->
+<!-- <input type="image" (click)="checkout()" src="../../../assets/images/FawryPayLogo.jpg" alt="pay-using-fawry"
+id="fawry-payment-btn" /> -->
+
+<button [id]="fawryBtnId" mat-stroked-button color="primary"
+  (click)="checkout()" style="font-weight: bold;color: #123468;">
+  <img loading="lazy" src="../../../assets/images/fawrypay.png"
+    style="width: 3rem; vertical-align: middle;">
+  Proceed to payment
+</button>

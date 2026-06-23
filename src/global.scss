@@ -1,0 +1,687 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+@import '../src/assets/fonts/fonts.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+ion-alert.custom-alert {
+  --backdrop-opacity: 0.7;
+}
+
+.custom-alert {
+  .alert-button-group {
+    padding: 8px;
+  }
+
+  .alert-title {
+    width: max-content;
+  }
+
+}
+
+
+button.alert-button.alert-button-confirm {
+  background-color: var(--ion-color-success);
+  color: var(--ion-color-success-contrast);
+}
+
+.md button.alert-button.alert-button-confirm {
+  border-radius: 4px;
+}
+
+.ios .custom-alert button.alert-button {
+  border: 0.55px solid rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.2)
+}
+
+.ios button.alert-button.alert-button-cancel {
+  border-right: 0;
+  border-bottom-left-radius: 13px;
+  border-top-left-radius: 13px;
+}
+
+.ios button.alert-button.alert-button-confirm {
+  border-bottom-right-radius: 13px;
+  border-top-right-radius: 13px;
+}
+
+ion-button {
+  text-transform: none;
+}
+
+/* To Make Content Center in Screen */
+.row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Solve Label Direction RTL */
+[dir=rtl] {
+
+  .label-stacked.sc-ion-label-md-h,
+  .label-floating.sc-ion-label-md-h {
+    -webkit-transform-origin: top right;
+    transform-origin: top right;
+  }
+}
+
+
+
+@supports (-moz-appearance:none) {
+  .chrome-etc {
+    display: none;
+  }
+}
+
+@supports (-webkit-font-smoothing: antialiased) {
+  .firefox {
+    display: none;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+
+}
+
+body.arabic,
+body.themed * {
+  text-align: start;
+
+  :not(mat-icon):not(ion-icon):not(i.fa) {
+    font-family: "Montserrat", "wahran", "josefinsans" !important;
+  }
+}
+
+body.arabic * {
+  /*}:not(mat-icon):not(i.fa) {*/
+  font-family: "Montserrat", "wahran", "josefinsans" !important;
+  /* line-height: 1.25em; */
+}
+
+body.arabic mat-icon {
+  direction: rtl !important;
+  font-family: 'Material Icons' !important;
+  /* line-height: 1em; */
+}
+
+body.arabic i.fa {
+  font-family: 'FontAwesome' !important;
+  /* line-height: 1em; */
+}
+
+body.arabic .pi {
+  font-family: 'primeicons' !important;
+}
+
+body.arabic .mat-snack-bar-container .mat-simple-snackbar {
+  span {
+    // direction: rtl;
+    margin: auto;
+  }
+
+  .mat-simple-snackbar-action {
+    display: none;
+  }
+}
+
+body.arabic .toast-container {
+  direction: rtl;
+}
+
+/* Correct RTL errors in Prime Table */
+body.arabic .ui-dropdown.ui-dropdown-clearable .ui-dropdown-label {
+  margin-inline-start: 3rem;
+}
+
+/* Correct RTL errors in Mat Tabs */
+body.arabic .mat-tab-header-pagination-controls-enabled {
+  direction: ltr;
+
+  .mat-tab-list .mat-tab-labels {
+    direction: rtl;
+  }
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+
+.full {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.no-data {
+  margin: 1rem;
+  padding: 1rem;
+  border: 0.5rem solid #dcdcdc;
+  color: #d50d0d;
+  font-weight: bolder;
+}
+
+.cursor-pointer {
+  cursor: pointer
+}
+
+.mat-dialog-content {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.mat-dialog-content::-webkit-scrollbar {
+  width: 0.8rem;
+  background-color: #fff;
+  height: 0.8rem;
+}
+
+.mat-dialog-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #4285F4;
+}
+
+.mat-dialog-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.mat-dialog-content::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #fff;
+}
+
+.mat-dialog-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ecf9f1), to(#6CC9D2));
+  background-image: -webkit-linear-gradient(bottom, #ecf9f1 0%, #6CC9D2 100%);
+  background-image: linear-gradient(to top, #ecf9f1 0%, #6CC9D2 100%);
+}
+
+.ion-toast-z {
+  z-index: 30000 !important;
+}
+
+ion-toast {
+  z-index: 30000;
+}
+
+
+::ng-deep .custom-dialog {
+  z-index: 800 !important;
+}
+
+
+
+.header-button-img {
+  // max-width: 3vw !important;
+  max-height: 4vh !important;
+}
+
+// .header-buttons {
+//   //width: -webkit-fill-available !important;
+//   //   font-weight: bolder !important;
+// }
+
+/* Hide the desktop header by default */
+.desktop-header {
+  display: none;
+}
+
+.desktop-footer {
+  display: none;
+}
+
+/* Media query to show the desktop header on screens wider than 768px */
+@media only screen and (min-width: 1200px) {
+
+  // Add by Zidan 08-10-2023
+  .toast-container .ngx-toastr {
+    width: fit-content !important;
+    max-width: 50vw !important;
+  }
+
+  .desktop-header {
+    display: flex;
+    width: -webkit-fill-available;
+    padding: 2rem;
+    justify-content: space-around;
+    justify-content: flex-end;
+  }
+
+  .desktop-footer {
+    display: flex;
+    width: -webkit-fill-available;
+  }
+}
+
+
+/* Hide the desktop header by default */
+.mobile-header {
+  display: none;
+}
+
+/* Media query to show the desktop header on screens wider than 768px */
+@media only screen and (max-width: 1199px) {
+  .mobile-header {
+    display: block;
+  }
+
+  .toast-container .ngx-toastr {
+    width: fit-content !important;
+    max-width: 95vw;
+  }
+}
+
+[mat-dialog-title] {
+  margin: -24px -24px 0px -24px !important;
+  padding: 0.5rem 0.5rem;
+  background: #369;
+  color: #fff;
+  cursor: move;
+  display: flex;
+  align-items: center;
+}
+
+////////////////////////// Global Style ////////////////////////////
+
+.busy {
+  filter: blur(2px) opacity(0.75);
+  pointer-events: none;
+}
+
+.desktop-header ion-button {
+  font-family: "Montserrat", Sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: bold !important;
+  padding: 0px 0px 0px 30px;
+}
+
+
+mat-label {
+  color: #233662 !important;
+  font-family: "Montserrat", Sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  // text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+ion-label {
+  color: #233662 !important;
+}
+
+.mat-step-header .mat-step-icon {
+  background-color: #233662;
+}
+
+.mat-step-header .mat-step-text-label {
+  color: #233662;
+  font-weight: bolder !important;
+}
+
+.app-background {
+  background: radial-gradient(rgb(255, 254, 234) 0%, rgb(255, 254, 234) 35%, #b7e8eb82 100%);
+  // height: 100vh;
+}
+
+::ng-deep #background-content {
+  background: rgb(236, 232, 228);
+}
+
+.BADYA {
+  .logo-color {
+    color: #D2BA96;
+  }
+
+  .title-logo-color {
+    color: #D2BA96;
+  }
+
+  .login-btn {
+    --background: linear-gradient(180deg, #161F3B 0%, #273866 100%);
+  }
+
+  ion-header ion-toolbar {
+    // --background:  #273866 !important;
+    --ion-background-color: transparent;
+    --background: linear-gradient(180deg, #161F3B 0%, #273866 100%);
+    height: 8rem;
+  }
+
+  ion-footer ion-toolbar {
+    // --background:  #273866 !important;
+    --ion-background-color: transparent;
+    --background: linear-gradient(180deg, #161F3B 0%, #273866 100%);
+    height: 3rem;
+  }
+
+  .btn-logout {
+    color: red;
+  }
+
+  .print-logo {
+    width: 15rem !important;
+  }
+}
+
+.MEMPHIS {
+  .logo-MEMPHIS {
+    filter: invert(60%) sepia(78%) saturate(2100%) hue-rotate(330deg) brightness(72%) contrast(108%) !important;
+  }
+
+  .logo-color {
+    color: white;
+  }
+
+  .title-logo-color {
+    color: #1e4ca3;
+  }
+
+  ion-header ion-toolbar {
+    --ion-background-color: transparent;
+    --background: linear-gradient(180deg, #4d0a19 0%, #740f25 100%);
+    height: 8rem;
+  }
+
+  ion-footer ion-toolbar {
+    --ion-background-color: transparent;
+    --background: linear-gradient(180deg, #4d0a19 0%, #740f25 100%);
+    height: 3rem;
+  }
+
+  .login-btn {
+    --background: linear-gradient(180deg, #4d0a19 0%, #740f25 100%);
+  }
+
+  .btn-logout {
+    color: orange;
+  }
+
+  .print-logo {
+    width: 10rem !important;
+  }
+}
+
+body.UECEGYPT {
+
+  /* =========================
+     Main Font
+  ========================= */
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+
+  * {
+    :not(mat-icon):not(ion-icon):not(i.fa) {
+      font-family: 'DM Sans', sans-serif !important;
+    }
+  }
+
+  body.arabic mat-icon {
+    direction: rtl !important;
+    font-family: 'Material Icons' !important;
+    /* line-height: 1em; */
+  }
+
+  body.arabic i.fa {
+    font-family: 'FontAwesome' !important;
+    /* line-height: 1em; */
+  }
+
+  body.arabic .pi {
+    font-family: 'primeicons' !important;
+  }
+
+  /* =========================
+     Headings Font
+  ========================= */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .section-title,
+  .form-title,
+  .mat-step-header .mat-step-text-label {
+    font-family: 'Playfair Display', serif !important;
+  }
+
+  /* =========================
+     Heading Sizes
+  ========================= */
+  h3,
+  h4,
+  .section-title,
+  .form-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #4E4099 !important;
+  }
+
+  /* =========================
+     Labels + Inputs
+  ========================= */
+  mat-label,
+  ion-label,
+  input,
+  textarea,
+  select,
+  .mat-input-element,
+  .mat-mdc-input-element,
+  ion-input,
+  ion-textarea {
+    font-size: 14px !important;
+    font-family: 'DM Sans', sans-serif !important;
+  }
+
+  mat-label {
+    color: #4E4099 !important;
+    font-weight: bold !important;
+  }
+
+  ion-label {
+    color: #4E4099 !important;
+  }
+
+  /* =========================
+     Buttons + Navigation
+  ========================= */
+  button,
+  ion-button,
+  .btn,
+  .mat-button,
+  .mat-raised-button,
+  .mat-mdc-button,
+  .mat-mdc-raised-button,
+  .mat-mdc-unelevated-button,
+  .mat-toolbar button,
+  .footer button {
+    font-size: 13px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+  }
+
+  /* =========================
+     Existing Theme Colors
+  ========================= */
+
+  .logo-color {
+    color: white;
+  }
+
+  .title-logo-color {
+    color: #1e4ca3;
+  }
+
+  ion-header ion-toolbar {
+    --ion-background-color: transparent;
+    --background: linear-gradient(180deg, #4E4099 0%, #4E4099 100%);
+    height: 8rem;
+  }
+
+  ion-header ion-toolbar ion-button {
+    color: #ffffff !important;
+
+    &:hover {
+      color: #FF4347 !important;
+    }
+  }
+
+  ion-footer ion-toolbar {
+    --ion-background-color: transparent;
+    --background: linear-gradient(180deg, #4E4099 0%, #4E4099 100%) !important;
+    height: 3.5rem;
+
+    .footer-text {
+      color: #ffffff !important
+    }
+
+    .footer-links a {
+      color: #ffffff !important;
+
+      &:hover {
+        color: #FF4347 !important;
+      }
+    }
+
+    .social-icons ion-icon {
+      color: #ffffff !important;
+
+      &:hover {
+        color: #FF4347 !important;
+      }
+    }
+  }
+
+  .btn-logout {
+    color: orange;
+  }
+
+  .mat-step-header .mat-step-icon {
+    background-color: #4E4099 !important;
+  }
+
+  .footer .btn-next {
+    background-color: #4E4099 !important;
+  }
+
+  .help-button {
+    background: #4E4099 !important;
+  }
+
+  mat-dialog-container h4 {
+    color: white !important;
+  }
+
+  .login-btn {
+    --background: linear-gradient(180deg, #4E4099 0%, #4E4099 100%);
+    // --background: linear-gradient(180deg, #161F3B 0%, #4E4099 100%);
+  }
+
+  .print-logo {
+    width: 10rem !important;
+  }
+}
+
+
+
+
+/* Customize the scrollbar for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// Start Add By Zidan to Solve ngx-Print Scroll -------------------
+@media print {
+
+  html,
+  body {
+    height: max-content;
+    overflow-y: visible !important;
+  }
+}
+
+@media print {
+  .mat-drawer-content {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    height: 100% !important;
+    overflow-y: visible !important;
+  }
+}
+
+// End Add By Zidan to Solve ngx-Print Scroll -------------------
+
+// to Solve the Select Saved Data From Chrome 
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: inherit !important;
+  /* keep your text color */
+  transition: background-color 9999s ease-in-out 0s !important;
+  /* prevents flash */
+}

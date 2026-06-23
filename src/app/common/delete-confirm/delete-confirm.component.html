@@ -1,0 +1,16 @@
+<div style="display: flex;align-items: flex-end;" [dir]="(direction) ? 'rtl' : 'ltr'"  mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <button style=" display: flex; align-items: center; justify-content: center;" mat-mini-fab color="secondary" [matTooltip]="i18n.get('i18.global.close', 'Close')" matDialogClose>
+    <mat-icon style="color: darkred;">close</mat-icon>
+  </button> 
+  &nbsp;
+  <h4 style="font-weight: bolder;color: white;">{{ title }}</h4>
+</div>
+
+<div class="modal-body">
+  {{ message }}
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="decline()">{{no}}</button>
+  &nbsp;
+  <button type="button" class="btn btn-primary" (click)="accept()">{{yes}}</button>
+</div>

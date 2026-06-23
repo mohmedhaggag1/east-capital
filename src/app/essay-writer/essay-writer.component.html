@@ -1,0 +1,133 @@
+<ion-content scrollbar allowAllScreens="true" padding>
+  <div class="container" *ngIf="studentAc.remain_value > 0">
+    <div class="row" style="display: flex;align-items: center;justify-content: center;">
+      <img loading="lazy" style="max-height: 20rem;max-width: 20rem;" src="../assets/images/pay.svg">
+    </div>
+    <div class="row">
+      <h4 style="text-align: center; color: #ce6720;">{{ "Please Pay Admission Fees" | i18n :
+        "corr.pleasePayAdmissionFeesEssay" }}</h4>
+    </div>
+  </div>
+
+  <div class="container" [class.busy]="activeMask" *ngIf="studentAc.remain_value === 0 ">
+
+    <div class="ess-card">
+      <div class="row" *ngFor="let item of essaySettings.essayInstructionsArr"
+        style="align-items: flex-start; display: flex; flex-wrap: nowrap;margin: 0.5rem; padding: 0.5rem; border-radius: 1rem"
+        [style.color]="item.color">
+        <mat-icon *ngIf="item.icon" [style.color]="item.color" style="padding: 0rem;">{{item.icon}}</mat-icon>
+        <div innerHTML="{{item | i18n_field: 'instruction'}}"></div>
+      </div>
+
+      <div class="row" *ngIf="essaySettings.can_upload_files === 1"
+        style="background: aliceblue;  border-radius: 1rem; border: 0.1rem solid; border-color: #6495ed85; margin: 1rem;">
+
+        <div class="row" style="display: flex; align-items: center; justify-content: center;"
+          *ngIf="studentAc.lock_essay === 0">
+          <button style=" width: fit-content;margin: 1rem;" mat-stroked-button color="primary"
+            (click)="uploadFileData()">
+            <mat-icon>cloud_upload</mat-icon>
+            &nbsp;
+            {{'Upload Supporting Documents' | i18n:'corr.uploadSupportDocuments'}}
+          </button>
+        </div>
+        <mat-chip-list #chipList style="margin: 1rem;" *ngIf="attachmentList.length > 0">
+          <mat-chip class="mat-chip-custom" *ngFor="let attachment of attachmentList" [selectable]="selectable"
+            [removable]="removable" style="border-style: solid;border-width: 1px;">
+            <div class="form-row full-width"
+              style="display: flex;justify-content: space-between;align-items: center;min-width: 13rem;">
+              <div class="col" matTooltip="{{attachment.file_name}}">
+                {{(attachment.file_name.length>10)?
+                (attachment.file_name | slice:0:10)+'...':(attachment.file_name)}}
+              </div>
+              <div style="display: flex;justify-content: end;">
+                <button mat-icon-button (click)="viewDocumentRecord(attachment,myDialog)"
+                  matTooltip="{{'File View' | i18n:'corr.fileAttachment.fileView'}}">
+                  &nbsp;
+                  <mat-icon style="color: chocolate !important;">visibility</mat-icon>
+                </button>
+                <button mat-icon-button (click)="downloadRecord(attachment)"
+                  matTooltip="{{'Download File ' | i18n:'corr.fileAttachment.load_documents'}}">
+                  <mat-icon style="color: #4CAF50;">cloud_download</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteAttachment(attachment)" *ngIf="studentAc.lock_essay === 0"
+                  matTooltip="{{'delete File ' | i18n:'corr.fileAttachment.delete'}}">
+                  <mat-icon style="color: darkred !important;">delete_forever</mat-icon>
+                </button>
+              </div>
+            </div>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <div class="row">
+
+        <div class="row maxLengthText" *ngIf="essaySettings.text_max_length > 0">
+          <div class="col">
+            <span style="color: darkblue;font-weight: bolder;">
+              {{'Note Max Length ' | i18n:'corr.global.maxTextLength'}} {{essaySettings.text_max_length}} </span> /
+            <span style="color: rgb(52, 52, 189);font-weight: bolder;"> {{resultInnerTextLength}}
+            </span>
+          </div>
+
+        </div>
+
+        <ckeditor id="editor1" [(ngModel)]="studentAc.essay" #myckeditor style="width: 100%;" [config]="ckeConfig"
+          [readonly]="readonly" (keyup)="getInnerTextLength()">
+        </ckeditor>
+
+      </div>
+
+      <div class="row" *ngIf="studentAc.lock_essay === 0">
+        <div class="col">
+          <button mat-stroked-button type="button" class="btn btn-save" (click)="doSave()">
+            <mat-icon>save</mat-icon>
+            {{'Update Data' | i18n : 'corr.global.save'}}
+          </button>
+        </div>
+        <div class="col">
+          <button mat-stroked-button type="button" class="btn btn-save-lock" (click)="doSaveAndLock()">
+            <mat-icon>lock_open</mat-icon>
+            {{'Update Data' | i18n : 'corr.global.save_send'}}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #myDialog style="z-index: 800;">
+  <div [dir]="(direction) ? 'rtl' : 'ltr'" class="insertDialog" mat-dialog-title cdkDrag
+    cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+    <button style=" display: flex; align-items: center; justify-content: center;" mat-mini-fab color="secondary"
+      [matTooltip]="i18n.get('corr.close', 'Close')" matDialogClose>
+      <mat-icon style="color: darkred;">close</mat-icon>
+    </button>
+  </div>
+  <mat-dialog-content>
+    <div [dir]="(direction) ? 'rtl' : 'ltr'">
+
+      <div *ngIf="showVideo">
+        <video width='500px' height='300px' controls #videoPlayer>
+          <source src="{{attachmentTableExpandedElement.pdfSrc}}">
+          Your browser does not support the video tag.
+        </video>
+
+      </div>
+      <div *ngIf="showAudio">
+        <audio width='500px' height='100px' controls #audioPlayer>
+          <source src="{{attachmentTableExpandedElement.pdfSrc}}">
+          Your browser does not support the audio tag.
+        </audio>
+      </div>
+
+      <div class="pdf-scroll-wrapper" *ngIf="showPdf">
+        <pdf-viewer [src]="attachmentTableExpandedElement.download_pdf" [render-text]="true" [render-text-mode]="1"
+          [external-link-target]="'blank'" [show-borders]="false" [show-all]="true" style="display: block;">
+        </pdf-viewer>
+      </div>
+
+    </div>
+  </mat-dialog-content>
+</ng-template>

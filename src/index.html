@@ -1,0 +1,62 @@
+<!-- This Application Developed By eSmartSoft https://esmartsoft.com.eg, 2024 mohamed.zidan@esmartsoft.com.eg -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <base href="/" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <link rel="stylesheet" id="google-fonts-1-css"
+    href="https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap&amp;ver=6.5.2"
+    type="text/css" media="all">
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <script>
+    async function loadGTM() {
+      try {
+        const response = await fetch('assets/settings.json');
+        const settings = await response.json();
+        // Select the body element
+        const body = document.body;
+        // Remove the 'ZIDAN' class
+        body.classList.remove('MASTERCLASS');
+        // Add the new class
+        body.classList.add(settings.company);
+
+        if (settings.enable_google_tag_manager) {
+          gtmId = settings.google_tag_manager;
+          // Add the GTM script to the head
+          const gtmScript = document.createElement('script');
+          gtmScript.textContent = `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${gtmId}');
+        `;
+          document.head.appendChild(gtmScript);
+          // Add the noscript part
+          const gtmNoscript = document.createElement('noscript');
+          gtmNoscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+          document.body.appendChild(gtmNoscript);
+        }
+      } catch (error) {
+        console.error('Error loading GTM:', error);
+      }
+    }
+    loadGTM();
+  </script>
+</head>
+
+<body class="MASTERCLASS themed">
+  <app-root></app-root>
+</body>
+
+</html>
+<!-- This Application Developed By eSmartSoft https://esmartsoft.com.eg, 2024 mohamed.zidan@esmartsoft.com.eg -->

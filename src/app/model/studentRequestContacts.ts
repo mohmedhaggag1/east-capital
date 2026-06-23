@@ -1,0 +1,19 @@
+export class StudentRequestContacts {
+    id?: number = 0;
+    request_id?: number = 0;
+    relative_relation_id?: string = '0';
+    relation_other_name?: string = '';
+    relative_relation_name?: string = '';
+    mobile_country_code?: string = '+2';
+    mobile?: string = '';
+    mobile2_country_code?: string = '+2';
+    mobile2?: string = '';
+    adress?: string = '';
+    email?: string = '';
+    gov_code?: string = '';    
+    address_country_id?: string = '';
+    job?: string = '';
+    citizen_serial_type?: string = "1";
+    citizen_serial?: string = '';
+    relation_type?: number = 0;
+}

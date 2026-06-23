@@ -1,0 +1,509 @@
+<ion-content scrollbar allowAllScreens="true" padding>
+
+  <div class="container">
+
+    <div class="row" *ngFor="let item of registrationInstructionsArr"
+      style="align-items: flex-start; display: flex; flex-wrap: nowrap;margin: 0.5rem; padding: 0.5rem; border-radius: 1rem"
+      [style.background-color]="item.background_color">
+      <mat-icon *ngIf="item.icon" [style.color]="item.icon_color" style="padding: 0rem;">{{item.icon}}</mat-icon>
+      <div innerHTML="{{item | i18n_field: 'instruction'}}"></div>
+    </div>
+
+    <div class="row justify-content-center main_title_border" *ngIf="studentStepStatusArr.length > 0">
+      <h4 class="title_border"> {{'studentStepStatus' | i18n : 'corr.studentStepStatus'}}</h4>
+    </div>
+
+    <div class="row row-ess-card" *ngIf="studentStepStatusArr.length > 0">
+      <ng-container *ngIf="discount.id > 0">
+        <div class="ess-card discounts discounts-button" (click)="viewHelp(myDialogCountdown)"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;cursor: pointer;">
+          <b class="content-bg">{{discount | i18n_field: 'title'}}</b>
+          <img loading="lazy" src="../../../assets/images/discount.svg" style="max-width: 4rem;">
+          <b style="color: #421613; font-size: larger; text-align: center;">
+            {{discount.discount_value}} % {{'Till' | i18n : 'corr.till'}} {{discount.valid_till_date}}
+          </b>
+        </div>
+      </ng-container>
+
+      <ng-container *ngFor="let row of studentStepStatusArr; let i = index">
+        <div [class.not_active]="!row.step_status" [class.is_active]="row.step_status" class="ess-card"
+          [class.step_status_click]="row.step_url" (click)="openStepUrl(row)"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;"
+          *ngIf="showStep(row)">
+
+          <b class="content-bg" *ngIf="!row.step_status">{{i+1}}&nbsp;-&nbsp;{{'pendding' | i18n :
+            'corr.pendding'}}</b>
+          <b class="content-bg" *ngIf="row.step_status">{{i+1}}&nbsp;-&nbsp;{{'done' | i18n : 'corr.done'}}</b>
+
+          <img loading="lazy" [src]="row.step_image">
+          <b style="color: darkblue; font-size: larger;text-align: center;" *ngIf="row.sys_type != 5">{{row |
+            i18n_field: 'step_name'}}</b>
+
+          <b style="color: darkblue; font-size: larger;text-align: center;"
+            *ngIf="row.sys_type === 5 && interviewSlotes.id === 0">
+            {{row | i18n_field: 'step_name'}}
+          </b>
+          <b style="color: darkblue; font-size: smaller;text-align: center;"
+            *ngIf="row.sys_type === 5 && interviewSlotes.id > 0">
+            {{'Interview Appointment' | i18n:'corr.interviewAppointment'}}
+            <div class="row">
+              <div class="col" style="text-align: center;font-size: medium;">{{interviewSlotes.interview_date}}</div>
+            </div>
+            <div class="row">
+              <div class="col" style="white-space: nowrap;">{{'from_time' | i18n:'corr.from_time'}}</div>
+              <div class="col" style="white-space: nowrap;">{{ interviewSlotes.from_time }}</div>
+            </div>
+            <div class="row">
+              <div class="col" style="white-space: nowrap;">{{'to_time' | i18n:'corr.to_time'}}</div>
+              <div class="col" style="white-space: nowrap;">{{ interviewSlotes.to_time }}</div>
+            </div>
+          </b>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <div class="row justify-content-center main_title_border">
+      <h4 class="title_border"> {{'basicData' | i18n : 'corr.basicData'}}</h4>
+    </div>
+    <div class="custom_table">
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'requestId' | i18n : 'corr.requestId'}}</mat-label></div>
+        <div class="col">{{studentAc.id}}</div>
+      </div>
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'requestDateTime' | i18n : 'corr.requestDateTime'}}</mat-label></div>
+        <div class="col">{{studentAc.insert_timestamp}}</div>
+      </div>
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'username' | i18n : 'corr.username'}}</mat-label></div>
+        <div class="col">{{studentAc.username}}</div>
+      </div>
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'studentNameArabic' | i18n : 'corr.studentNameArabic'}}</mat-label></div>
+        <div class="col">
+          {{studentAc.first_name_ar}} {{studentAc.middle_name_ar}} {{studentAc.grand_name_ar}} {{studentAc.surname_ar}}
+        </div>
+      </div>
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'studentNameEnglish' | i18n : 'corr.studentNameEnglish'}}</mat-label></div>
+        <div class="col">{{studentAc.first_name_en}} {{studentAc.middle_name_en}} {{studentAc.grand_name_en}}
+          {{studentAc.surname_en}}</div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'mobile' | i18n : 'corr.mobile'}}</mat-label></div>
+        <div class="col">{{studentContactData.mobile_country_code}} {{studentContactData.mobile}}</div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'adress' | i18n : 'corr.adress'}}</mat-label></div>
+        <div class="col">{{studentContactData.adress}} </div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'Current Academy' | i18n : 'corr.current_academy'}}</mat-label></div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select [(ngModel)]="studentAc.wish_academy_code_1" name="wish_academy_code_1" disabled="true">
+              <mat-option *ngFor="let comboxRec of comboxArrAcademy" [value]="comboxRec.id">
+                {{ comboxRec.name[lang]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label>{{'wish1' | i18n : 'corr.wish1'}}</mat-label></div>
+        <div class="col">
+          <div *ngFor="let row of wishesArray" style="display: flex; align-items: flex-center;">
+            <h4 style="color: darkblue; display: flex; align-items: center;">{{row.ordered}}</h4>
+            &nbsp;
+            <mat-form-field class="full-width">
+              <mat-select [(ngModel)]="row.academy_code" name="academy_code" disabled="true">
+                <mat-option *ngFor="let comboxRec of comboxArrAcademy" [value]="comboxRec.id">
+                  {{ comboxRec.name[lang]}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row row-text">
+        <div class="col"><mat-label> {{'pre_university_student_grade' | i18n : 'corr.pre_university_student_grade'}}
+          </mat-label></div>
+        <div class="col">{{studentAc.gpa}} </div>
+      </div> -->
+
+      <div class="row row-text" *ngIf="enable_payment">
+        <div class="col"><mat-label> {{'payment_status' | i18n : 'corr.payment_status'}}
+          </mat-label></div>
+
+        <div class="col" style="display: flex; flex-wrap: wrap; align-items: center;"
+          *ngIf="studentAc.remain_value > 0">
+
+          <app-fawry-pay FAWRY_RETURN_URL="{{returnUrl}}" requestId="{{studentAc.id}}"
+            *ngIf="enable_fawry_admission_fees === true && studentAc.is_paid_registration_fees === 0 && paymentClosed === false"
+            fawryBtnId="fawry-payment-btn" requestScreenName="RegistrtionFees" itemId="1" quantity="1"
+            price="{{studentAc.remain_value}}" description="Admission fees"
+            imageUrl="https://www.atfawry.com/ECommercePlugin/resources/images/atfawry-ar-logo.png"
+            customerMobile="{{studentContactData.mobile}}" customerEmail="{{studentContactData.email}}"
+            customerName="{{studentAc.first_name_en}} {{studentAc.middle_name_en}} {{studentAc.grand_name_en}}"
+            fawrySettingId="{{studentAc.fawry_settings_id}}">
+          </app-fawry-pay>
+          &nbsp;
+          <button
+            *ngIf="(enable_efinance_admission_fees === true && studentAc.is_paid_registration_fees === 0 && paymentClosed === false)"
+            mat-stroked-button color="primary" (click)="efinancePayment()" style="font-weight: bold;color: #123468;">
+            <img loading="lazy" src="../../../assets/images/efinance.png" alt="efinance payment"
+              style="width: 5rem; height: 16px;  vertical-align: middle;">
+            Proceed to payment
+          </button>
+          &nbsp;
+          <span *ngIf="studentAc.is_paid_registration_fees === 0">
+            {{'not_paid' | i18n : 'corr.not_paid'}} / {{studentAc.remain_value}} EGP &nbsp;
+          </span>
+
+          <span style="color: darkred;">
+            {{'payment_notes' | i18n : 'corr.payment_notes'}} </span>
+          &nbsp;
+          <div style="color: darkgreen;font-weight: bolder;display: flex;align-items: center;"
+            matTooltip="{{'Last sync Time' | i18n : 'corr.lastSyncTime'}}">
+            &nbsp;
+            {{lastRefresh | date: 'hh:mm:ss'}}
+            &nbsp;
+            <mat-icon style="color: darkgreen!important;">sync</mat-icon>
+          </div>
+
+        </div>
+
+        <div class="col" style="display: flex; flex-wrap: wrap; align-items: center;color: darkcyan;"
+          *ngIf="studentAc.remain_value <= 0 && studentAc.due_value > 0">
+          {{'fees_paid' | i18n : 'corr.fees_paid'}}
+
+          <button mat-stroked-button color="primary" (click)="viewFawryPayHistory(myDialog,'RegistrtionFees')"
+            *ngIf="fawryPayHistoryArray.length > 0">
+            <mat-icon style="color:darkblue" matTooltip="{{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}">
+              info_outline </mat-icon>
+            {{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}
+          </button>
+
+
+        </div>
+
+        <div class="col" style="display: flex; flex-wrap: wrap; align-items: center;color: darkorange;"
+          *ngIf="studentAc.due_value === 0">
+          {{'No Fees' | i18n : 'corr.no_fees'}}
+
+          <button mat-stroked-button color="primary" (click)="viewFawryPayHistory(myDialog,'RegistrtionFees')"
+            *ngIf="fawryPayHistoryArray.length > 0">
+            <mat-icon style="color:darkblue" matTooltip="{{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}">
+              info_outline </mat-icon>
+            {{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}
+          </button>
+        </div>
+
+      </div>
+
+
+
+      <div class="row row-text" *ngIf="enable_payment && studentAc.first_semester_due_value > 0">
+        <div class="col">
+          <mat-label> {{'first_semester_payment_status' | i18n : 'corr.first_semester_payment_status'}}
+          </mat-label>
+        </div>
+
+        <div class="col" style="display: flex;flex-wrap: wrap;align-items: center;"
+          *ngIf="studentAc.first_semester_remain_value > 0">
+          <app-fawry-pay
+            *ngIf="(enable_fawry_first_semester_fees === true && studentAc.is_paid_first_semester_fees === 0)"
+            FAWRY_RETURN_URL="{{returnUrl}}" requestId="{{studentAc.id}}" fawryBtnId="fawry-payment-first-semester-btn"
+            requestScreenName="FirstSemesterFees" itemId="1" quantity="1"
+            price="{{studentAc.first_semester_remain_value}}" description="First Semester fees"
+            imageUrl="https://www.atfawry.com/ECommercePlugin/resources/images/atfawry-ar-logo.png"
+            customerMobile="{{studentContactData.mobile}}" customerEmail="{{studentContactData.email}}"
+            customerName="{{studentAc.first_name_en}} {{studentAc.middle_name_en}} {{studentAc.grand_name_en}}"
+            fawrySettingId="{{studentAc.first_semester_fawry_settings_id}}">
+          </app-fawry-pay>
+          &nbsp;
+          <button *ngIf="(enable_efinance_first_semester_fees === true && studentAc.is_paid_first_semester_fees === 0)"
+            mat-stroked-button color="primary" (click)="efinancePaymentFirstSemesterFees()"
+            style="font-weight: bold;color: #123468;" id="efinance-payment-first-semester-btn">
+            <img loading="lazy" src="../../../assets/images/efinance.png" alt="efinance payment"
+              style="width: 5rem; height: 16px;  vertical-align: middle;">
+            Proceed to payment
+          </button>
+          &nbsp;
+
+          <button mat-stroked-button (click)="printRequest('3')"
+            *ngIf="(enable_print_first_semester_fees === true && studentAc.is_paid_first_semester_fees === 0)"
+            style="font-weight: bold;color: #123468;width: 15rem;">
+            <mat-icon style="color: darkblue !important;">print</mat-icon>
+            {{ 'Create Payment Order' | i18n:'corr.printPaymentOrder' }}
+          </button>
+
+          &nbsp;
+          <button mat-stroked-button color="primary" (click)="viewFawryPayHistory(myDialog,'FirstSemesterFees')"
+            *ngIf="fawryPayHistoryFirstSemesterArray.length > 0"
+            style="width: max-content; height: max-content; vertical-align: middle;width: 15rem;">
+            <mat-icon style="color:darkblue" matTooltip="{{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}">
+              receipt_long </mat-icon>
+            {{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}
+          </button>
+          &nbsp;
+          <span *ngIf="studentAc.is_paid_first_semester_fees === 0">
+            {{'not_paid' | i18n : 'corr.not_paid'}} / {{studentAc.first_semester_remain_value}} EGP &nbsp;
+          </span>
+
+          <span style="color: darkred;">
+            {{'payment_notes' | i18n : 'corr.payment_notes'}} </span>
+          &nbsp;
+          <div style="color: darkgreen;font-weight: bolder;display: flex;align-items: center;"
+            matTooltip="{{'Last sync Time' | i18n : 'corr.lastSyncTime'}}">
+            &nbsp;
+            {{lastRefresh | date: 'hh:mm:ss'}}
+            &nbsp;
+            <mat-icon style="color: darkgreen!important;">sync</mat-icon>
+          </div>
+        </div>
+
+        <div class="col" style="display: flex; flex-wrap: wrap; align-items: center;color: darkcyan;"
+          *ngIf="studentAc.first_semester_remain_value <= 0 && studentAc.first_semester_due_value > 0">
+          {{'first_semester_payment_fees_paid' | i18n : 'corr.first_semester_payment_fees_paid'}}
+          <button mat-stroked-button color="primary" (click)="viewFawryPayHistory(myDialog,'FirstSemesterFees')"
+            *ngIf="fawryPayHistoryFirstSemesterArray.length > 0"
+            style="width: max-content; height: max-content; vertical-align: middle;">
+            <mat-icon style="color:darkblue" matTooltip="{{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}">
+              info_outline </mat-icon>
+            {{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}
+          </button>
+        </div>
+
+        <div class="col" style="display: flex; flex-wrap: wrap; align-items: center;color: darkorange;"
+          *ngIf="studentAc.first_semester_due_value === 0">
+          {{'No Fees' | i18n : 'corr.no_fees'}}
+          <button mat-stroked-button color="primary" (click)="viewFawryPayHistory(myDialog,'FirstSemesterFees')"
+            *ngIf="fawryPayHistoryFirstSemesterArray.length > 0"
+            style="width: max-content; height: max-content; vertical-align: middle;">
+            <mat-icon style="color:darkblue" matTooltip="{{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}">
+              info_outline </mat-icon>
+            {{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="row justify-content-center main_title_border">
+      <h4 class="title_border"> {{'parentContactData1En' | i18n : 'corr.parentContactData1En'}}</h4>
+    </div>
+    <div class="custom_table">
+      <div class="row row-text">
+        <div class="col"><mat-label> {{'relative_relation_name' | i18n : 'corr.relative_relation_name'}} 1</mat-label>
+        </div>
+        <div class="col">{{parentContactData1.relative_relation_name}}</div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label> {{'relative_relation_id' | i18n : 'corr.relative_relation_id'}}</mat-label>
+        </div>
+        <div class="col">
+          <mat-select [(ngModel)]="parentContactData1.relative_relation_id" name="relative_relation_id" disabled="true">
+            <mat-option *ngFor="let comboxRec of comboxArr_relative_relation_id" [value]="comboxRec.id">
+              {{ comboxRec.name[lang]}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+
+      <div class="row row-text" *ngIf="parentContactData1.relative_relation_id === '10'">
+        <div class="col"><mat-label> {{'relation_other_name' | i18n : 'corr.relation_other_name'}}</mat-label>
+        </div>
+        <div class="col">{{parentContactData1.relation_other_name}}</div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label> {{'Parent Mobile' | i18n : 'corr.parentMobile'}}</mat-label>
+        </div>
+        <div class="col">{{parentContactData1.mobile}}</div>
+      </div>
+
+      <div class="row row-text">
+        <div class="col"><mat-label> {{'email' | i18n : 'corr.email'}}</mat-label>
+        </div>
+        <div class="col">{{parentContactData1.email}}</div>
+      </div>
+
+      <!--
+      <div class="row row-text">
+        <div class="col"><mat-label> {{'Parent Mobile2' | i18n : 'corr.parentMobile2'}}</mat-label>
+        </div>
+        <div class="col">{{parentContactData1.mobile2}}</div>
+      </div> -->
+    </div>
+
+
+    <div class="row justify-content-center main_title_border" *ngIf="studentAc.have_any_siblings === 1">
+      <h4 class="title_border"> {{'siblings' | i18n : 'corr.siblings'}}</h4>
+    </div>
+    <div class="custom_table" *ngIf="studentAc.have_any_siblings === 1">
+
+
+      <div class="custom_table" style="border-bottom: 0.1rem solid; border-color: #00008b61;"
+        *ngFor="let row of siblingsArr">
+        <div class="row">
+          <div class="col" style="display: flex;align-items: flex-end;flex-wrap: wrap;">
+            <div class="col" style=" padding-top: 0.5rem;">
+              <mat-form-field class="full-width" style="padding: 0.5rem;font-weight: bolder;">
+                <mat-label> {{'search_value' | i18n : 'corr.siblings_search_value'}} </mat-label>
+
+                <mat-icon matTooltip="{{'verified' | i18n:'corr.verified'}}" matPrefix style="color: darkgreen;"
+                  *ngIf="row.sibling_student_code">verified</mat-icon>
+                <mat-icon matTooltip="{{'Not Verified' | i18n:'corr.notVerified'}}" matPrefix style="color: darkorange;"
+                  *ngIf="!row.sibling_student_code">new_releases</mat-icon>
+
+                <input matInput [(ngModel)]="row.search_value" name="search_value"
+                   readonly disabled />
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" style="padding: 0.5rem;font-weight: bolder;">
+                <mat-label> {{'Student Name' | i18n : 'corr.siblings_student_name'}}
+                </mat-label>
+                <input matInput [(ngModel)]="row.student_name[lang]" name="student_name" readonly disabled />
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" style="padding: 0.5rem;font-weight: bolder;">
+                <mat-label> {{'Academy Name' | i18n : 'corr.siblings_academy_name'}}
+                </mat-label>
+                <input matInput [(ngModel)]="row.academy_name[lang]" name="academy_name" readonly disabled />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
+
+
+<ng-template #myDialog style="z-index: 800;">
+  <div [dir]="(direction) ? 'rtl' : 'ltr'" class="insertDialog" mat-dialog-title cdkDrag
+    cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+    <button mat-mini-fab color="secondary" style=" display: flex; align-items: center; justify-content: center;"
+      [matTooltip]="i18n.get('academicCrn.global.close', 'Close')" matDialogClose>
+      <mat-icon style="color: darkred;">close</mat-icon>
+    </button>
+    &nbsp;
+    <h3>{{'Fawry Pay History' | i18n : 'corr.fawryPayHistory'}}</h3>
+  </div>
+  <mat-dialog-content>
+    <div [dir]="(direction) ? 'rtl' : 'ltr'">
+      <div class="row row-text" *ngFor="let row of fawryPayHistoryViewArray">
+        <mat-card style="margin-bottom: 1rem;">
+
+          <div class="row">
+            <div class="col"><mat-label>{{'Reference Number' | i18n : 'corr.referenceNumber'}}</mat-label></div>
+            <div class="col">{{row.referenceNumber}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col"><mat-label>{{'Fawry Ref Number' | i18n : 'corr.fawryRefNumber'}}</mat-label></div>
+            <div class="col">{{row.fawryRefNumber}}</div>
+          </div>
+
+          <div class="row" *ngIf="row.expirationTime">
+            <div class="col"><mat-label>{{'Expiration Time' | i18n : 'corr.expirationTime'}}</mat-label></div>
+            <div class="col" style="color: darkorange;">{{row.expirationTime}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col"><mat-label>{{'Payment Method' | i18n : 'corr.paymentMethod'}}</mat-label></div>
+            <div class="col">{{row.paymentMethod}}</div>
+          </div>
+
+
+          <div class="row">
+            <div class="col"><mat-label>{{'Merchant Reference Number' | i18n : 'corr.merchantRefNumber'}}</mat-label>
+            </div>
+            <div class="col">{{row.merchantRefNumber}}</div>
+          </div>
+
+          <div class="row" *ngIf="row.orderStatus">
+            <div class="col"><mat-label>{{'Order Status' | i18n : 'corr.orderStatus'}}</mat-label></div>
+            <div class="col" *ngIf=" row.orderStatus ==='UNPAID'" style="color: darkred;">{{row.orderStatus}}</div>
+            <div class="col" *ngIf=" row.orderStatus ==='PAID'" style="color: darkgreen;">{{row.orderStatus}}</div>
+            <div class="col" *ngIf=" ((row.orderStatus !=='PAID') && (row.orderStatus !=='UNPAID'))">{{row.orderStatus}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="row.statusDescription">
+            <div class="col"><mat-label>{{'Status Description' | i18n : 'corr.statusDescription'}}</mat-label></div>
+            <div class="col">{{row.statusDescription}}</div>
+          </div>
+
+          <div class="row" *ngIf="row.paymentTime">
+            <div class="col"><mat-label>{{'Payment Time' | i18n : 'corr.paymentTime'}}</mat-label></div>
+            <div class="col">{{row.paymentTime}}</div>
+          </div>
+
+          <div class="row" *ngIf="row.cardLastFourDigits">
+            <div class="col"><mat-label>{{'Last Four Digits Payment Card' | i18n :
+                'corr.cardLastFourDigits'}}</mat-label></div>
+            <div class="col">{{row.cardLastFourDigits}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col"><mat-label>{{'Action Timestamp' | i18n : 'corr.action_timestamp'}}</mat-label></div>
+            <div class="col">{{row.action_timestamp}}</div>
+          </div>
+
+        </mat-card>
+      </div>
+    </div>
+  </mat-dialog-content>
+</ng-template>
+
+
+<ng-template #myDialogCountdown style="z-index: 800;">
+  <div style="display: flex;" [dir]="(direction) ? 'rtl' : 'ltr'" class="insertDialog" mat-dialog-title cdkDrag
+    cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+    <button mat-mini-fab color="secondary" style=" display: flex; align-items: center; justify-content: center;"
+      [matTooltip]="i18n.get('global.close', 'Close')" matDialogClose>
+      <mat-icon style="color: darkred;">close</mat-icon>
+    </button>
+    &nbsp;
+    <h3>{{discount | i18n_field: 'title'}}</h3>
+  </div>
+  <mat-dialog-content>
+    <div [dir]="(direction) ? 'rtl' : 'ltr'">
+      <div class="offer-container">
+        <div class="offer-description" innerHTML="{{discount | i18n_field: 'body'}}"> </div>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number">{{ days }}</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          &nbsp;
+          <div class="countdown-item">
+            <span class="countdown-number">{{ hours }}</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          &nbsp;
+          <div class="countdown-item">
+            <span class="countdown-number">{{ minutes }}</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          &nbsp;
+          <div class="countdown-item">
+            <span class="countdown-number">{{ seconds }}</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+</ng-template>

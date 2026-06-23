@@ -1,0 +1,7 @@
+<h2 mat-dialog-title *ngIf="data.title">{{ data.title }}</h2>
+<mat-dialog-content>{{ data.message }}</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button style="background: cornflowerblue; color: white;" [mat-dialog-close]="true">{{ data.yes }}</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button style="background: #dc3c72; color: white;" [mat-dialog-close]="null">{{ data.no }}</button>
+</mat-dialog-actions>

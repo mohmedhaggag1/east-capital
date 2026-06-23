@@ -1,0 +1,2048 @@
+{
+    "corr": {
+        "certificate_country_name": {
+            "ar": "اسم بلد الشهادة",
+            "en": "Certificate Country Name"
+        },
+        "transportation_area_id": {
+            "ar": "منطقة النقل",
+            "en": "Transportation Area"
+        },
+        "err_fld_required": {
+            "ar": "هذا الحقل مطلوب",
+            "en": "This field is required"
+        },
+        "err_fld_min_value": {
+            "ar": "هذا الحقل يجب ان لا يقل عن {0} حروف",
+            "en": "This field must be at least {0} characters"
+        },
+        "transformer_universities_specialization_id": {
+            "ar": "التخصص",
+            "en": "Specialization"
+        },
+        "ERROR_WISH_NO": {
+            "ar": "خطأ , لابد من إختيار {0} رغبات على الأقل",
+            "en": "Error, You must select at least {0} wishes"
+        },
+        "parentEmail": {
+            "ar": "بريد ولي الأمر الإلكتروني",
+            "en": "Parent Email"
+        },
+        "motherMobile": {
+            "ar": "موبايل الأم",
+            "en": "Mother Mobile"
+        },
+        "motherEmail": {
+            "ar": "بريد الأم الإلكتروني",
+            "en": "Mother Email"
+        },
+        "mohterName": {
+            "ar": "اسم الأم",
+            "en": "Mother Name"
+        },
+        "high_school_final_percentage": {
+            "ar": "النسبة المئوية النهائية للثانوية العامة",
+            "en": "High School Final Percentage"
+        },
+        "high_school_seat_number": {
+            "ar": "رقم مقعد الثانوية العامة",
+            "en": "High School Seat Number"
+        },
+        "addDiplomaDetails": {
+            "ar": "إضافة تفاصيل الدبلومة",
+            "en": "Add Diploma Details"
+        },
+        "diploma_type": {
+            "ar": "نوع الدبلومة",
+            "en": "Diploma Type"
+        },
+        "diploma_type_0": {
+            "ar": "None",
+            "en": "None"
+        },
+        "diploma_type_1": {
+            "ar": "SAT",
+            "en": "SAT"
+        },
+        "diploma_type_2": {
+            "ar": "ACT",
+            "en": "ACT"
+        },
+        "diploma_type_3": {
+            "ar": "EST",
+            "en": "EST"
+        },
+        "diploma_username": {
+            "ar": "اسم المستخدم للدبلومة",
+            "en": "Diploma Username"
+        },
+        "diploma_password": {
+            "ar": "كلمة مرور الدبلومة",
+            "en": "Diploma Password"
+        },
+        "ERROR_SIBLING_CODE_DUPLICATE": {
+            "ar": "خطأ, لا يمكن تكرار نفس الرقم الأكاديمي للأخوة",
+            "en": "Error, the same academic number cannot be repeated for siblings"
+        },
+        "ERROR_SIBLINGS": {
+            "ar": "خطأ , برجاء مراجعة بيانات الأخوة",
+            "en": "Error, Please Check Siblings Data"
+        },
+        "verified": {
+            "ar": "تم التحقق",
+            "en": "Verified"
+        },
+        "notVerified": {
+            "ar": "لم يتم التحقق",
+            "en": "Not Verified"
+        },
+        "checkSiblings": {
+            "ar": "التحقق من الأخوة",
+            "en": "Check Siblings"
+        },
+        "siblings_student_name": {
+            "ar": "اسم الطالب",
+            "en": "Student Name"
+        },
+        "siblings_academy_name": {
+            "ar": "الكلية",
+            "en": "College"
+        },
+        "siblings_search_value": {
+            "ar": "الرقم الاكاديمي",
+            "en": "Academic Number"
+        },
+        "have_any_siblings": {
+            "ar": "هل لديك أي أخوة مسجلين حاليًا في الجامعة ؟",
+            "en": "Do you have any siblings currently enrolled at University ?"
+        },
+        "addSiblings": {
+            "ar": "إضافة أخوة",
+            "en": "Add Siblings"
+        },
+        "siblings": {
+            "ar": "الأخوة",
+            "en": "Siblings"
+        },
+        "printPaymentOrder": {
+            "ar": "طباعة طلب دفع المصروفات",
+            "en": "Print Payment Order"
+        },
+        "payment_is_closed": {
+            "ar": "تم اغلاق الدفع",
+            "en": "Payment is closed"
+        },
+        "selectApplyYear": {
+            "ar": "برجاء إدخال  سنة التقديم",
+            "en": "Please Select Apply Year "
+        },
+        "ERROR_APPLY_YEAR": {
+            "ar": "خطا برجاء إدخال  سنة التقديم",
+            "en": "Error , Please Select Apply Year "
+        },
+        "discounts": {
+            "ar": "تخفيضات",
+            "en": "Discount"
+        },
+        "till": {
+            "ar": "حتي",
+            "en": "Till"
+        },
+        "ERROR_CONTACT_ADMISSION_OFFICE": {
+            "ar": "أي تحديثات أخرى يرجى الاتصال بمكتب القبول",
+            "en": "Any Further Updates Please Contact Admission Office"
+        },
+        "interviewAppointment": {
+            "ar": "موعد للمقابلة",
+            "en": "Interview Appointment"
+        },
+        "interview_date": {
+            "ar": "التاريخ المقابلة",
+            "en": "Interview Date"
+        },
+        "ERROR_THE_FILE_EXTENSION_IS_NOT_ALLOWED": {
+            "ar": "خطأ: نوع الملف المحدد غير مسموح بيه:",
+            "en": "Error: The specified file type is not allowed:"
+        },
+        "fawry_proceed_payment": {
+            "ar": "الإستمرار إلي الدفع",
+            "en": "Proceed To Payment"
+        },
+        "no_fees": {
+            "ar": "لا يوجد مصروفات طلب الإلتحاق",
+            "en": "No Fees"
+        },
+        "father": {
+            "ar": "الأب",
+            "en": "Father"
+        },
+        "mother": {
+            "ar": "الأم",
+            "en": "Mother"
+        },
+        "pastAway": {
+            "ar": "توفي",
+            "en": "Deceased"
+        },
+        "use_university_transportation": {
+            "ar": "هل أنت على استعداد لاستخدام وسائل النقل الخاصة بالجامعة",
+            "en": "Are you willing to use university transportation?"
+        },
+        "has_chronic_diseases": {
+            "ar": "هل لديك أي أمراض مزمنة؟",
+            "en": "Do you have any chronic diseases?"
+        },
+        "chronic_diseases_details": {
+            "ar": "يرجى توضويح ...",
+            "en": "Please Specify ..."
+        },
+        "heard_about_us": {
+            "ar": "كيف سمعت عن جامعة؟",
+            "en": "How did you hear about University?"
+        },
+        "heard_about_us_1": {
+            "ar": "وسائل التواصل الإجتماعي (فيسبوك، إنستجرام، تيك توك، إلخ)",
+            "en": "Social Media (Facebook, Instagram, TikTok, etc.)"
+        },
+        "heard_about_us_2": {
+            "ar": "موقع الجامعة / البحث عبر الإنترنت (Google)",
+            "en": "University Website / Online Search (Google)"
+        },
+        "heard_about_us_6": {
+            "ar": "أصدقاء",
+            "en": "Friends"
+        },
+        "heard_about_us_7": {
+            "ar": "أقارب / عائلة",
+            "en": "Relatives / Family"
+        },
+        "heard_about_us_8": {
+            "ar": "طالب حالي",
+            "en": "Current Student"
+        },
+        "heard_about_us_9": {
+            "ar": "زيارة المدرسة",
+            "en": "School Visit"
+        },
+        "heard_about_us_10": {
+            "ar": "مستشار المدرسة",
+            "en": "School Counselor"
+        },
+        "heard_about_us_4": {
+            "ar": "معرض / معرض التعليم",
+            "en": "Education Fair / Exhibition"
+        },
+        "heard_about_us_11": {
+            "ar": "إعلان (إعلانات عبر الإنترنت / لوحات إعلانية)",
+            "en": "Advertisement (Online Ads / Billboards)"
+        },
+        "heard_about_us_3": {
+            "ar": "الحملات الإعلانية عبر البريد الإلكتروني",
+            "en": "Email Campaign"
+        },
+        "heard_about_us_12": {
+            "ar": "حملة واتساب / رسائل نصية",
+            "en": "WhatsApp / SMS Campaign"
+        },
+        "heard_about_us_13": {
+            "ar": "فعالية الجامعة / اليوم المفتوح",
+            "en": "University Event / Open Day"
+        },
+        "heard_about_us_14": {
+            "ar": "وكيل / مستشار تعليمي",
+            "en": "Agent / Educational Consultant"
+        },
+        "heard_about_us_5": {
+            "ar": "أخرى",
+            "en": "Others"
+        },
+        "heard_about_us_hint": {
+            "ar": "يمكنك اختيار أكثر من خيار",
+            "en": "You can select more than one option"
+        },
+        "ERROR_HEARD_ABOUT_US": {
+            "ar": "خطأ , يمكنك اختيار حد أدني {0} خيارات",
+            "en": "Error, You must select Header about us a minimum of {0} options"
+        },
+        "ERROR_HEARD_ABOUT_US_MAX":{
+            "ar": "خطأ , يمكنك اختيار حد أقصى {0} خيارات",
+            "en": "Error, You must select Header about us a maximum of {0} options"
+        },
+        "heard_about_us_other": {
+            "ar": "من فضلك أكتب كيف سمعت عن جامعة ",
+            "en": "Please write how you heard about University?"
+        },
+        "acceptWelcomeMessage": {
+            "ar": "موافق",
+            "en": "Accept"
+        },
+        "yesAcknowledgeMessage": {
+            "ar": "قدم الطلب",
+            "en": "Submit Application"
+        },
+        "university_country": {
+            "ar": "المدينة",
+            "en": "Country"
+        },
+        "university_city": {
+            "ar": "المدينة",
+            "en": "City"
+        },
+        "studentApplicationForm": {
+            "ar": "طباعة طلب التسجيل",
+            "en": "Print Application Form"
+        },
+        "pleasePayAdmissionFeesEssay": {
+            "ar": "يرجى التكرم بدفع رسوم القبول في أقرب وقت ممكن لضمان إتمام إجراءات تسجيلك بشكل كامل وبدون تأخير. شكراً لتفهمك.",
+            "en": "Kindly pay the admission fees at your earliest convenience to ensure that your registration process is completed smoothly and without any delays. Thank you for your understanding."
+        },
+        "pleasePayAdmissionFeesInterview": {
+            "ar": "يرجى التكرم بدفع رسوم القبول في أقرب وقت ممكن لضمان إتمام إجراءات تسجيلك بشكل كامل وبدون تأخير. شكراً لتفهمك.",
+            "en": "Kindly pay the admission fees at your earliest convenience to ensure that your registration process is completed smoothly and without any delays. Thank you for your understanding."
+        },
+        "pleasePayAdmissionFeesAttachment": {
+            "ar": "يرجى التكرم بدفع رسوم القبول في أقرب وقت ممكن لضمان إتمام إجراءات تسجيلك بشكل كامل وبدون تأخير. شكراً لتفهمك.",
+            "en": "Kindly pay the admission fees at your earliest convenience to ensure that your registration process is completed smoothly and without any delays. Thank you for your understanding."
+        },
+        "fileIsReviewedLocked": {
+            "ar": "تم إقفال التعديل علي الملف",
+            "en": "The modification to the file has been closed"
+        },
+        "accept_terms": {
+            "ar": "أوافق على الشروط والأحكام المذكورة أعلاه.",
+            "en": "I agree to the terms and conditions stated above."
+        },
+        "fileUploadMultiple": {
+            "ar": "إختيار ملف أو أكثر من ملف",
+            "en": "Select one or more files"
+        },
+        "ERROR_PARENT_CONTACT_EMAIL": {
+            "ar": "برجاء إدخال البريد لي ولي الأمر بشكل صحيح",
+            "en": "Please Enter Parent Email Correct"
+        },
+        "ERROR_PARENT_CITIZEN_SERIAL_DUPLICATE": {
+            "ar": "خطأ , لا يمكن تكرار نفس رقم الهوية",
+            "en": "Error, the same identification number cannot be repeated"
+        },
+        "ERROR_PARENT_CITIZEN_SERIAL_LENGTH": {
+            "ar": "خطأ رقم القومي لابد ان يكون 14 رقم",
+            "en": "Error National ID number must be 14 digits"
+        },
+        "parentContactData1Ar": {
+            "ar": "بيانات ولي الأمر",
+            "en": "بيانات ولي الأمر"
+        },
+        "parentContactData1En": {
+            "ar": "Legal Guardian Information",
+            "en": "Legal Guardian Information"
+        },
+        "parentContactData2Ar": {
+            "ar": "بيانات الوالدين",
+            "en": "بيانات الوالدين"
+        },
+        "parentContactData2En": {
+            "ar": "Parents Information",
+            "en": "Parents Information"
+        },
+        "job": {
+            "ar": "الوظيفة",
+            "en": "Profession"
+        },
+        "achievements": {
+            "ar": "الإنجازات",
+            "en": "Extra Activity"
+        },
+        "achievement_id": {
+            "ar": "الإنجاز",
+            "en": "Extra Curicular Achivements"
+        },
+        "addStudentRequestAchievements": {
+            "ar": "إضافة الإنجازات",
+            "en": "Add Achievements"
+        },
+        "achievement_type": {
+            "ar": "نوع الانجاز",
+            "en": "Achievement Type"
+        },
+        "achievement_type_1": {
+            "ar": "هوايات",
+            "en": "hobbies"
+        },
+        "achievement_type_2": {
+            "ar": "رياضات",
+            "en": "Sports"
+        },
+        "achievement_type_3": {
+            "ar": "انشطة ثقافية",
+            "en": "Cultural Activities"
+        },
+        "university_id": {
+            "ar": "الجامعة",
+            "en": "University"
+        },
+        "collage_id": {
+            "ar": "الكلية",
+            "en": "College"
+        },
+        "transformerUniversities": {
+            "ar": "هل أنت محول من جامعة إخري؟",
+            "en": "Are you a Transfer From Another University?"
+        },
+        "addTransformerUniversities": {
+            "ar": "إضافة الجامعة المحول منها",
+            "en": "Add Transfer Universitiy"
+        },
+        "miliarityAr": {
+            "ar": "بيانات التجنيد",
+            "en": "بيانات التجنيد"
+        },
+        "miliarityEn": {
+            "ar": "miliarity Information",
+            "en": "miliarity Information"
+        },
+        "miliarity_governorate_id": {
+            "ar": "محافظة التجنيد",
+            "en": "miliarity Governorate"
+        },
+        "miliarity_region_id": {
+            "ar": "منطقة التجنيد",
+            "en": "Miliarity Region"
+        },
+        "miliarity_number": {
+            "ar": "الرقم الثلاثي",
+            "en": "Miliarity Number"
+        },
+        "recruit_dec_no_part1": {
+            "ar": "المقطع 1",
+            "en": "part 1"
+        },
+        "recruit_dec_no_part2": {
+            "ar": "المقطع 2",
+            "en": "part 2"
+        },
+        "recruit_dec_no_part3": {
+            "ar": "المقطع 3",
+            "en": "part 3"
+        },
+        "other_certificate": {
+            "ar": "إخري",
+            "en": "Other"
+        },
+        "certificate_school_id": {
+            "ar": "إختيار مدرسة",
+            "en": "Select School"
+        },
+        "certificate_gov_id": {
+            "ar": "المحافظة الشهادة",
+            "en": "Governorate Certificate"
+        },
+        "comments": {
+            "ar": "ملاحظات",
+            "en": "Comments"
+        },
+        "confirm_arabic_name": {
+            "ar": "هذا الاسم سيتم طباعته على جميع أوراقك الرسمية",
+            "en": "هذا الاسم سيتم طباعته على جميع أوراقك الرسمية"
+        },
+        "confirm_english_name": {
+            "ar": "This name will be printed on all your official papers",
+            "en": "This name will be printed on all your official papers"
+        },
+        "is_confirm_arabic_name": {
+            "ar": "تأكيد",
+            "en": "تأكيد"
+        },
+        "is_confirm_english_name": {
+            "ar": "Confirm",
+            "en": "Confirm"
+        },
+        "is_mobile_have_whatsapp": {
+            "ar": "واتس اب",
+            "en": "WhatsApp"
+        },
+        "mobile2": {
+            "ar": "هاتف اخر إن وجد",
+            "en": "Another phone, if available"
+        },
+        "mobile2_not_egy": {
+            "ar": "موبايل من خارج مصر",
+            "en": "Mobile phone from outside Egypt"
+        },
+        "comer_info_ar": {
+            "ar": "بيانات الوافدين",
+            "en": "بيانات الوافدين"
+        },
+        "comer_info_en": {
+            "ar": "Comer Information",
+            "en": "Comer Information"
+        },
+        "is_study_in_egypt": {
+            "ar": "هل تدرس في ادرس في مصر؟",
+            "en": "Are you studying at Study in Egypt?"
+        },
+        "study_in_egypt_ref_no": {
+            "ar": "رقم التسجيل",
+            "en": "Study in egypt Registration Number"
+        },
+        "is_there_broker": {
+            "ar": "هل لديك كفيل / وكيل ؟",
+            "en": "Do you have a Broker/agent?"
+        },
+        "broker_name": {
+            "ar": "إسم الكفيل / وكيل",
+            "en": "Broker/agent Name"
+        },
+        "broker_phone_no": {
+            "ar": "رقم الهاتف للكفيل / وكيل",
+            "en": "Broker/agent Phone Number"
+        },
+        "broker_phone_no_is_whatsapp": {
+            "ar": "واتس اب",
+            "en": "WhatsApp"
+        },
+        "is_need_university_residences": {
+            "ar": "هل تحتاج سكن في المدينة الجامعية؟",
+            "en": "Do you need residences in the university city?"
+        },
+        "is_chronic_diseases": {
+            "ar": "هل تعاني من أمراض مزمنة؟",
+            "en": "Do you suffer from chronic diseases?"
+        },
+        "chronic_diseases": {
+            "ar": "يرجى توضيح",
+            "en": "Please explain"
+        },
+        "is_special_needs": {
+            "ar": "هل أنت من الأشخاص ذوي الاحتياجات الخاصة؟",
+            "en": "Are you a person with special needs?"
+        },
+        "special_needs": {
+            "ar": "يرجى توضيح",
+            "en": "Please Explain"
+        },
+        "is_residence_in_egypt": {
+            "ar": "هل يوجد إقامة سابقة أو حالية في مصر ؟",
+            "en": "Is there a previous or current residence in Egypt?"
+        },
+        "residency_expiry_date": {
+            "ar": "تاريخ إنتهاء الإقامة",
+            "en": "Residency Expiry Date"
+        },
+        "place_of_issuance": {
+            "ar": "مكان الإصدار",
+            "en": "Place of issuance"
+        },
+        "address_governorate_id": {
+            "ar": "محافظة العنوان",
+            "en": "Address Governorate"
+        },
+        "address_country_id": {
+            "ar": "بلد العنوان",
+            "en": "Address Country"
+        },
+        "enrolled_until_may_ar": {
+            "ar": "القيد حتى مايو 2023",
+            "en": "القيد حتى مايو 2023"
+        },
+        "enrolled_until_may_en": {
+            "ar": "Registration until may 2023",
+            "en": "Registration until may 2023"
+        },
+        "transformer_from_university_1": {
+            "ar": "الجامعة",
+            "en": "University"
+        },
+        "transformer_from_university_2": {
+            "ar": "الجامعة",
+            "en": "University"
+        },
+        "from_collage": {
+            "ar": "الكلية",
+            "en": "College"
+        },
+        "transformer_from_level_1": {
+            "ar": "الفرقة",
+            "en": "Band"
+        },
+        "transformer_from_level_2": {
+            "ar": "الفرقة",
+            "en": "Band"
+        },
+        "current_registration_ar": {
+            "ar": "القيد الحالى",
+            "en": "القيد الحالى"
+        },
+        "current_registration_en": {
+            "ar": "Current Registration",
+            "en": "Current Registration"
+        },
+        "transformer_from_country_id": {
+            "ar": "الدولة",
+            "en": "Country"
+        },
+        "transformer_to_study_level_id": {
+            "ar": "الفرقة المراد الإلتحاق بها",
+            "en": "The band you want to join"
+        },
+        "transformer_information": {
+            "ar": "بيانات التحويل",
+            "en": "Transformation Information"
+        },
+        "duration_moves_from_date": {
+            "ar": "من تاريخ",
+            "en": "from date"
+        },
+        "duration_moves_to_date": {
+            "ar": "إلي تاريخ",
+            "en": "to date"
+        },
+        "StudentCertificateInformationAr": {
+            "ar": "بيانات الشهادة للطالب ",
+            "en": "بيانات الشهادة للطالب "
+        },
+        "StudentCertificateInformationEn": {
+            "ar": "Student Certificate Information",
+            "en": "Student Certificate Information"
+        },
+        "pre_university_total_grade": {
+            "ar": "الدرجة الكلية للتخصص",
+            "en": "Total Degree Of The Specialty"
+        },
+        "menuAllOtherItems": {
+            "ar": "ملحقات طلب الإلتحاق",
+            "en": "Supplementals"
+        },
+        "ERROR_MOBILE_LENGTH": {
+            "ar": "خطأ رقم الموبيل لابد ان يكون 11 رقم",
+            "en": "Error: Mobile number must be 11 digits"
+        },
+        "ERROR_PLEASE_ENTER": {
+            "ar": "برجاء إدخال ",
+            "en": "Please Enter "
+        },
+        "mainHome": {
+            "ar": "الرئيسية",
+            "en": "Home"
+        },
+        "interview": {
+            "ar": "المقابلة الشخصية",
+            "en": "Interview"
+        },
+        "ERROR_APPOINTMENT_IS_TAKEN": {
+            "ar": "نأسف تم حجز هذا الموعد برجاء أختيار موعد أخر ",
+            "en": "Sorry, this appointment has been booked. Please choose another appointment"
+        },
+        "appointmentReservedSuccessfully": {
+            "ar": "تم حجز الموعد بنجاح",
+            "en": "appointment Has been reserved successfully"
+        },
+        "pendingCreateMicrosoftTeams": {
+            "ar": "جاري إنشاء رابط المقابلة",
+            "en": "interview join link is being created"
+        },
+        "joinInterview": {
+            "ar": "انضم للمقابلة",
+            "en": "Join Interview"
+        },
+        "deleteAppointmentTitle": {
+            "ar": "إلغاء الحجز",
+            "en": "Cancel Appointment"
+        },
+        "deleteAppointmentMsg": {
+            "ar": "هل تريد إلغاء حجز هذا الموعد",
+            "en": "Do you want to cancel this appointment?"
+        },
+        "cancelAppointmentSuccessfully": {
+            "ar": "تم إلغاء حجز الموعد بنجاح",
+            "en": "appointment Has been canceled successfully"
+        },
+        "ERROR_CANT_UPDATE_APPOINTMENT_TIME_IS_LIMITED": {
+            "ar": "لا يمكن  إلغاء الموعد انتهت المهملة المدة للتعديل",
+            "en": "The appointment cannot be canceled. The deadline for modification has expired"
+        },
+        "selectedInterviewSlote": {
+            "ar": "تم حجز الموعد ",
+            "en": "appointment Has Been Reserved"
+        },
+        "day": {
+            "ar": "أيام",
+            "en": "Days"
+        },
+        "appointmentWarnAllowEditPeriod": {
+            "ar": "المدة المسموحة للتعديل قبل الموعد بي ",
+            "en": "The period allowed for amendment before Selected Appointment "
+        },
+        "from_time": {
+            "ar": "من وقت",
+            "en": "From Time"
+        },
+        "to_time": {
+            "ar": "إلي وقت",
+            "en": "To Time"
+        },
+        "is_taken": {
+            "ar": "تم حجز الموعد",
+            "en": "Appointment has been booked"
+        },
+        "cancelAppointment": {
+            "ar": "إلغاء الحجز",
+            "en": "Cancel Appointment"
+        },
+        "takeAppointment": {
+            "ar": "حجز هذا موعد",
+            "en": "Book this appointment"
+        },
+        "noSlotesData": {
+            "ar": "لم يتم تحديد مواعيد لطلاب هذه الكلية حتي الأن ...",
+            "en": "No Appointments Have Been Set For Students of this College Yet..."
+        },
+        "searchByDay": {
+            "ar": "البحث بالتاريخ",
+            "en": "Search By Date"
+        },
+        "welcomeMessageTitle": {
+            "ar": "تم التسجيل بنجاح",
+            "en": "Successfully Registered"
+        },
+        "welcomeLoginIn": {
+            "ar": "تسجيل الدخول",
+            "en": "sign in"
+        },
+        "minutes": {
+            "ar": "دقائق",
+            "en": "Minutes"
+        },
+        "optExpirationPeriod": {
+            "ar": "سوف تنتهي صلاحية OTP بعد ",
+            "en": "OTP Will Expired After"
+        },
+        "registrationHelp": {
+            "ar": "شرح خطوات التسجيل في نظام طلب الإلتحاق",
+            "en": "Explaining The Steps For Registering in The Application System"
+        },
+        "pleaseWaitResendOtp": {
+            "ar": "من فضلك إنتظر 60 ثانية لإعادة إرسال الكود",
+            "en": "Please Wait 60 Seconds To Resend The OTP agin"
+        },
+        "wait": {
+            "ar": "إنتظر ..",
+            "en": "Wait .."
+        },
+        "studentStepStatus": {
+            "ar": "متابعة حالة الطلب",
+            "en": "My Status"
+        },
+        "ERROR_VERIFICATION_CODE_EXPIRED": {
+            "ar": "من فضلك قم بإعادة إرسال الكود مرة أخري لقد تم إنتهاء صلاحيته",
+            "en": "Please Resend The Code Again, The Code Have been expired"
+        },
+        "pendding": {
+            "ar": "لم يستكمل",
+            "en": "Pending"
+        },
+        "done": {
+            "ar": "تم الإنتهاء",
+            "en": "Done"
+        },
+        "Age_Error": {
+            "ar": "خطأ , لا يمكن التسجيل نظراً ان عام مواليد الطالب أقل من 15 عام",
+            "en": "Error, Student' age must be more than 15 years"
+        },
+        "ERROR_WHILE_UPDATE_SAVE_ESSAY": {
+            "ar": "خطأ , لم يتم حفظ بيانات المقالة برجاء الضغط مرة إخري ",
+            "en": "Error, Essay Data Was Not Saved. Please Try Again "
+        },
+        "uploadSupportDocuments": {
+            "ar": "رفع وثائق داعمة",
+            "en": "Upload Supporting Documents"
+        },
+        "yes": {
+            "ar": "نعم",
+            "en": "Yes"
+        },
+        "no": {
+            "ar": "لا",
+            "en": "No"
+        },
+        "orderd": {
+            "ar": "تغير الترتيب",
+            "en": "Change Order"
+        },
+        "updateData": {
+            "ar": "تحديث البيانات",
+            "en": "Update Data"
+        },
+        "data_updated": {
+            "ar": "تم تحديث البيانات",
+            "en": "Data Has Been Updated"
+        },
+        "other": {
+            "ar": "هذا البيان مرتبط بعمليات اخري",
+            "en": "Other Relations "
+        },
+        "lastSyncTime": {
+            "ar": "أخر وقت للتحديث البيانات",
+            "en": "Last Sync Time"
+        },
+        "print": {
+            "ar": "طباعة",
+            "en": "Print"
+        },
+        "print_1": {
+            "ar": "طباعة المطالبة",
+            "en": "Print payment permission"
+        },
+        "print_2": {
+            "ar": "طباعة مصاريف دراسية",
+            "en": "Print Tuition Fees"
+        },
+        "print_3": {
+            "ar": "طباعة طلب التحاق للعام",
+            "en": "Print Enrollment Application For The Year"
+        },
+        "first_semester_payment_status": {
+            "ar": "حالة الدفع للفصل الدراسي الأول",
+            "en": "First Semester Payment Status"
+        },
+        "payment_status": {
+            "ar": "حالة الدفع",
+            "en": "Payment Status"
+        },
+        "not_paid": {
+            "ar": "غير مدفوع",
+            "en": "Not Paid"
+        },
+        "fees_paid": {
+            "ar": "تم سداد رسوم طلب الإلتحاق",
+            "en": "The Application Fee Has Been Paid"
+        },
+        "first_semester_payment_fees_paid": {
+            "ar": "تم سداد رسوم القسط الأول",
+            "en": "The First Semester Fees Has Been Paid"
+        },
+        "payment_notes": {
+            "ar": "يتم مراجعه وتحديث حالة السداد خلال 24 ساعة من تاريخ الدفع",
+            "en": "Payment status reviewed & updated within 24 hours"
+        },
+        "requestId": {
+            "ar": "كود التسجيل",
+            "en": "Registration Code"
+        },
+        "requestDateTime": {
+            "ar": "تاريخ تقديم الطلب",
+            "en": "Registration Date"
+        },
+        "username": {
+            "ar": "اسم المستخدم",
+            "en": "User Name"
+        },
+        "apply": {
+            "ar": "سجل الان",
+            "en": "Apply Now"
+        },
+        "transformers": {
+            "ar": "طلب التحويل",
+            "en": "Transfer Request"
+        },
+        "loginHeader": {
+            "ar": "تسجيل الدخول",
+            "en": "Sign In"
+        },
+        "contactUs": {
+            "ar": "اتصل بنا",
+            "en": "Contact Us"
+        },
+        "English": {
+            "ar": "English",
+            "en": "English"
+        },
+        "Arabic": {
+            "ar": "العربية",
+            "en": "العربية"
+        },
+        "ERROR_CITIZEN_SERIAL_NOT_FOUND": {
+            "ar": "خطأ رقم الهوية غير مسجل بالنظام ",
+            "en": "Error: The ID Number is Not Registered In The System"
+        },
+        "ERROR_EMPTY_FLD": {
+            "ar": "برجاء إدخال جميع الحقول المطلوبة",
+            "en": "Please Enter All Required Fields"
+        },
+        "ERROR_CERT_INFO": {
+            "ar": "برجاء إدخال الشهادة و التخصص و السنة الحصول",
+            "en": "Please enter the Certificate, specialization, year of acquisition"
+        },
+        "ERROR_NAME": {
+            "ar": "برجاء إدخال الأسم و أسم الأب و أسم الجد",
+            "en": "برجاء إدخال الأسم و أسم الأب و أسم الجد"
+        },
+        "ERROR_NAME_EN": {
+            "ar": "Please enter your name, father's name and grandfather's name",
+            "en": "Please enter your name, father's name and grandfather's name"
+        },
+        "ERROR_NAME_FOREIGN": {
+            "ar": "برجاء إدخال الأسم و إسم العائلة",
+            "en": "برجاء إدخال الأسم و إسم العائلة"
+        },
+        "ERROR_NAME_EN_FOREIGN": {
+            "ar": "Please enter your name and Last name",
+            "en": "Please enter your name and Last name"
+        },
+        "ERROR_IS_CONFIRM_ARABIC_NAME": {
+            "ar": "من فضلك قم بتأكيد الإسم الذي سوف يظهر في أوراقك الرسمية ",
+            "en": "من فضلك قم بتأكيد الإسم الذي سوف يظهر في أوراقك الرسمية "
+        },
+        "ERROR_IS_CONFIRM_ENGLISH_NAME": {
+            "ar": "Please confirm the name that will appear on your official papers",
+            "en": "Please confirm the name that will appear on your official papers"
+        },
+        "ERROR_CITIZEN_SERIAL_TYPE": {
+            "ar": "برجاء إدخال نوع إثبات الهوية",
+            "en": "Please Enter Type of ID"
+        },
+        "ERROR_RELATIVE_RELATION_NAME": {
+            "ar": "برجاء إدخال إسم ولي الأمر",
+            "en": "Please Enter Student's Gaurdian Details"
+        },
+        "ERROR_RELATION_OTHER_NAME": {
+            "ar": "برجاء إدخال صلة القرابة",
+            "en": "Please Enter Student's Gaurdian Relation"
+        },
+        "ERROR_PARENT_MOBILE": {
+            "ar": "برجاء إدخال رقم هاتف ولي الامر",
+            "en": "Please Enter Student's Gaurdian Mobile Number"
+        },
+        "ERROR_PARENT_MOBILE_2": {
+            "ar": "خطأ, رقم هاتف الطالب يساوي رقم هاتف ولي الامر",
+            "en": "Error: The student’s phone number is equal to the Gaurdian’s phone number"
+        },
+        "birthGovernorateErr": {
+            "ar": "برجاء ادخال محافظة الميلاد",
+            "en": "Please enter the Governorate of birth"
+        },
+        "ErrorBirthDate": {
+            "ar": "برجاء إدخال تاريخ الميلاد",
+            "en": "Please Enter Your Birth Date"
+        },
+        "ERROR_WISH": {
+            "ar": "برجاء إدخال الرغبات - يجب ادخال من واحد الى خمس رغبات حسب الأولوية ولا يكون بينهم تكرار ",
+            "en": "Please refine your wish list – you could choose at least one to five wishes ordered according to importance and not repeated. "
+        },
+        "ERROR_NAT_ID_NOT_CORRECT": {
+            "ar": "برجاء إدخال رقم الهوية بشكل صحيح ",
+            "en": "Please enter the ID correctly "
+        },
+        "ERROR_CONTACT_EMAIL": {
+            "ar": "برجاء إدخال الإيميل الشخصي بشكل صحيح",
+            "en": "Please Enter Your Email Correct"
+        },
+        "ERROR_CONTACT_EMAIL_PARENT": {
+            "ar": "برجاء إدخال بريد الإلكرتوني لي ولي الامر بشكل صحيح",
+            "en": "Please Enter Parent Email Correct"
+        },
+        "ERROR_CONTACT_EMAIL_2": {
+            "ar": "خطأ, البريد الإلكتروني للطالب يساوي البريد الإلكتروني ولي الامر",
+            "en": "Error, student email equals parent email"
+        },
+        "ERROR_CONTACT_MOBILE": {
+            "ar": "من فضلك قم بإدخال رقم الموبيل ",
+            "en": "Please Enter Mobile number"
+        },
+        "createNewAccountQuote": {
+            "ar": "انضم إلينا الآن ...",
+            "en": "Join Us Now ..."
+        },
+        "createNewRequest": {
+            "ar": "إنشاء طلب جديد",
+            "en": "Create New Request"
+        },
+        "joinRequestUndergraduate": {
+            "ar": "طلب التسجيل",
+            "en": "Registration Request"
+        },
+        "editJoinRequest": {
+            "ar": "تعديل طلب التسجيل",
+            "en": "Edit Registration Request"
+        },
+        "CreateNew": {
+            "ar": "طلب جديد",
+            "en": "New Request"
+        },
+        "searchRequest": {
+            "ar": "البحث عن الطلبات السابقة",
+            "en": "Search on Request"
+        },
+        "ERROR_ADRESS": {
+            "ar": " برجاء ادخال العنوان",
+            "en": " Please enter the address"
+        },
+        "ERROR_GOV_ADRESS": {
+            "ar": " برجاء إختيار محافظة العنوان",
+            "en": " Please Select Address Governorate"
+        },
+        "createOrSearchReq": {
+            "ar": "إنشاء/الإستعلام",
+            "en": "Create/Search"
+        },
+        "admissionTitle": {
+            "ar": "طلب التسجيل",
+            "en": "Application Form"
+        },
+        "transformerTitle": {
+            "ar": "طلب التحويل",
+            "en": "Transformer Form"
+        },
+        "basicData": {
+            "ar": "البيانات الشخصية",
+            "en": "Personal Information"
+        },
+        "StudentParentData": {
+            "ar": "بيانات ولي الأمر الطالب",
+            "en": "Student's Parent/Guardian Details"
+        },
+        "emailVerification": {
+            "ar": "التحقق من البريد الإلكتروني",
+            "en": "Email Verification"
+        },
+        "emailVerificationNote1": {
+            "ar": "يرجى التحقق من عنوان بريدك الإلكتروني لإكمال عملية التسجيل.",
+            "en": "Please verify your email address to complete the registration process."
+        },
+        "emailVerificationNote2": {
+            "ar": "سوف يتم إرسال كود التحقق علي البريد المسجل لدينا ",
+            "en": "The verification code will be sent to our registered mail "
+        },
+        "sendEmailVerification": {
+            "ar": "إرسال كود التحقق",
+            "en": "Send Email Verification"
+        },
+        "verificationCode": {
+            "ar": "كود التحقق",
+            "en": "Verification Code"
+        },
+        "verificationCodeSent": {
+            "ar": "تم إرسال كود التحقق  بنجاح",
+            "en": "Verification Code Sent Successfully"
+        },
+        "ERROR_EMPTY_EMAIL": {
+            "ar": "برجاء إدخال البريد الإلكتروني بشكل صحيح",
+            "en": "Please enter your email properly"
+        },
+        "ERROR_WHILE_SAVE_EMAIL_VERIFICATION": {
+            "ar": "خطأ إرسال كود التحقق برجاء الضغط مرة إخري",
+            "en": "Error sending verification code. Please try again"
+        },
+        "ERROR_WHILE_SEND_EMAIL_VERIFICATION": {
+            "ar": "حدث خطأ أثناء إرسال رمز التحقق، يرجى المحاولة مرة أخرى",
+            "en": "Error While Send verification Code , Please Try Agin later "
+        },
+        "ERROR_WRONG_VERIFICATION_CODE": {
+            "ar": "برجاء إدخال كود التحقق بشكل صحيح كود خاطئ",
+            "en": "Please enter the verification code correctly. Wrong code"
+        },
+        "relative_relation_id": {
+            "ar": "صلة القرابة",
+            "en": "Relationship"
+        },
+        "waitingResendOtp": {
+            "ar": "يرجى الانتظار بصبر حتى تصل كلمة مرور . في بعض الأحيان قد يكون هناك تأخير بسيط، لذلك لا تقلق إذا لم يظهر على الفور. إذا لم تستلم كلمة المرور لمرة واحدة بعد بضع دقائق، فيرجى الضغط على زر 'إعادة الإرسال' لطلب كلمة مرور جديدة. أمانك هو أولويتنا، ونريد أن نضمن حصولك على تجربة سلسة.",
+            "en": "Please wait patiently for the OTP password to arrive. Sometimes there may be a slight delay, so don't worry if it doesn't show up immediately. If you haven't received the OTP after a few minutes, please press the 'Resend' button to request a new one. Your security is our priority, and we want to ensure you have a seamless experience."
+        },
+        "parentMobile": {
+            "ar": "هاتف ولي الامر",
+            "en": "Parent/Guardian phone"
+        },
+        "parentMobile2": {
+            "ar": "هاتف اخر إن وجد",
+            "en": "Another phone, if available"
+        },
+        "relative_relation_name": {
+            "ar": "إسم ولي الامر",
+            "en": "Parent/Guardian Name"
+        },
+        "relation_other_name": {
+            "ar": "صلة القرابة ؟",
+            "en": "Relative Relation"
+        },
+        "certificate_country_id": {
+            "ar": "بلد الشهادة",
+            "en": "Certificate Country"
+        },
+        "schoolName": {
+            "ar": "إسم المدرسة",
+            "en": "High School Name"
+        },
+        "ERROR_SCHOOL_NAME": {
+            "ar": "من فضلك قم بإدخال إسم المدرسة",
+            "en": "Please enter the school name"
+        },
+        "sendRequest": {
+            "ar": "إرسال الطلب",
+            "en": "Verify"
+        },
+        "sendRequestWithoutOTP": {
+            "ar": "إرسال",
+            "en": "Submit"
+        },
+        "registrationGuidance": {
+            "ar": "إرشادات التسجيل",
+            "en": "Registration Guidance"
+        },
+        "step1Guidance1": {
+            "ar": "تسجيل البطاقة الشخصية",
+            "en": "14-Digit ID "
+        },
+        "step1Guidance2": {
+            "ar": "غير مقيد بجامعة أخري",
+            "en": "Not Registering At Another University"
+        },
+        "step1Guidance3": {
+            "ar": "تسجيل الأسم رباعي",
+            "en": "Quadrant name registration"
+        },
+        "step1Guidance4": {
+            "ar": "الشهادة",
+            "en": "Select Certificate"
+        },
+        "step1Guidance5": {
+            "ar": "التخصص",
+            "en": "Select Group"
+        },
+        "step1Guidance6": {
+            "ar": "سنة الحصول علي الشهادة",
+            "en": "Enter the Year Of Obtaining The Certificate"
+        },
+        "step2Guidance1": {
+            "ar": "إدخال رقم الموبيل",
+            "en": "إدخال رقم الموبيل"
+        },
+        "step2Guidance2": {
+            "ar": "إدخال العنوان الحالي للطالب",
+            "en": "PleasenEnter Your current Address"
+        },
+        "step2Guidance3": {
+            "ar": "إدخال البريد الإلكتروني",
+            "en": "Enter Email"
+        },
+        "mobile": {
+            "ar": "موبايل ",
+            "en": " Mobile"
+        },
+        "phone": {
+            "ar": "رقم الهاتف",
+            "en": "Phone No."
+        },
+        "adress": {
+            "ar": "العنوان ",
+            "en": " Address"
+        },
+        "email": {
+            "ar": "البريد الإلكتروني",
+            "en": "A Valid Personal E-mail Address"
+        },
+        "citizen_serial_type": {
+            "ar": "نوع إثبات الهوية",
+            "en": "Type of ID"
+        },
+        "citizen_serial_type_1": {
+            "ar": "الرقم القومي",
+            "en": "ID Number"
+        },
+        "passport_issuance_date": {
+            "ar": "تاريخ إصدار جواز السفر",
+            "en": "Passport Issuance Date"
+        },
+        "passport_expiry_date": {
+            "ar": "تاريخ إنتهاء جواز السفر",
+            "en": "Passport Expiry Date"
+        },
+        "citizen_serial_type_2": {
+            "ar": "جواز السفر",
+            "en": "Passport"
+        },
+        "citizen_serial": {
+            "ar": "رقم إثبات الهوية",
+            "en": "ID Number"
+        },
+        "citizen_serial_1": {
+            "ar": "الرقم القومي",
+            "en": "National ID"
+        },
+        "citizen_serial_2": {
+            "ar": "رقم جواز السفر",
+            "en": "Passport Number"
+        },
+        "applyYear": {
+            "ar": "سنة التقديم",
+            "en": "Application Year"
+        },
+        "birth_governorate_id": {
+            "ar": "محافظة الميلاد",
+            "en": "Place of Birth"
+        },
+        "birth_country_id": {
+            "ar": "بلد الميلاد",
+            "en": "Country of Birth"
+        },
+        "birth_date": {
+            "ar": "تاريخ الميلاد",
+            "en": "Date of Birth"
+        },
+        "studentNameArabic": {
+            "ar": "اسم الطالب",
+            "en": "اسم الطالب"
+        },
+        "studentNameEnglish": {
+            "ar": "Student Name",
+            "en": "Student Name"
+        },
+        "personalInformationAr": {
+            "ar": "معلومات شخصية",
+            "en": "معلومات شخصية"
+        },
+        "personalInformationEn": {
+            "ar": "Personal Information",
+            "en": "Personal Information"
+        },
+        "contactInformationAr": {
+            "ar": "معلومات الإتصال",
+            "en": "معلومات الإتصال"
+        },
+        "contactInformationEn": {
+            "ar": "Contact Information",
+            "en": "Contact Information"
+        },
+        "first_name": {
+            "ar": "الاسم الأول",
+            "en": "الاسم الأول"
+        },
+        "middle_name": {
+            "ar": "الاسم الثاني",
+            "en": "الاسم الثاني"
+        },
+        "grand_name": {
+            "ar": "اسم الثالث",
+            "en": "اسم الثالث"
+        },
+        "surname": {
+            "ar": "الاسم الرابع",
+            "en": "الاسم الرابع"
+        },
+        "first_name_en": {
+            "ar": "First Name",
+            "en": "First Name"
+        },
+        "middle_name_en": {
+            "ar": "Second Name",
+            "en": "Second Name"
+        },
+        "grand_name_en": {
+            "ar": "Third Name",
+            "en": "Third Name"
+        },
+        "surname_en": {
+            "ar": "Fourth Name",
+            "en": "Fourth Name"
+        },
+        "certType": {
+            "ar": "نوع الشهادة",
+            "en": "Certificate Type"
+        },
+        "category_flag_1": {
+            "ar": "شهادات معادلة",
+            "en": "Equivalency Certificate"
+        },
+        "category_flag_2": {
+            "ar": "ثانوية عامة",
+            "en": "Thanwya Amaa"
+        },
+        "category_flag_3": {
+            "ar": "ثانويه أزهريه",
+            "en": " Azhar"
+        },
+        "category_flag_4": {
+            "ar": "شهادات خارجية",
+            "en": "شهادات خارجية"
+        },
+        "country": {
+            "ar": "الجنسية",
+            "en": "Nationality"
+        },
+        "pre_university_degree": {
+            "ar": "الشهادة قبل الجامعية ",
+            "en": "High School Certificate"
+        },
+        "specializ_id": {
+            "ar": "التخصص",
+            "en": "Specialization"
+        },
+        "get_year": {
+            "ar": "سنة الحصول عليها",
+            "en": "Graduation Year"
+        },
+        "pre_university_student_grade": {
+            "ar": "المجموع بالدرجات",
+            "en": "Total Degree"
+        },
+        "sport_incentive": {
+            "ar": "الحافز الرياضي",
+            "en": "Athletic incentive"
+        },
+        "student_grade_perc": {
+            "ar": "النسبة المئوية للطالب %",
+            "en": "Percentage of Student %"
+        },
+        "wish1": {
+            "ar": "الكلية المراد التسجيل بها",
+            "en": "Major of Interest "
+        },
+        "academy_language_id": {
+            "ar": "لغة الدراسة",
+            "en": "Study Language"
+        },
+        "religion": {
+            "ar": "الديانة",
+            "en": "Religion"
+        },
+        "religion_1": {
+            "ar": "مسلم",
+            "en": "Muslim"
+        },
+        "religion_2": {
+            "ar": "مسيحي",
+            "en": "Christian"
+        },
+        "gender": {
+            "ar": "النوع",
+            "en": "Gender"
+        },
+        "gender_1": {
+            "ar": "ذكر",
+            "en": "Male"
+        },
+        "gender_2": {
+            "ar": "انثي",
+            "en": "Female"
+        },
+        "exitRequestMsg": {
+            "ar": "هل تريد إنشاء طلب جديد ؟",
+            "en": "Do you want to Create New Request ?"
+        },
+        "lookingForRequest": {
+            "ar": "برجاء إدخال رقم الطلب او رقم الهوية الشخصية",
+            "en": "Please enter your application number or ID"
+        },
+        "exitRequest": {
+            "ar": "إعادة تهيئة",
+            "en": "Reset form"
+        },
+        "registration_data": {
+            "ar": "بيانات طلب التسجيل",
+            "en": "Application Details"
+        },
+        "attachmentDocs": {
+            "ar": "الشهادات والوثائق",
+            "en": "Certificates and Documents"
+        },
+        "dataSend": {
+            "ar": "تم إرسال الطلب بنجاح",
+            "en": "Data Sent Successfully"
+        },
+        "penddingRequest": {
+            "ar": " جاري العمل علي الطلب و يمكنك التعديل و إستكمال البيانات",
+            "en": "The request is being worked on and you can amend and complete the data"
+        },
+        "errorStudentFinance": {
+            "ar": "لا يمكن اجراء الخدمة يوجد مستحقات لم تدفع بعد",
+            "en": "لا يمكن اجراء الخدمة يوجد مستحقات لم تدفع بعد"
+        },
+        "requestNotFound": {
+            "ar": "خطأ , برجاء التأكد من الرقم القومي او رقم الطلب غير صحيح",
+            "en": "Error, please make sure the National ID or Application Number is incorrect"
+        },
+        "errorInsertRequest": {
+            "ar": "خطأ أثناء إنشاء طلب برجاء الضغط مرة أخري ",
+            "en": "Error while creating order Please click again"
+        },
+        "ERROR_WHILE_SAVE_STUDENT_WISHES_DATA": {
+            "ar": "خطأ أثناء تسجيل رغبات الطالب برجاء الضغط مرة أخري",
+            "en": "Error while registering the student's wishes. Please click again"
+        },
+        "ERROR_WHILE_SAVE_STUDENT_DATA": {
+            "ar": "خطاء أثناء تسجيل بيانات الطالب , من فضلك حاول لاحقا",
+            "en": "Error while Saving Student Data , Please try agin Later ... "
+        },
+        "ERROR_WHILE_SAVE_STUDENT_CONTACT_DATA": {
+            "ar": "خطأ أثناء تسجيل بيانات الأتصال بالطالب , من فضلك حاول لاحقا",
+            "en": "Error while registering student contact information, Please try again later"
+        },
+        "ERROR_WHILE_SAVE_PARENT_DATA": {
+            "ar": "خطأ أثناء تسجيل بيانات الأتصال بي ولي الأمر , من فضلك حاول لاحقا",
+            "en": "Error while registering my guardian's contact information. Please try again later"
+        },
+        "ERROR_WHILE_CREATE_USER_DATA": {
+            "ar": "خطأ أثناء تسجيل مستخدم للطالب , من فضلك حاول لاحقا",
+            "en": "Error registering a student user, please try again later"
+        },
+        "ERROR_WHILE_UPDATE_STUDENT_DATA": {
+            "ar": "خطاء أثناء تحديث بيانات الطالب , من فضلك حاول لاحقا",
+            "en": "Error while Updating Student Data , Please try agin Later .... "
+        },
+        "ERROR_WHILE_UPDATE_STUDENT_CONTACT_DATA": {
+            "ar": "خطأ أثناء تحديث بيانات الأتصال بالطالب , من فضلك حاول لاحقا",
+            "en": "Error while Updating student contact information, Please try again later"
+        },
+        "ERROR_WHILE_UPDATE_PARENT_DATA": {
+            "ar": "خطأ أثناء تحديث بيانات الأتصال بي ولي الأمر , من فضلك حاول لاحقا",
+            "en": "Error while Updating my guardian's contact information. Please try again later"
+        },
+        "ERROR_WHILE_UPDATE_USER_DATA": {
+            "ar": "خطأ أثناء تحديث مستخدم للطالب , من فضلك حاول لاحقا",
+            "en": "Error Updating a student user, please try again later"
+        },
+        "ERROR_WHILE_SEND_MAIL_TEMPLATE_MISSING": {
+            "ar": "خطأ , برجاء مراجعة إعدادات نماذج البريد",
+            "en": "Error, Please Check Your Mail Forms Settings"
+        },
+        "ERROR_WHILE_SEND_EMAIL_WELCOME_MAIL_SYNC": {
+            "ar": "خطأ أثناء التسجيل في مزامنة البريد الإلكتروني , من فضلك حاول لاحقا",
+            "en": "Error While Registering For Email Sync. Please try again later"
+        },
+        "ERROR_WHILE_SEND_REGISTRATION_ACADEMY_SYNC": {
+            "ar": "خطأ أثناء التسجيل في مزامنة شئون الطلاب , من فضلك حاول لاحقا",
+            "en": "Error while registering for Student Affairs Sync. Please try again later"
+        },
+        "ERROR_CITIZEN_SERIAL_DUPLICATE": {
+            "ar": " يوجد طلب مسجل لدينا علي نفس رقم الهوية ",
+            "en": "We have a registered request on the same Nat ID"
+        },
+        "ERROR_NO_DATA_FOUND": {
+            "ar": "لا يوجد طلبات مسجلة حاول باستخدام بيانات أخري",
+            "en": "There are no registered requests. Try using other data"
+        },
+        "ERROR_REQUEST_IS_CLOSED": {
+            "ar": "لا يمكن التعديل لقد تم إرسال طلبك للتنسيق وجاري العمل عليه",
+            "en": "لا يمكن التعديل لقد تم إرسال طلبك للتنسيق وجاري العمل عليه"
+        },
+        "ERROR_REQUEST_IS_APPROVED": {
+            "ar": "تم الموافقة علي طلبك برجاء التوجه لإدارة شئون الطلاب في الجامعة",
+            "en": "تم الموافقة علي طلبك برجاء التوجه لإدارة شئون الطلاب في الجامعة"
+        },
+        "ERROR_REQUEST_APPROVED_TANSIK_CLOSED": {
+            "ar": "تم قبول طلبك من التنسيق",
+            "en": "Tansik request has been accepted"
+        },
+        "ERROR_REQUEST_IS_INITIAL_APPROVED": {
+            "ar": "تم الموافقة المبدئية علي طلب الإلتحاق من مسئول الجامعة لا يمكنك تعديل بياناتك وجاري إرساله للتنسيق",
+            "en": "The application for admission has been initially approved by the university official. You cannot modify your data and it is being sent for Tansik"
+        },
+        "ERROR_REQUEST_IS_REJECTED": {
+            "ar": "نأسف لقم تم رفض طلبك للإستفسار تواصل مع إدارة شئون الطلاب في الجامعة ",
+            "en": "نأسف لقم تم رفض طلبك للإستفسار تواصل مع إدارة شئون الطلاب في الجامعة "
+        },
+        "fawryPayHistory": {
+            "ar": "متابعة حالة فوري",
+            "en": "Follow up on Fawry Status"
+        },
+        "essayWriter": {
+            "ar": "كاتبة المقال",
+            "en": "Statment of Purpose"
+        },
+        "addwishs": {
+            "ar": "إضافة رغبات",
+            "en": "Schools"
+        },
+        "uploadFiles": {
+            "selectedFile": {
+                "ar": "أختار ملف",
+                "en": "Selecte File "
+            },
+            "close": {
+                "ar": "إغلاق",
+                "en": "Close"
+            },
+            "errSelectFile": {
+                "ar": "من فضلك قم بإختيار ملف ",
+                "en": "Error Please Select File "
+            },
+            "analyzingFile": {
+                "ar": "... جاري تجهيز الملف ",
+                "en": "Start Analyzing File ... "
+            },
+            "uploadStart": {
+                "ar": "... تم بدء رفع الملف",
+                "en": "File Start Uploading ... "
+            },
+            "errSelectOneFile": {
+                "ar": "برجاء أختيار ملف واحد فقط",
+                "en": "Please Select One File Only"
+            },
+            "uploadSuccess": {
+                "ar": "تم رفع الملف بنجاح",
+                "en": "File Upload Successfully ..."
+            },
+            "fileBrowes": {
+                "ar": "انقر هنا لتصفح الملفات",
+                "en": "Click Here To Browse Files"
+            },
+            "uploadFile": {
+                "ar": "رفع الملف",
+                "en": "Upload File"
+            },
+            "MB": {
+                "ar": "ميجا بايت",
+                "en": "MB"
+            },
+            "errFileUploadMaxSize": {
+                "ar": "خطأ: اختر ملف بحجم يقل عن",
+                "en": "Error: Select File upload max size is less than"
+            },
+            "errorNoDoc": {
+                "ar": "لا يوجد وثيقة أساسية ",
+                "en": "There is no main document "
+            },
+            "ERROR_UPLOADING_FILES": {
+                "ar": "خطأ فى رفع الملفات",
+                "en": "Error Uploading Files"
+            },
+            "uploadFiles": {
+                "ar": "رفع الملف",
+                "en": "Upload Files"
+            },
+            "uploadDocuments": {
+                "ar": "... رفع المزيد من الملفات",
+                "en": "Add More Files ... "
+            }
+        },
+        "home": {
+            "inbox": {
+                "ar": "صندوق الوارد",
+                "en": "Inbox"
+            },
+            "inboxSubTitle": {
+                "ar": "يمكنك قراءة الرسائل الجديدة و الرد عليها",
+                "en": "You can read and reply to new messages"
+            },
+            "sent": {
+                "ar": "صندوق الصادر",
+                "en": "Sent"
+            },
+            "sentSubTitle": {
+                "ar": "يمكنك متابعة الرسالة التي أرسلتها",
+                "en": "you can Follow Up Message you Sent "
+            },
+            "welcome": {
+                "ar": "مرحبا/ ",
+                "en": "Welcome/ "
+            },
+            "studentServices": {
+                "ar": "الخدمات الطلابية",
+                "en": "Student Services"
+            },
+            "toDoList": {
+                "ar": "قائمة المهام",
+                "en": "To-Do List"
+            },
+            "dashBoard": {
+                "ar": "إحصائية الخدمات",
+                "en": "Services Statistic"
+            },
+            "ttlRequestNumber": {
+                "ar": "الطلبات المقدمة",
+                "en": "Request Number"
+            },
+            "totalIncome": {
+                "ar": "قيمة الطلبات",
+                "en": "Requests Costs"
+            },
+            "joinRequestSystem": {
+                "ar": "طلب التسجيل",
+                "en": "Smart Admissions"
+            },
+            "examSystem": {
+                "ar": "نظام الإمتحانات الذكي",
+                "en": "Smart Exam System"
+            },
+            "createGroup": {
+                "ar": "إنشاء مجموعة",
+                "en": "Create Group"
+            },
+            "ttlGroupMembers": {
+                "ar": "عدد الأشخاص",
+                "en": "Total Members"
+            },
+            "cancelCreateGroup": {
+                "ar": "إلغاء إنشاء مجموعة",
+                "en": "Cancel Create Group"
+            },
+            "welcomeMsg": {
+                "ar": "مرحبًا بك",
+                "en": "Welcome .."
+            }
+        },
+        "login": {
+            "userName": {
+                "ar": "إسم المستخدم",
+                "en": "User Name"
+            },
+            "userPassword": {
+                "ar": "كلمة السر",
+                "en": "Password"
+            },
+            "loginBtn": {
+                "ar": "تسجيل دخول",
+                "en": "Login"
+            },
+            "forgetPasswordBtn": {
+                "ar": "نسيت كلمة المرور",
+                "en": "Forget Password"
+            },
+            "welcome": {
+                "ar": "مرحبا بك في نظام طلب التسجيل",
+                "en": "Welcome to the University Admission System"
+            },
+            "fingerprint": {
+                "ar": "تسجيل الدخول بالبصمة",
+                "en": "Login With Fingerprint"
+            }
+        },
+        "fileAttachment": {
+            "fileUpload": {
+                "ar": "رفع الملفات",
+                "en": "File Upload"
+            },
+            "fileView": {
+                "ar": "عرض الملفات",
+                "en": "File View"
+            },
+            "viewFilesBtn": {
+                "ar": "عرض المرفقات التي تم رفعها",
+                "en": "Click Here To View The Uploaded Files ... "
+            },
+            "title": {
+                "ar": "المؤيدات",
+                "en": "Attachment"
+            },
+            "attachmentList": {
+                "ar": "المؤيدات",
+                "en": "Attachment"
+            },
+            "fileName": {
+                "ar": "أسم الملف",
+                "en": "File Name"
+            },
+            "docType": {
+                "ar": "نوع الوثيقة",
+                "en": "Document Type"
+            },
+            "viewDoc": {
+                "ar": "عرض",
+                "en": "View"
+            },
+            "actions": {
+                "ar": "إجراءات",
+                "en": "Actions"
+            },
+            "noFilesFound": {
+                "ar": "برجاء إختيار ورفع المرفقات ",
+                "en": "Please Upload Documents"
+            },
+            "delete": {
+                "ar": "حذف",
+                "en": "Delete"
+            },
+            "load_documents": {
+                "ar": "تحميل",
+                "en": "Download"
+            }
+        },
+        "global": {
+            "all_rights_BADYA": {
+                "ar": "© 2024 جامعة بادية. جميع الحقوق محفوظة.",
+                "en": "© 2024 Badya University. All Rights Reserved."
+            },
+            "all_rights_MEMPHIS": {
+                "ar": "© 2025 جامعة ممفيس. جميع الحقوق محفوظة.",
+                "en": "© 2025 Memphis University. All Rights Reserved."
+            },
+            "all_rights_UECEGYPT": {
+                "ar": "© 2025 جامعة إيست كابيتال. جميع الحقوق محفوظة.",
+                "en": "© 2025 UEC Egypt University. All Rights Reserved."
+            },
+            "contact_university_UECEGYPT": {
+                "ar": "للاستفسارات، يرجى التواصل مع الجامعة.",
+                "en": "Contact the university for inquiries."
+            },
+            "errMissingFawrySettings": {
+                "ar": "خطأ, إعدادات فوري غير موجودة",
+                "en": "Error, Fawry Settings Not Found"
+            },
+            "next": {
+                "ar": "التالي",
+                "en": "Next"
+            },
+            "previous": {
+                "ar": "السابق",
+                "en": "Previous"
+            },
+            "setting": {
+                "ar": "الإعدادت",
+                "en": "Setting"
+            },
+            "exitApp": {
+                "ar": "الخروج من التطبيق",
+                "en": "Exit Application"
+            },
+            "logout": {
+                "ar": "خروج",
+                "en": "Log Out"
+            },
+            "askLogout": {
+                "ar": "هل تريد تسجيل الخروج؟",
+                "en": "Do you want to log out ?"
+            },
+            "no": {
+                "ar": "لأ",
+                "en": "No"
+            },
+            "yes": {
+                "ar": "نعم",
+                "en": "Yes"
+            },
+            "changeLanguage": {
+                "ar": "تغير اللغة",
+                "en": "Change Language"
+            },
+            "darkTheme": {
+                "ar": "مظهر داكن",
+                "en": "Dark Theme"
+            },
+            "home": {
+                "ar": "الصفحة الرئيسية",
+                "en": "Home"
+            },
+            "success": {
+                "en": "The data has been Saved successfully",
+                "ar": "تم حفظ البيان بنجاح"
+            },
+            "update": {
+                "en": "The data has been Updated successfully",
+                "ar": "تم تعديل البيان بنجاح"
+            },
+            "deleted": {
+                "en": "The data has been Deleted successfully",
+                "ar": "تم حذف البيان بنجاح"
+            },
+            "errInsert": {
+                "ar": "خطأ أثناء التسجيل"
+            },
+            "errDelete": {
+                "ar": "خطأ أثناء الحذف"
+            },
+            "search": {
+                "ar": "البحث",
+                "en": "Search"
+            },
+            "new": {
+                "ar": "جديد/",
+                "en": "New/"
+            },
+            "updateCase": {
+                "ar": "تعديل/",
+                "en": "Update/"
+            },
+            "recDeleted": {
+                "ar": "تم حذف البيان بنجاح",
+                "en": "The data has been Deleted successfully"
+            },
+            "attachment": {
+                "ar": "المرفقات",
+                "en": "Attachment"
+            },
+            "recCreated": {
+                "ar": "تم حفظ البيان بنجاح",
+                "en": "The data has been Saved successfully"
+            },
+            "recUpdated": {
+                "ar": "تم تعديل البيان بنجاح",
+                "en": "The data has been Updated successfully"
+            },
+            "other": {
+                "ar": "هذا البيان مرتبط بعمليات اخري",
+                "en": "Other Relations "
+            },
+            "NO_USER_DATA_FOUND": {
+                "ar": "برجاء مراجعة كلمة أسم المستخدم أو كلمة السر",
+                "en": "Wrong username or password"
+            },
+            "USER_IS_NOT_ACTIVE": {
+                "ar": "المستخدم غير مفعل برجاء الدخول علي البورتل الخاص بالطالب ليس بورتل التقديم",
+                "en": "User is not active Please login to student portal not admission portal"
+            },
+            "EXCEPTION_GETTING_USER_DATA": {
+                "ar": "برجاء مراجعة كلمة أسم المستخدم أو كلمة السر",
+                "en": "Wrong username or password"
+            },
+            "CHECK_USERNAME_PASSWORD_EMPTY": {
+                "ar": "يرجى التحقق من أن اسم المستخدم أو كلمة المرور فارغة",
+                "en": "Please Check User Name Or Password Is Empty"
+            },
+            "CHECK_REGISTRATION_RECORD_EMPTY": {
+                "ar": "برجاء مراجعة بيانات التسجيل",
+                "en": "Please Check Registration Data"
+            },
+            "ERROR_EMPTY_USERNAME": {
+                "ar": "برجاء إدخال أسم المستخدم",
+                "en": "Please Enter Your User Name"
+            },
+            "ERROR_EMPTY_PASSWORD": {
+                "ar": "برجاء إدخال كلمة السر",
+                "en": "Please Enter Your Password"
+            },
+            "noCorrDataFound": {
+                "ar": "لا يوجد بيانات",
+                "en": "No Data Found"
+            },
+            "selected": {
+                "ar": "إختار",
+                "en": "Selected"
+            },
+            "sendSelected": {
+                "ar": "تطبيق",
+                "en": "Apply"
+            },
+            "close": {
+                "ar": "إغلاق",
+                "en": "Close"
+            },
+            "corrSavedInDraft": {
+                "ar": "تم حفظ كمسودة للمعاملة رقم",
+                "en": "Correspondence Save Draft successfully"
+            },
+            "corrCreated": {
+                "ar": "تم إرسال المعاملة الرقم المسلسل ",
+                "en": "Correspondence Send successfully"
+            },
+            "requestApproved": {
+                "ar": "تم الموافقة علي الطلب رقم ",
+                "en": "Request Have Been Approved "
+            },
+            "requestRefused": {
+                "ar": "تم رفض علي الطلب رقم ",
+                "en": "Request Have Been Refused "
+            },
+            "approved": {
+                "ar": "تم الموافقة",
+                "en": "Request Have Been Approved"
+            },
+            "refused": {
+                "ar": "تم الرفض",
+                "en": "Request Have Been Refused"
+            },
+            "messageOpened": {
+                "ar": "تم قرأة الرسالة",
+                "en": "Message is Opened"
+            },
+            "untitled_name": {
+                "ar": "الإسم غير معرف بالنظام",
+                "en": "Name is not defined by the system"
+            },
+            "saveGroup": {
+                "ar": "إنشاء مجموعة",
+                "en": "Create Group"
+            },
+            "groupCreated": {
+                "ar": "تم إنشاء المجموعة بنجاح",
+                "en": "Group Created Successfully"
+            },
+            "messageSent": {
+                "ar": "تم إرسال الرسالة ",
+                "en": "Message Sent successfully"
+            },
+            "downloadFile": {
+                "ar": "تحميل الملف",
+                "en": "Download File"
+            },
+            "viewFile": {
+                "ar": "عرض الملف",
+                "en": "View File"
+            },
+            "uploadFile": {
+                "ar": "رفع الملف",
+                "en": "upload File"
+            },
+            "recordAudio": {
+                "ar": "تسجيل صوتي",
+                "en": "Record Audio"
+            },
+            "recordVideo": {
+                "ar": "تسجيل  فيديو",
+                "en": "Record Video"
+            },
+            "userInfo": {
+                "ar": "بيانات المستخدم",
+                "en": "User Information"
+            },
+            "name": {
+                "ar": "إسم الموظف",
+                "en": "Employee Name"
+            },
+            "phone": {
+                "ar": "رقم الهاتف",
+                "en": "Phone"
+            },
+            "email": {
+                "ar": "البريد الإلكتروني",
+                "en": "Email"
+            },
+            "groupInfo": {
+                "ar": "معلومات عن المجموعة",
+                "en": "Group Information"
+            },
+            "groupName": {
+                "ar": "إسم المجموعة",
+                "en": "Group Name"
+            },
+            "groupUsers": {
+                "ar": "إعضاء المجموعة",
+                "en": "Group Members"
+            },
+            "newMsgGroup": {
+                "ar": "المجموعة : ",
+                "en": "Group : "
+            },
+            "newMsgUser": {
+                "ar": "مستخدم : ",
+                "en": "User : "
+            },
+            "liveSearch": {
+                "ar": "بحث مباشر",
+                "en": "Live Search"
+            },
+            "searchLengthTxt": {
+                "ar": "من فضلك قم بإدخال 3 حروف علي الاقل",
+                "en": "Please Enter At Least 3 Characters."
+            },
+            "deleteTitle": {
+                "ar": "حذف",
+                "en": "Delete"
+            },
+            "deleteMsgConfirm": {
+                "ar": "هل تريد حذف هذا البيان",
+                "en": "Do you want to delete this statement?"
+            },
+            "employeeName": {
+                "ar": "إسم الموظف",
+                "en": "Employee Name"
+            },
+            "confirm": {
+                "ar": "تأكيد",
+                "en": "Confirm"
+            },
+            "saveAnnotations": {
+                "ar": "حفظ التوقيعات علي الملف",
+                "en": "Save Annotations"
+            },
+            "AnnotationsSaved": {
+                "ar": "تم حفظ التعليقات التوضيحية",
+                "en": "Annotations Have Been Saved Successfully"
+            },
+            "downloadOriginalFile": {
+                "ar": "تنزيل أصل الملف",
+                "en": "Download Original File"
+            },
+            "forward": {
+                "ar": "إعادة إرسال",
+                "en": "Forward"
+            },
+            "reply": {
+                "ar": "الرد",
+                "en": "Reply"
+            },
+            "delete": {
+                "ar": "حذف",
+                "en": "Delete"
+            },
+            "msgDeleted": {
+                "ar": "تم حذف الرسالة",
+                "en": "Message Has Been Deleted"
+            },
+            "is_can_download": {
+                "ar": "هل يمكن تنزيل الملف؟",
+                "en": "Can Download The File?"
+            },
+            "is_can_share": {
+                "ar": "هل يمكن مشاركة الملف؟",
+                "en": "Can Share The File?"
+            },
+            "msgReply": {
+                "ar": "الرد علي رسالة",
+                "en": "Reply to a message"
+            },
+            "changeFileRole": {
+                "ar": "تعديل صلاحية الملف",
+                "en": "Modify File Validity"
+            },
+            "save": {
+                "ar": "حفظ",
+                "en": "Save"
+            },
+            "save_send": {
+                "ar": "حفظ وإرسال",
+                "en": "Save And Send Data"
+            },
+            "close_edit": {
+                "ar": "إغلاق التعديل وإرسال البيانات",
+                "en": "Close modification and data submission"
+            },
+            "ask_save_send": {
+                "ar": "هل تريد الحفظ و إرسال التعديلات ؟",
+                "en": "Do you want to save and send modifications?"
+            },
+            "mailSent": {
+                "ar": "تم إعادة إرسال إسم المستخدم وكلمة السر علي الإيميل",
+                "en": "The username and password have been sent to the e-mail"
+            },
+            "forgetPasswordTitle": {
+                "ar": "نسيت كلمة المرور ؟",
+                "en": "Forget Your Password ?"
+            },
+            "forgetPasswordSubTitle": {
+                "ar": "أدخل رقم الهوية أدناه وسنرسل تعليماتك لاستعادة كلمة المرور الخاصة بك",
+                "en": "Enter Your Citizen Serial Below and we'll send your instructions to recover your password"
+            },
+            "recoverPasswordBtn": {
+                "ar": "إستعادة كلمة المرور",
+                "en": "Recover Password"
+            },
+            "alreadyHaveAccount": {
+                "ar": "هل لديك حساب ؟",
+                "en": "Already have an account ?"
+            },
+            "login": {
+                "ar": "تسجيل الدخول من هنا",
+                "en": "Login Here"
+            },
+            "enterYourMessage": {
+                "ar": "إكتب رسالتك ...",
+                "en": "Type your message..."
+            },
+            "errorEnterYourMessage": {
+                "ar": "من فضلك إكتب رسالتك ...",
+                "en": "Please Enter Your Message ... "
+            },
+            "err_max_text_length": {
+                "ar": "برجاء مراجعة حجم النص أصغر من الحجم المحدد",
+                "en": "Please Check The Text Size is Smaller Than The Available Size"
+            },
+            "err_write_essay_or_upload_file": {
+                "ar": " من فضلك قم بإختيار ملف أو كتابة النص علي الأقل",
+                "en": "Please Select File Or Write Essay "
+            },
+            "maxTextLength": {
+                "ar": "حجم النص لا يقل عن ",
+                "en": "Text size at Least"
+            }
+        }
+    }
+}

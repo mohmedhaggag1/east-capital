@@ -1,0 +1,116 @@
+{
+    "protocol": "https://",
+    "baseUrl": "localhost:8955/university-registration",
+    "academyUrl": "https://localhost:5401/ess",
+    "defualtUploadSys": "00",
+    "max_signatures": 1,
+    "stamp_path": "./assets/images/",
+    "stamp_files": [
+        "approved_ar.png",
+        "rejected_ar.png",
+        "voided_ar.png"
+    ],
+    "COOKIE_JSESSIONID_NAME": "UNIVERSITY_REGISTRATION_JSESSIONID",
+    "contactUsUrl": "https://badyauni.edu.eg/contact-us/",
+    "mainHomeUrl": "https://badyauni.edu.eg/",
+    "terms_conditions_url": "https://badyauni.edu.eg/terms-and-conditions",
+    "privacy_policy_url": "https://badyauni.edu.eg/privacy-policy",
+    "refund_policy_url": "https://badyauni.edu.eg/refund-policy",
+    "social_media": [
+        {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/profile.php?id=61553922938755",
+            "icon": "logo-facebook"
+        },
+        {
+            "name": "Twitter",
+            "url": "https://twitter.com/badyauniversity",
+            "icon": "logo-twitter"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/company/badya-university",
+            "icon": "logo-linkedin"
+        },
+        {
+            "name": "Instagram",
+            "url": "https://www.instagram.com/badyauniversity/",
+            "icon": "logo-instagram"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/@BadyaUniversity",
+            "icon": "logo-youtube"
+        },
+        {
+            "name": "vimeo",
+            "url": "https://www.vimeo.com/@BadyaUniversity",
+            "icon": "logo-vimeo"
+        }
+    ],
+    "contact_university": [
+        "01505123555",
+        "01505123666",
+        "01515429232",
+        "01515429239"
+    ],
+    "enable_payment": true,
+    "enable_attachments": true,
+    "max_age": 25,
+    "min_age": 15,
+    "enable_google_tag_manager": false,
+    "google_tag_manager": "GTM-PJR9WR28",
+
+    "enable_add_more_wishs": true,
+    "max_wishs": 4,
+    "mandatory_wishs_no": 1,
+    "initial_wishs_no": 4,
+
+    "min_heard_about_us_no": 1,
+    "max_heard_about_us_no": 2,
+    "file_uploade_max_size": 10485760,
+    "enable_efinance_admission_fees": true,
+    "enable_fawry_admission_fees": true,
+    "enable_efinance_first_semester_fees": true,
+    "enable_fawry_first_semester_fees": true,
+    "enable_print_first_semester_fees": true,
+    "fawry_url_script": "./assets/fawry/test/fawrypay-payments.js",
+    "fawry_url_style": "./assets/fawry/test/fawrypay-payments.css",
+    "_fawry_url_script": "./assets/fawry/prod/fawrypay-payments.js",
+    "_fawry_url_style": "./assets/fawry/prod/fawrypay-payments.css",
+    "1_company": "BADYA",
+    "2_company": "MEMPHIS",
+    "company": "UECEGYPT",
+    "enable_email_verification": false,
+    "enable_switch_lang": false,
+    
+    "_populate_academyCode_way": "open_semester",
+    "populate_academyCode_way": "academy_precondition",
+
+    "default_lang": "en",
+    "BADYA_OR_MEMPHIS_hidden_flds": [
+        "mohter_name",
+        "specializ_id",
+        "high_school_final_percentage",
+        "high_school_seat_number",
+        "diploma_details",
+        "transformer_universities_specialization_id",
+        "job_parent_contact_data1_job",
+        "transportation_area_id",
+        "enable_validate_on_email_parent_contact_data1",
+        "enable_validate_on_mohter_name",
+        "enable_check_duplicated_mobile",
+        "enable_check_duplicated_email"
+    ],
+    "hidden_flds": [
+        "citizen_serial_type",
+        "stop_validate_on_birthdate_case_foreign_student",
+        "stop_validate_on_mohter_name",
+        "is_transfer",
+        "hide_has_chronic_diseases_fields",
+        "hide_have_any_siblings_in_university_fields",
+        "transportation_area_id"
+    ],
+    "min_address_length": 20,
+    "dt": true
+}

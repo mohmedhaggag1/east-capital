@@ -1,0 +1,46 @@
+<div style="display: flex;align-items: flex-end;" [dir]="(direction) ? 'rtl' : 'ltr'" class="insertDialog" mat-dialog-title>
+
+  <ion-button mat-mini-fab color="danger" [matTooltip]="'Close'" matDialogClose>
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
+  <h4>{{ "uploadFiles" | i18n : "corr.uploadFiles.uploadFiles" }}</h4>
+</div>
+
+<ion-row [dir]="(direction) ? 'rtl' : 'ltr'">
+  <ion-col>
+     <div class="form-row" style="cursor: pointer;background: aliceblue;border-radius: 1rem;padding: 0.5rem; display: flex;flex-direction: column;"
+      (click)="fileInput.click()">
+      <img loading="lazy" style="height: 10rem;" src="../assets/images/uploading.svg">
+      <h6 style="text-align: center;font-weight: bolder;">{{ "fileBrowes" | i18n : "corr.uploadFiles.fileBrowes" }}</h6>
+    </div>
+    <ion-row [hidden]="true">
+      <ion-col>
+        <input id="fileInput" style="width:100%" type="file" class="form-control" (change)="onChange(fileInput)"
+          #fileInput multiple="">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div [innerHTML]="filesName"></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" shape="round" color="tertiary" (click)="onUpload()"><ion-icon
+            name="cloud-upload-outline"></ion-icon> &nbsp;
+          {{ "uploadFiles" | i18n : "corr.uploadFiles.uploadFiles" }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <div style="width: 100%;display: grid;margin-top: 20px;">
+      <!--Flag variable is used here-->
+      <div class="container" *ngIf="loading">
+        <mat-progress-bar mode="determinate" [value]="prsentageVal"></mat-progress-bar>
+        <h5>{{uploadMsg}} {{prsentageVal}}</h5>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Smart University Registration</string>
+    <string name="title_activity_main">Smart University Registration</string>
+    <string name="package_name">io.ionic.starter.esmartsoft.university.registration</string>
+    <string name="custom_url_scheme">io.ionic.starter.esmartsoft.university.registration</string>
+</resources>

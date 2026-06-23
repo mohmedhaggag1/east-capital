@@ -1,0 +1,191 @@
+<ion-app [dir]="(direction) ? 'rtl' : 'ltr'">
+  <ion-menu contentId="main-content" [class]="selectedTheme" [side]="(direction) ? 'start' : 'end'">
+
+    <ion-content class="ion-padding">
+
+      <ion-item style="font-weight: bolder;" (click)="goMainHome()">
+        <ion-label color="dark"> {{ "main Home" |i18n :"corr.mainHome" }} </ion-label>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;" (click)="registration()" *ngIf="!isUserLogin">
+        <ion-label color="dark"> {{ "Apply" |i18n :"corr.apply" }} </ion-label>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;" (click)="singin()" *ngIf="!isUserLogin">
+        <ion-label color="dark"> {{ "Sign In" |i18n :"corr.loginHeader" }} </ion-label>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;" (click)="home()" *ngIf="isUserLogin">
+        <ion-label color="dark"> {{ "Registration Data" |i18n :"corr.registration_data" }} </ion-label>
+      </ion-item>
+
+
+      <ion-item style="font-weight: bolder;" (click)="contactUs()">
+        <ion-label color="dark"> {{ "Contact Us" |i18n :"corr.contactUs" }} </ion-label>
+      </ion-item>
+
+      <!-- <ion-item style="font-weight: bolder;" lines="full">
+        <ion-icon name="moon" color="dark"></ion-icon>
+        <ion-label color="dark"> &nbsp;{{ "Dark Theme" | i18n : "corr.global.darkTheme" }} </ion-label>
+        <ion-toggle id="themeToggle" slot="end" [enableOnOffLabels]="true" [(ngModel)]="isToggledTheme"
+          (ionChange)="toggleAppTheme()"></ion-toggle>
+      </ion-item> -->
+
+      <ion-item style="font-weight: bolder;" lines="full" *ngIf="enable_switch_lang">
+        <ion-img [src]="langImage" style="width: 1.5rem;"></ion-img>
+        <ion-label color="dark"> &nbsp;
+          <span *ngIf="lang === 'ar'">{{ "English" |i18n :"corr.English" }}</span>
+          <span *ngIf="lang === 'en'">{{ "Arabic" |i18n :"corr.Arabic" }}</span>
+        </ion-label>
+        <ion-toggle [(ngModel)]="isToggledLang" (ionChange)="toggleAppLang()"></ion-toggle>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;" *ngIf="terms_conditions_url">
+        <a href="{{terms_conditions_url}}" target="_blank" class="ion-item-footer-link"><ion-label color="dark">
+            Terms and Conditions
+          </ion-label></a>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;" *ngIf="privacy_policy_url">
+        <a href="{{privacy_policy_url}}" target="_blank" class="ion-item-footer-link">
+          <ion-label color="dark">Privacy Policy</ion-label></a>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;" *ngIf="refund_policy_url">
+        <a href="{{refund_policy_url}}" target="_blank" class="ion-item-footer-link">
+          <ion-label color="dark">Refund Policy</ion-label>
+        </a>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;">
+        <a href="{{row.url}}" target="_blank" *ngFor="let row of socialMediaArr">
+          <ion-icon name="{{row.icon}}" class="ion-item-social-icon"></ion-icon>
+        </a>
+      </ion-item>
+
+      <ion-item style="font-weight: bolder;"
+        *ngIf="'corr.global.contact_university_' + company | i18n as contactText; contactText">
+        <ion-label style="text-wrap-mode: wrap;" color="dark"> {{ "" | i18n : ('corr.global.contact_university_' +
+          company) }} </ion-label>
+      </ion-item>
+
+      <div class="row" *ngIf="'corr.global.contact_university_' + company | i18n as contactText; contactText">
+        <ion-item *ngFor="let row of contactUniversity">
+          <a class="contact-link" href="tel:{{row}}" alt="Call {{row}}">
+            <ion-label color="dark">{{row}}</ion-label>
+          </a>
+        </ion-item>
+      </div>
+
+      <ion-item *ngIf="isUserLogin" style="font-weight: bolder;" (click)="logout()"><ion-icon size="large"
+          color="danger" name="log-out-outline"></ion-icon><ion-label color="dark"> &nbsp;
+          {{ "Logout" |i18n :"corr.global.logout" }}</ion-label> </ion-item>
+
+      <ion-item style="font-weight: bolder;" (click)="exitApp()" *ngIf="isMobile"><ion-icon size="large" color="danger"
+          name="close-circle-outline">
+        </ion-icon><ion-label color="dark"> &nbsp;{{ "exitApp" | i18n : "corr.global.exitApp" }}</ion-label>
+      </ion-item>
+
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header [class]="selectedTheme">
+      <ion-toolbar style="display: flex;">
+
+        <div class="e-con-inner">
+
+          <div class="row" style="display: flex;align-items: center;" slot="start">
+            <img loading="lazy" class="elementor-widget-image" style="margin: 1rem; padding: 0.5rem;min-width: 15rem;"
+              alt="Admission Portal" src="assets/images/{{logo}}" />
+          </div>
+
+          <ion-buttons slot="end" class="mobile-header">
+            <ion-menu-button>
+              <ion-icon style="fill: white;" src="./assets/images/menu-icon.svg"></ion-icon>
+            </ion-menu-button>
+          </ion-buttons>
+
+          <ion-buttons class="desktop-header" slot="end">
+
+            <ion-button class="logo-color header-buttons" (click)="goMainHome()">
+              {{ "main Home" |i18n :"corr.mainHome" }}
+            </ion-button>
+
+            <ion-button *ngIf="!isUserLogin" class="logo-color header-buttons" (click)="registration()">
+              {{ "Apply" |i18n :"corr.apply" }}
+            </ion-button>
+
+            <ion-button *ngIf="isUserLogin" class="logo-color header-buttons" (click)="home()">
+              {{ "Registration Data" |i18n :"corr.registration_data" }}
+            </ion-button>
+
+            <ion-button *ngIf="!isUserLogin" class="logo-color header-buttons" (click)="singin()">
+              {{ "Sign In" |i18n :"corr.loginHeader" }}
+            </ion-button>
+
+            <ion-button class="logo-color header-buttons" (click)="contactUs()">
+              {{ "Contact Us" |i18n :"corr.contactUs" }}
+            </ion-button>
+
+           <ion-button class="logo-color header-buttons" (click)="isToggledLang=!isToggledLang;toggleAppLang();" *ngIf="enable_switch_lang">
+              <span *ngIf="lang === 'ar'">{{ "English" |i18n :"corr.English" }}</span>
+              <span *ngIf="lang === 'en'">{{ "Arabic" |i18n :"corr.Arabic" }}</span>
+          </ion-button>
+
+            <ion-button *ngIf="isUserLogin" class="logo-color header-buttons btn-logout" (click)="logout()">
+              {{ "Logout" |i18n :"corr.global.logout" }}
+            </ion-button>
+
+          </ion-buttons>
+        </div>
+      </ion-toolbar>
+
+    </ion-header>
+
+    <ion-content [class]="selectedTheme">
+      <ion-router-outlet class="app-background"></ion-router-outlet>
+    </ion-content>
+
+    <ion-footer [class]="selectedTheme" class="desktop-footer">
+      <ion-toolbar>
+        <div class="row footer-row">
+          <div class="col" style="display: flex;flex-direction: column;">
+            <div class="footer-text">
+              {{ "© 2024 University. All Rights Reserved." | i18n : ('corr.global.all_rights_' + company) }}
+            </div>
+            <div class="footer-text"
+              *ngIf="'corr.global.contact_university_' + company | i18n as contactText; contactText">
+              <span class="footer-text">
+                {{ "" | i18n : ('corr.global.contact_university_' + company) }}
+              </span>
+
+              <a class="contact-link" *ngFor="let row of contactUniversity" href="tel:{{row}}" alt="Call {{row}}">
+                {{row}}
+              </a>
+
+            </div>
+            <div class="footer-links">
+              <a *ngIf="terms_conditions_url" href="{{terms_conditions_url}}" target="_blank" class="footer-link">
+                Terms and Conditions</a>
+              &nbsp;
+              <a *ngIf="privacy_policy_url" href="{{privacy_policy_url}}" target="_blank" class="footer-link">Privacy
+                Policy</a>
+              &nbsp;
+              <a *ngIf="refund_policy_url" href="{{refund_policy_url}}" target="_blank" class="footer-link">Refund
+                Policy</a>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="social-icons">
+              <a href="{{row.url}}" target="_blank" *ngFor="let row of socialMediaArr">
+                <ion-icon name="{{row.icon}}" class="social-icon"></ion-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+</ion-app>

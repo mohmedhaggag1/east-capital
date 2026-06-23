@@ -1,0 +1,7 @@
+{
+  "name": "Smart University Registration",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

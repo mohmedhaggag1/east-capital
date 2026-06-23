@@ -1,0 +1,27 @@
+<div class="ess-kms-card" style="    margin: 2rem!important;">
+  <div class="row" style="justify-content: center;display: flex; align-items: center; flex-direction: column;">
+    <img src="./assets/images/ess.png" style="max-width: 15rem;margin-bottom: 1rem;">
+    <h3 style="color: darkblue;text-align: center;">.. University Registration ..</h3>
+  </div>
+  <div class="row" style="justify-content: center; display: flex; flex-wrap: wrap;">
+    <mat-card class="ess-kms-card" *ngFor="let row of versionArr" style="    max-width: 60vw;"
+      [ngClass]="{ 'is-active': row.isCurrent }">
+      <mat-card-title style="color: darkblue;"> Version &nbsp; {{row.version}} </mat-card-title>
+      <div class="row" style="display: flex; flex-wrap: nowrap;">
+        <p
+          style="width: -webkit-fill-available; text-align: center; font-weight: bolder; font-size:large;color: darkblue; display: flex; align-items: center;">
+          <mat-icon style="color: darkblue;">military_tech</mat-icon> Developer &nbsp; {{row.developer}}
+        </p>
+      </div>
+      <div class="row" style="display: flex; flex-wrap: nowrap;">
+        <p style="width: -webkit-fill-available; text-align: center; font-weight: bolder; font-size:large;color: darkgreen;display: flex; align-items: center;"
+          *ngIf="row.isCurrent">
+          <mat-icon style="color: darkgreen;">lightbulb</mat-icon> Is Current Version &nbsp; {{row.isCurrent}}
+        </p>
+      </div>
+    </mat-card>
+  </div>
+  <div class="row" style="justify-content: center;">
+
+  </div>
+</div>

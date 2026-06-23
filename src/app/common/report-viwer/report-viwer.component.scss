@@ -1,0 +1,24 @@
+  ::ng-deep .removePageBorders {
+    overflow: hidden !important;
+  }
+
+  ::ng-deep mat-dialog-container {
+    overflow: hidden !important;
+  }
+
+  ::ng-deep smart-pdf-editor .container {
+    overflow: hidden !important;
+  }
+
+  @media (max-width: 767px) {
+    .tool-bar-pdf {
+      margin-bottom: 0.5rem!important;
+      display: flex!important;
+      align-items: center!important;
+      justify-content: center!important;
+      gap: 1rem!important;
+      margin-top: 0.5rem!important;
+      flex-wrap: wrap!important;
+      zoom: 0.5!important;
+    }
+  }

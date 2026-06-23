@@ -1,0 +1,189 @@
+.ac-container {
+    zoom: 0.90;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: flex !important;
+}
+
+:host .mat-tab-group {
+    flex-direction: row;
+    // background: #f0f3fb;
+}
+
+:host .mat-tab-header {
+    border-bottom: none;
+}
+
+:host .mat-tab-header-pagination {
+    display: none !important;
+}
+
+:host .mat-tab-list {
+    background: #f0f3fb !important;
+    // padding-right: 1rem;
+    border-radius: 1rem;
+}
+
+:host .mat-tab-labels {
+    display: inline-grid;
+    flex-direction: column;
+    justify-items: self-start;
+    border-style: ridge;
+    border-radius: 10px;
+    height: -webkit-fill-available;
+    margin-top: 0;
+    margin-right: 1px;
+    white-space: nowrap;
+    overflow: auto !important;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    align-content: flex-start;
+    min-height: 80vh;
+}
+
+:host .mat-tab-body.mat-tab-body-active {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+:host .mat-tab-list .mat-tab-labels .mat-tab-label {
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: flex-start;
+}
+
+:host mat-label {
+    color: steelblue;
+    font-weight: bolder;
+}
+
+:host svg.mat-datepicker-toggle-default-icon.ng-star-inserted {
+    fill: darkblue;
+}
+
+.schedule-card {
+    width: fit-content;
+    margin: 0.1rem;
+    // margin: 20px auto;
+
+    .field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+    }
+
+    .label {
+        font-weight: bold;
+        color: darkblue;
+    }
+
+    .value {
+        display: flex;
+        align-items: center;
+    }
+
+    .value mat-icon {
+        margin-left: 8px;
+    }
+}
+
+.list-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.list-item-content button {
+    margin-left: auto;
+}
+
+[mat-dialog-title] {
+    margin: -24px -24px 0px -24px !important;
+    padding: 10px 24px;
+    background: #369;
+    color: #fff;
+    cursor: move;
+}
+
+
+:host .custom-mat-list-option {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+:host .custom-mat-list-option .mat-pseudo-checkbox {
+    order: 2 !important;
+    margin-left: auto !important;
+
+}
+
+:host .custom-mat-list-option .mat-list-text {
+    order: 1 !important;
+}
+
+::ng-deep  mat-pseudo-checkbox {
+    background: #263663 !important;
+}
+
+
+
+
+
+/*::ng-deep */
+.searchTxt {
+    width: 100%;
+    background-color: transparent !important;
+    border-style: none !important;
+    border-radius: 0 !important;
+    height: 3rem;
+    border-bottom: 0 !important;
+  }
+  
+  :host .mat-form-field-flex {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .searchTxt:after {
+    content: "" !important;
+    margin-right: 30px;
+    font: normal normal normal 12px/1 FontAwesome;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 44px;
+    width: 95%;
+    height: 1px;
+    // background-color: #1976d2;
+    background: rgb(25, 118, 210) !important;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 35%, rgba(25, 118, 210, 1) 100%) !important;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .searchTxt:hover:after {
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  
+  .search-icon {
+    color: gray !important;
+  }
+  
+  .searchTxt:hover mat-icon.search-icon {
+    color: #1976d2 !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+

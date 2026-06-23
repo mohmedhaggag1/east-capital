@@ -1,0 +1,29 @@
+<div style="display: flex;align-items: flex-end;" [dir]="(direction) ? 'rtl' : 'ltr'" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <button style=" display: flex; align-items: center; justify-content: center;" mat-mini-fab color="secondary"
+    [matTooltip]="i18n.get('i18.global.close', 'Close')" matDialogClose>
+    <mat-icon style="color: darkred;">close</mat-icon>
+  </button>
+  &nbsp;
+  <h4 style="font-weight: bolder;color: white;">{{record | i18n_field: 'subject'}}</h4>
+</div>
+<mat-dialog-content>
+  <div [innerHTML]="htmlSafe"></div>
+</mat-dialog-content>
+<div class="modal-footer" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
+  <div class="row" *ngIf="show_checkbox">
+    <mat-checkbox matInput [checked]="accept_terms" (change)="accept_terms = $event.checked" name="accept_terms"
+      class="full-width" appearance="fill">
+      <mat-label>{{'accept_terms' | i18n : 'corr.accept_terms'}}</mat-label>
+    </mat-checkbox>
+  </div>
+  <div class="row"></div>
+  <button type="button" class="btn btn-primary" (click)="accept()" *ngIf="yes"
+    [disabled]="!accept_terms && show_checkbox">
+    {{yes}}
+  </button>
+  &nbsp;
+  <button type="button" class="btn btn-danger" (click)="decline()" *ngIf="no">
+    {{no}}
+  </button>
+</div>

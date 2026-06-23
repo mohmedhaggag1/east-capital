@@ -1,0 +1,83 @@
+.col-master {
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(158, 158, 158, 0.6117647059);
+    font-weight: bolder;
+    color: #9e9e9e;
+    max-width: 15rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-data {
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(158, 158, 158, 0.6117647059);
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+}
+
+.col-sub-master {
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(158, 158, 158, 0.6117647059);
+    max-width: 15rem;
+    text-align: center;
+}
+
+.col-sub-data {
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(158, 158, 158, 0.6117647059);
+    color: black;
+    text-align: center;
+}
+
+
+/* Disable the grayed-out effect on the mat-select */
+::ng-deep .mat-select-disabled .mat-select-placeholder {
+    color: inherit;
+    text-align: center;
+    /* Inherit the color from the parent */
+}
+
+::ng-deep .mat-select-disabled .mat-select-value {
+    color: inherit;
+    text-align: center;
+    /* Inherit the color from the parent */
+}
+
+::ng-deep .mat-select-disabled .mat-select-arrow {
+    border-color: currentColor;
+    /* Inherit the color from the parent */
+}
+
+::ng-deep .mat-select-disabled .mat-select-arrow::before {
+    background-color: currentColor;
+    /* Inherit the color from the parent */
+}
+
+/* Hide the arrow icon when mat-select is disabled */
+::ng-deep .mat-select-disabled .mat-select-arrow {
+    display: none;
+}
+
+
+/* In your global styles or component styles */
+.print-override {
+    max-height: none !important;
+    overflow-y: visible !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Ensure no margins or padding in the parent element */
+#print1 {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
