@@ -92,6 +92,7 @@
                               Name Arabic' | i18n : 'corr.studentNameArabic'}}</h3>
                           </div>
 
+                          <!-- haggag change first name validation based on nationality -->
                           <div class="row" style="display: flex; flex-wrap: wrap;">
                             <mat-form-field class="name-mat-form-field" floatLabel="always">
                               <mat-label> {{'first_name' | i18n : 'corr.first_name'}}
@@ -116,7 +117,7 @@
                               <input matInput [(ngModel)]="studentAc.grand_name_ar" name="grand_name_ar"
                                 (keyup)="onArabicKeyUp($event);" />
                             </mat-form-field>
-
+                            <!-- haggag change surname validation based on nationality -->
                             <mat-form-field class="name-mat-form-field" floatLabel="always">
                               <mat-label> {{'surname' | i18n : 'corr.surname'}} <span *ngIf="showGovCode" class="is_required">*</span>
                               </mat-label>
