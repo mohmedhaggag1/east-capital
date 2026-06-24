@@ -31,20 +31,21 @@
           (ionChange)="toggleAppTheme()"></ion-toggle>
       </ion-item> -->
 
-      <ion-item style="font-weight: bolder;" lines="full" *ngIf="enable_switch_lang">
+      <ion-item style="font-weight: bolder;" lines="full" *ngIf="true">
         <ion-img [src]="langImage" style="width: 1.5rem;"></ion-img>
         <ion-label color="dark"> &nbsp;
-          <span *ngIf="lang === 'ar'">{{ "English" |i18n :"corr.English" }}</span>
+          <span *ngIf="lang === 'ar'">{{ "English" |i18n :"corr .English" }}</span>
           <span *ngIf="lang === 'en'">{{ "Arabic" |i18n :"corr.Arabic" }}</span>
         </ion-label>
         <ion-toggle [(ngModel)]="isToggledLang" (ionChange)="toggleAppLang()"></ion-toggle>
       </ion-item>
 
-      <ion-item style="font-weight: bolder;" *ngIf="terms_conditions_url">
+       <ion-item style="font-weight: bolder;" *ngIf="terms_conditions_url">
         <a href="{{terms_conditions_url}}" target="_blank" class="ion-item-footer-link"><ion-label color="dark">
             Terms and Conditions
           </ion-label></a>
-      </ion-item>
+      </ion-item> 
+<!--  -->
 
       <ion-item style="font-weight: bolder;" *ngIf="privacy_policy_url">
         <a href="{{privacy_policy_url}}" target="_blank" class="ion-item-footer-link">
