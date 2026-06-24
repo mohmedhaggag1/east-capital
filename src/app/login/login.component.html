@@ -1,8 +1,7 @@
+<!-- haggag update login ui and add show password -->
 <ion-content scrollbar allowAllScreens="true" padding>
-
   <ion-row class="row-center app-background">
     <ion-col >
-      <!-- haggag hide logo -->
       <!-- <ion-row class="bg-transparent">
         <div class="vertical-center">
           <ion-img alt="Admission Portal" src="assets/images/{{logo}}.png" style="height: 18vh;padding-bottom: 0.5rem;"></ion-img>
@@ -28,11 +27,11 @@
             <!-- <h2 style="    text-align: center;">{{ "Welcome" | i18n : "corr.login.welcome" }}</h2> -->
             <p>Sign in to your account</p>
           </div>
-
+          
           <ion-item class="input-item" lines="none">
             <ion-icon name="person-outline" slot="start"></ion-icon>
             <ion-input type="text" required [(ngModel)]="userName" name="userName" placeholder="User Name">
-            </ion-input>
+            </ion-input> 
           </ion-item>
 
           <!-- <ion-item class="input-item" lines="none">
@@ -60,10 +59,14 @@
   </ion-icon>
 </ion-item>
 
-          <ion-button expand="block" class="login-btn" (click)="login()">
-            <!-- <ion-icon slot="start" name="log-in-outline"></ion-icon> -->
-            Sign In
-            
+         <ion-button
+            expand="block"
+            class="login-btn"
+            (click)="login()"
+            [disabled]="submitLoading">
+
+            {{ submitLoading ? 'Loading...' : 'Sign In' }}
+
           </ion-button>
 
           <ion-button *ngIf="isMobile" expand="block" fill="outline" class="finger-btn"
