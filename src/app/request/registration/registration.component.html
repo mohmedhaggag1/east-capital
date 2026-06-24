@@ -354,14 +354,14 @@
                             <textarea matInput style="height: 20px;" [(ngModel)]="studentContactData.adress"
                               (blur)="addressTouched = true" name="adress" placeholder="Ex. 123 Main St, Cairo, Egypt">
                             </textarea>
-                            <mat-icon class="is_required" matSuffix
-                              *ngIf="addressTouched && !isValidStr(studentContactData.adress , min_address_length)">error_outline</mat-icon>
-                            <mat-hint
+                            <!-- <mat-icon class="is_required" matSuffix
+                              *ngIf="addressTouched">error_outline</mat-icon> -->
+                            <!-- <mat-hint
                               *ngIf="addressTouched && !isValidStr(studentContactData.adress , min_address_length)"
                               style="color: red;">
                               {{' Please enter a valid value' | i18n : 'corr.err_fld_required'}} ,
                               {{ (' Min length' | i18n : 'corr.err_fld_min_value').replace('{0}', min_address_length) }}
-                            </mat-hint>
+                            </mat-hint> -->
                           </mat-form-field>
                         </div>
 

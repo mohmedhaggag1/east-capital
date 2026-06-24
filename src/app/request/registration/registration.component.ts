@@ -1072,12 +1072,12 @@ export class RegistrationComponent implements OnInit {
     return emailRegex.test(email);
   }
 
-  isValidStr(dataString: string, minLength: number): boolean {
-    if (!dataString || dataString.trim() === '' || dataString.length < minLength) {
-      return false;
-    }
-    return true;
-  }
+  // isValidStr(dataString: string, minLength: number): boolean {
+  //   if (!dataString || dataString.trim() === '' || dataString.length < minLength) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   eSendForm(handler: any, key: string, backendURL: string, formData: FormData) {
     formData.append('lang', this.lang);
