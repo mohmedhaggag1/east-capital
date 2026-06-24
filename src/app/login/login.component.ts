@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
   isMobile: boolean = false;
 
   logo: string = "";
-
+  passwordVisible = false;
+  submitLoading: boolean = false;
+  
   constructor(
     private provider: DataProvider,
     public i18n: I18N,
