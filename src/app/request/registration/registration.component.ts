@@ -663,25 +663,23 @@ export class RegistrationComponent implements OnInit {
   }
   /// ZidanBack
   async goForward(stepper: MatStepper) {
-    // if (stepper.selectedIndex === 0 || stepper.selectedIndex === 1) {
-    //   this.checkCitizenSerial();
-    //   this.currentStepId = stepper.selectedIndex;
-    // }
-    // let myElement = 'focus_step_' + stepper.selectedIndex;
-    // console.log(myElement);
-    // this.scrollToTargetAdjusted(myElement);
-    // if (!(await this.checkError(stepper.selectedIndex))) {
-    //   if (stepper.selectedIndex === 0) {
-    //     this.analytics.personalInfoCompleted();
-    //     this.router.navigate([this.path], { queryParams: { step: 'guardian-details' }, replaceUrl: true });
-    //   } else if (stepper.selectedIndex === 1) {
-    //     this.analytics.guardianDetailsCompleted();
-    //     this.router.navigate([this.path], { queryParams: { step: 'email-verification' }, replaceUrl: true });
-    //   }
-    //   stepper.next();
-    // }
-    stepper.next();
-
+    if (stepper.selectedIndex === 0 || stepper.selectedIndex === 1) {
+      this.checkCitizenSerial();
+      this.currentStepId = stepper.selectedIndex;
+    }
+    let myElement = 'focus_step_' + stepper.selectedIndex;
+    console.log(myElement);
+    this.scrollToTargetAdjusted(myElement);
+    if (!(await this.checkError(stepper.selectedIndex))) {
+      if (stepper.selectedIndex === 0) {
+        this.analytics.personalInfoCompleted();
+        this.router.navigate([this.path], { queryParams: { step: 'guardian-details' }, replaceUrl: true });
+      } else if (stepper.selectedIndex === 1) {
+        this.analytics.guardianDetailsCompleted();
+        this.router.navigate([this.path], { queryParams: { step: 'email-verification' }, replaceUrl: true });
+      }
+      stepper.next();
+    }
   }
 
   scrollToTargetAdjusted(elementName: string) {
