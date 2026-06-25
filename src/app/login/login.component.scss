@@ -136,3 +136,16 @@ ion-input {
   font-size: 22px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .px-5 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .row-center  {
+    align-items: start !important;
+    padding-top: 10rem;
+
+  }
+}

@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
     private fingerAuth: FingerprintAIO,
     private geolocation: Geolocation,
     private activatedRoute: ActivatedRoute) {
-
   }
 
   ngOnInit() {
@@ -104,7 +103,6 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
 
   ngOnDestroy() {
     if (this.sublang) {
