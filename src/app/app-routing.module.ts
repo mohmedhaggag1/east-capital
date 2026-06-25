@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./ess-version/version.module').then(m => m.VersionModule)
   },
-
+  // updated by haggag use lazy loading for registration module
   // { path: 'registration', component: RegistrationComponent, resolve: { constants: DataProvider } },
   {path: 'registration', loadChildren: () => import('./request/registration/registeration.module').then(m => m.RegistrationModule)},
   {path: 'registration/guradian-details', loadChildren: () => import('./request/registration/registeration.module').then(m => m.RegistrationModule),},
