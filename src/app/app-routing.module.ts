@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewRegistrationPage } from './request/view-registration/view-registration.page';
 import { DataProvider } from './providers/DataProvider';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RegistrationComponent } from './request/registration/registration.component';
+// import { RegistrationComponent } from './request/registration/registration.component';
 import { FilesAttachmentUploadComponent } from './request/files-attachment-upload/files-attachment-upload.component';
 import { EditRegistrationComponent } from './request/edit-registration/edit-registration.component';
 
@@ -19,9 +19,12 @@ const routes: Routes = [
       import('./ess-version/version.module').then(m => m.VersionModule)
   },
 
-  { path: 'registration', component: RegistrationComponent, resolve: { constants: DataProvider } },
-  { path: 'registration/guradian-details', component: RegistrationComponent, resolve: { constants: DataProvider } },
-  { path: 'registration/email-verifcation', component: RegistrationComponent, resolve: { constants: DataProvider } },
+  // { path: 'registration', component: RegistrationComponent, resolve: { constants: DataProvider } },
+  {path: 'registration', loadChildren: () => import('./request/registration/registeration.module').then(m => m.RegistrationModule)},
+  {path: 'registration/guradian-details', loadChildren: () => import('./request/registration/registeration.module').then(m => m.RegistrationModule),},
+  {path: 'registration/email-verifcation', loadChildren: () => import('./request/registration/registeration.module').then(m => m.RegistrationModule)},
+  // { path: 'registration/guradian-details', component: RegistrationComponent, resolve: { constants: DataProvider } },
+  // { path: 'registration/email-verifcation', component: RegistrationComponent, resolve: { constants: DataProvider } },
 
   { path: 'view', component: ViewRegistrationPage, resolve: { constants: DataProvider } },
   {

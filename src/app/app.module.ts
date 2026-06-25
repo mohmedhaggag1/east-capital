@@ -24,13 +24,13 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { RegistrationComponent } from './request/registration/registration.component';
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 import { MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { ThanksMessageComponent } from './request/registration/thanks-message/thanks-message.component';
 import { StudentApplicationFormComponent } from './request/student-application-form/student-application-form.component';
 import { SharedModule } from './shared.module';
+import { MagicScrollDirective } from 'src/assets/magin-scroll/magic-scroll.directive';
 // Import ngx-barcode module
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -38,9 +38,9 @@ import { SharedModule } from './shared.module';
     AppComponent,
     ViewRegistrationPage,
     NotFoundComponent,
-    RegistrationComponent,
     ThanksMessageComponent,
-    StudentApplicationFormComponent
+    StudentApplicationFormComponent,
+    MagicScrollDirective
   ],
   imports: [
     BrowserModule,
