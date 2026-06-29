@@ -2152,40 +2152,40 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  // validateDateOfBirth(dateOfBirth: string): boolean {
-  //   if (this.studentAc.citizen_serial_type === '2' && this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')) {
-  //     return true;
-  //   }
-  //   // Parse the string date to a Date object
-  //   const dobDate = new Date(dateOfBirth);
-  //   // Calculate current date
-  //   const currentDate = new Date();
-  //   // Calculate minimum and maximum birth dates based on age range
-  //   const minBirthDate = new Date(currentDate.getFullYear() - Constants.max_age, currentDate.getMonth(), currentDate.getDate());
-  //   const maxBirthDate = new Date(currentDate.getFullYear() - Constants.min_age, currentDate.getMonth(), currentDate.getDate());
-  //   // Check if the provided date of birth falls within the age range
-  //   return dobDate >= minBirthDate && dobDate <= maxBirthDate;
-  // }
-
   validateDateOfBirth(dateOfBirth: string): boolean {
-  if (
-    this.studentAc.citizen_serial_type === '2' &&
-    this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')
-  ) {
-    return true;
+    if (this.studentAc.citizen_serial_type === '2' && this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')) {
+      return true;
+    }
+    // Parse the string date to a Date object
+    const dobDate = new Date(dateOfBirth);
+    // Calculate current date
+    const currentDate = new Date();
+    // Calculate minimum and maximum birth dates based on age range
+    const minBirthDate = new Date(currentDate.getFullYear() - Constants.max_age, currentDate.getMonth(), currentDate.getDate());
+    const maxBirthDate = new Date(currentDate.getFullYear() - Constants.min_age, currentDate.getMonth(), currentDate.getDate());
+    // Check if the provided date of birth falls within the age range
+    return dobDate >= minBirthDate && dobDate <= maxBirthDate;
   }
 
-  const dobDate = new Date(dateOfBirth);
-  const currentDate = new Date();
+//   validateDateOfBirth(dateOfBirth: string): boolean {
+//   if (
+//     this.studentAc.citizen_serial_type === '2' &&
+//     this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')
+//   ) {
+//     return true;
+//   }
 
-  const maxBirthDate = new Date(
-    currentDate.getFullYear() - Constants.min_age,
-    currentDate.getMonth(),
-    currentDate.getDate()
-  );
+//   const dobDate = new Date(dateOfBirth);
+//   const currentDate = new Date();
 
-  return dobDate <= maxBirthDate;
-}
+//   const maxBirthDate = new Date(
+//     currentDate.getFullYear() - Constants.min_age,
+//     currentDate.getMonth(),
+//     currentDate.getDate()
+//   );
+
+//   return dobDate <= maxBirthDate;
+// }
 
   onPhoneNumberKeyUp(event: any) {
     const input = event.target as HTMLInputElement;
