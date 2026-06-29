@@ -166,7 +166,12 @@ export class RegistrationComponent implements OnInit {
     private analytics: AnalyticsService
   ) { }
 
+  maxBirthDate: Date = new Date();
+
   async ngOnInit() {
+ this.maxBirthDate = new Date();
+  this.maxBirthDate.setFullYear(this.maxBirthDate.getFullYear() - 15);
+    
     this.analytics.admissionStarted();
 
     this.path = this.router.url.split('?')[0].replace('/', '');
@@ -1072,13 +1077,12 @@ export class RegistrationComponent implements OnInit {
     return emailRegex.test(email);
   }
 
-  // haggag remove address validation
-  // isValidStr(dataString: string, minLength: number): boolean {
-  //   if (!dataString || dataString.trim() === '' || dataString.length < minLength) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  isValidStr(dataString: string, minLength: number): boolean {
+    if (!dataString || dataString.trim() === '' || dataString.length < minLength) {
+      return false;
+    }
+    return true;
+  }
 
   eSendForm(handler: any, key: string, backendURL: string, formData: FormData) {
     formData.append('lang', this.lang);
@@ -1166,13 +1170,10 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_degree_type_code_select') {
       this.comboxArrDegreeType = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
-      this.comboxArrDegreeType.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_transportation_areas_select') {
       this.comboxArrTransportationAreas = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === 'populate_governorate_code_select') {
       this.comboxArrGovernorateCode = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
-      // haggag sort governorate code by name
-      this.comboxArrGovernorateCode.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_recognized_universities_select') {
       this.comboxArr_recognized_universities = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === 'populate_recognized_collages_select') {
@@ -1191,7 +1192,6 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_nationally_select') {
       this.comboxArrNationality = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
-       this.comboxArrNationality.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
       for (let element of this.comboxArrNationality) {
         if (element.additional_data1 === '1') {
           this.studentAc.citizen_serial_type = "1";
@@ -1304,9 +1304,6 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_country_select') {
       this.comboxArrCountry = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
-      // haggag sort country list by name
-      this.comboxArrCountry.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
-
     } else if (key === "populate_school_select") {
       this.comboxArr_school_id = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === "populate_miliarity_region_select") {
@@ -2160,40 +2157,40 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  // validateDateOfBirth(dateOfBirth: string): boolean {
-  //   if (this.studentAc.citizen_serial_type === '2' && this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')) {
-  //     return true;
-  //   }
-  //   // Parse the string date to a Date object
-  //   const dobDate = new Date(dateOfBirth);
-  //   // Calculate current date
-  //   const currentDate = new Date();
-  //   // Calculate minimum and maximum birth dates based on age range
-  //   const minBirthDate = new Date(currentDate.getFullYear() - Constants.max_age, currentDate.getMonth(), currentDate.getDate());
-  //   const maxBirthDate = new Date(currentDate.getFullYear() - Constants.min_age, currentDate.getMonth(), currentDate.getDate());
-  //   // Check if the provided date of birth falls within the age range
-  //   return dobDate >= minBirthDate && dobDate <= maxBirthDate;
-  // }
-
   validateDateOfBirth(dateOfBirth: string): boolean {
-  if (
-    this.studentAc.citizen_serial_type === '2' &&
-    this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')
-  ) {
-    return true;
+    if (this.studentAc.citizen_serial_type === '2' && this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')) {
+      return true;
+    }
+    // Parse the string date to a Date object
+    const dobDate = new Date(dateOfBirth);
+    // Calculate current date
+    const currentDate = new Date();
+    // Calculate minimum and maximum birth dates based on age range
+    const minBirthDate = new Date(currentDate.getFullYear() - Constants.max_age, currentDate.getMonth(), currentDate.getDate());
+    const maxBirthDate = new Date(currentDate.getFullYear() - Constants.min_age, currentDate.getMonth(), currentDate.getDate());
+    // Check if the provided date of birth falls within the age range
+    return dobDate >= minBirthDate && dobDate <= maxBirthDate;
   }
 
-  const dobDate = new Date(dateOfBirth);
-  const currentDate = new Date();
+//   validateDateOfBirth(dateOfBirth: string): boolean {
+//   if (
+//     this.studentAc.citizen_serial_type === '2' &&
+//     this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')
+//   ) {
+//     return true;
+//   }
 
-  const maxBirthDate = new Date(
-    currentDate.getFullYear() - Constants.min_age,
-    currentDate.getMonth(),
-    currentDate.getDate()
-  );
+//   const dobDate = new Date(dateOfBirth);
+//   const currentDate = new Date();
 
-  return dobDate <= maxBirthDate;
-}
+//   const maxBirthDate = new Date(
+//     currentDate.getFullYear() - Constants.min_age,
+//     currentDate.getMonth(),
+//     currentDate.getDate()
+//   );
+
+//   return dobDate <= maxBirthDate;
+// }
 
   onPhoneNumberKeyUp(event: any) {
     const input = event.target as HTMLInputElement;

@@ -303,8 +303,7 @@
                             <mat-label>{{'birth_date' | i18n : 'corr.birth_date'}} <span
                                 class="is_required">*</span></mat-label>
                             <input matInput [matDatepicker]="picker1" [(ngModel)]="studentAc.birth_date"
-                              name="birth_date" [disabled]="disabledCitizenSerialType" [max]="today"
-                              (ngModelChange)="checkDateOfBirth()" />
+                              name="birth_date" [disabled]="disabledCitizenSerialType"  [max]="maxBirthDate"                              (ngModelChange)="checkDateOfBirth()" />
                             <mat-datepicker-toggle matSuffix [for]="picker1">
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
