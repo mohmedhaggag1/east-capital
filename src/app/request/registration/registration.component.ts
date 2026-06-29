@@ -1188,6 +1188,7 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_nationally_select') {
       this.comboxArrNationality = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+       this.comboxArrNationality.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
       for (let element of this.comboxArrNationality) {
         if (element.additional_data1 === '1') {
           this.studentAc.citizen_serial_type = "1";

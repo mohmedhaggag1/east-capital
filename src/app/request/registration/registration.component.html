@@ -66,16 +66,30 @@
                             <mat-select [(ngModel)]="studentAc.country_id" name="country_id"
                               (selectionChange)="onChangeNationalityId();checkCitizenSerial();"
                               (closed)="search_country_id=''">
-
-                              <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
+                            <!-- // haggag update search country list based on language and search style -->
+                             <div class="search">
+                               <div class="relative">
+                                <mat-icon
+                                  matSuffix
+                                  class="clear-icon"
+                                  [class.show-clear-icon]="search_country_id"
+                                  (click)="search_country_id = ''">
+                                  close
+                                </mat-icon>             
+                                                   
                                 <input class="text-search-list" matInput [(ngModel)]="search_country_id"
                                   placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
-                                <mat-icon style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                                <mat-icon class="search-icon" style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
                               </div>
+                             </div>
+
+                             <div class="not-fond text-center" *ngIf="(comboxArrNationality | filter:search_country_id:lang).length === 0">
+                              {{'No results found' | i18n: 'corr.no_results_found'}}
+                             </div>
 
                               <mat-option *ngFor="let comboxRec of comboxArrNationality | filter:search_country_id:lang"
                                 [value]="comboxRec.id">
-                                {{ comboxRec.name[lang]}}
+                                {{ comboxRec.name[lang] }}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
