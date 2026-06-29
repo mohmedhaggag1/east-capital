@@ -348,12 +348,35 @@
                             </mat-label>
                             <mat-select [(ngModel)]="studentContactData.gov_code" name="gov_code"
                               (closed)="search_std_contact_gov_code=''">
-                              <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
+                              
+                              
+                              <!-- <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
                                 <input class="text-search-list" matInput [(ngModel)]="search_std_contact_gov_code"
                                   placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
                                 <mat-icon style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
-                              </div>
+                              </div> -->
 
+
+                              <div class="search">
+                               <div class="relative">
+                                <mat-icon
+                                  matSuffix
+                                  class="clear-icon"
+                                  [class.show-clear-icon]="search_std_contact_gov_code"
+                                  (click)="search_std_contact_gov_code = ''">
+                                  close
+                                </mat-icon>             
+                                                   
+                                <input class="text-search-list" matInput [(ngModel)]="search_std_contact_gov_code"
+                                  placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
+                                <mat-icon class="search-icon" style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                              </div>
+                             </div>
+
+
+                              <div class="not-fond text-center" *ngIf="(comboxArrGovernorateCode | filter:search_std_contact_gov_code:lang).length === 0">
+                                {{'No results found' | i18n: 'corr.no_results_found'}}
+                              </div>
                               <mat-option
                                 *ngFor="let comboxRec of comboxArrGovernorateCode | filter:search_std_contact_gov_code:lang"
                                 [value]="comboxRec.id">
@@ -370,11 +393,33 @@
                             </mat-label>
                             <mat-select [(ngModel)]="studentContactData.address_country_id" name="address_country_id"
                               (closed)="search_std_address_country_id=''">
-                              <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
+                              
+                              <!-- <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
                                 <input class="text-search-list" matInput [(ngModel)]="search_std_address_country_id"
                                   placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
                                 <mat-icon style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                              </div> -->
+
+
+                             <div class="search">
+                               <div class="relative">
+                                <mat-icon
+                                  matSuffix
+                                  class="clear-icon"
+                                  [class.show-clear-icon]="search_std_address_country_id"
+                                  (click)="search_std_address_country_id = ''">
+                                  close
+                                </mat-icon>             
+                                                   
+                                <input class="text-search-list" matInput [(ngModel)]="search_std_address_country_id"
+                                  placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
+                                <mat-icon class="search-icon" style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
                               </div>
+                             </div>
+                              
+                             <div class="not-fond text-center" *ngIf="(comboxArrCountry | filter:search_std_address_country_id:lang).length === 0">
+                              {{'No results found' | i18n: 'corr.no_results_found'}}
+                             </div>
 
                               <mat-option
                                 *ngFor="let comboxRec of comboxArrCountry | filter:search_std_address_country_id:lang"
