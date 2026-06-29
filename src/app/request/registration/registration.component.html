@@ -776,11 +776,32 @@
                             </mat-label>
                             <mat-select [(ngModel)]="studentAc.certificate_country_id" name="certificate_country_id"
                               (closed)="search_certificate_country_id=''">
-                              <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
+                            
+                              <!-- <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
                                 <input class="text-search-list" matInput [(ngModel)]="search_certificate_country_id"
                                   placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
                                 <mat-icon style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                              </div> -->
+                             <div class="search">
+                               <div class="relative">
+                                <mat-icon
+                                  matSuffix
+                                  class="clear-icon"
+                                  [class.show-clear-icon]="search_certificate_country_id"
+                                  (click)="search_certificate_country_id = ''">
+                                  close
+                                </mat-icon>             
+                                                   
+                                <input class="text-search-list" matInput  [(ngModel)]="search_certificate_country_id"
+                                  placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
+                                <mat-icon class="search-icon" style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
                               </div>
+                             </div>
+                              
+                             <div class="not-fond text-center" *ngIf="(comboxArrCountry | filter:search_certificate_country_id:lang).length === 0">
+                              {{'No results found' | i18n: 'corr.no_results_found'}}
+                             </div>
+
                               <mat-option
                                 *ngFor="let comboxRec of comboxArrCountry | filter:search_certificate_country_id:lang"
                                 [value]="comboxRec.id" (click)="onChangeCertificateCountry(comboxRec);populatecomboxArr_academyCode();">
@@ -841,11 +862,34 @@
                             <mat-select [(ngModel)]="studentAc.pre_university_degree" name="pre_university_degree"
                               (selectionChange)="onChangePreUniversityDegree();populatecomboxArr_academyCode();"
                               (closed)="search_pre_university_degree=''">
-                              <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
+                              
+                              <!-- <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
                                 <input class="text-search-list" matInput [(ngModel)]="search_pre_university_degree"
                                   placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
                                 <mat-icon style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                              </div> -->
+                              
+                              <div class="search">
+                                <div class="relative">
+                                  <mat-icon
+                                    matSuffix
+                                    class="clear-icon"
+                                    [class.show-clear-icon]="search_pre_university_degree"
+                                    (click)="search_pre_university_degree = ''">
+                                    close
+                                  </mat-icon>             
+                                                    
+                                  <input class="text-search-list" matInput  [(ngModel)]="search_pre_university_degree"
+                                    placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
+                                  <mat-icon class="search-icon" style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                                </div>
                               </div>
+                              
+                              <div class="not-fond text-center" *ngIf="(comboxArrDegreeType | filter:search_pre_university_degree:lang).length === 0">
+                              {{'No results found' | i18n: 'corr.no_results_found'}}
+                             </div>
+
+
                               <mat-option
                                 *ngFor="let comboxRec of comboxArrDegreeType | filter:search_pre_university_degree:lang"
                                 [value]="comboxRec.id"

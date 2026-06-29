@@ -1166,6 +1166,7 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_degree_type_code_select') {
       this.comboxArrDegreeType = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArrDegreeType.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_transportation_areas_select') {
       this.comboxArrTransportationAreas = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === 'populate_governorate_code_select') {
