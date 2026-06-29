@@ -1170,6 +1170,8 @@ export class RegistrationComponent implements OnInit {
       this.comboxArrTransportationAreas = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === 'populate_governorate_code_select') {
       this.comboxArrGovernorateCode = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      // haggag sort governorate code by name
+      this.comboxArrGovernorateCode.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_recognized_universities_select') {
       this.comboxArr_recognized_universities = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === 'populate_recognized_collages_select') {
