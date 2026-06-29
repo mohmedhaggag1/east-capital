@@ -1301,6 +1301,9 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_country_select') {
       this.comboxArrCountry = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      // haggag sort country list by name
+      this.comboxArrCountry.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
+
     } else if (key === "populate_school_select") {
       this.comboxArr_school_id = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === "populate_miliarity_region_select") {
