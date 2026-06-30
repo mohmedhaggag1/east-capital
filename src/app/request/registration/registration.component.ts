@@ -151,6 +151,8 @@ export class RegistrationComponent implements OnInit {
   emailParentTouched: boolean = false;
   min_address_length: number = 20;
   today: Date = new Date();
+  maxBirthDate: Date = new Date();
+  isSharqElasema : boolean = true;
   constructor(
     public provider: DataProvider,
     public i18n: I18N,
@@ -166,11 +168,10 @@ export class RegistrationComponent implements OnInit {
     private analytics: AnalyticsService
   ) { }
 
-  maxBirthDate: Date = new Date();
 
   async ngOnInit() {
- this.maxBirthDate = new Date();
-  this.maxBirthDate.setFullYear(this.maxBirthDate.getFullYear() - 15);
+    this.maxBirthDate = new Date();
+    this.maxBirthDate.setFullYear(this.maxBirthDate.getFullYear() - 15);
     
     this.analytics.admissionStarted();
 
@@ -668,23 +669,25 @@ export class RegistrationComponent implements OnInit {
   }
   /// ZidanBack
   async goForward(stepper: MatStepper) {
-    if (stepper.selectedIndex === 0 || stepper.selectedIndex === 1) {
-      this.checkCitizenSerial();
-      this.currentStepId = stepper.selectedIndex;
-    }
-    let myElement = 'focus_step_' + stepper.selectedIndex;
-    console.log(myElement);
-    this.scrollToTargetAdjusted(myElement);
-    if (!(await this.checkError(stepper.selectedIndex))) {
-      if (stepper.selectedIndex === 0) {
-        this.analytics.personalInfoCompleted();
-        this.router.navigate([this.path], { queryParams: { step: 'guardian-details' }, replaceUrl: true });
-      } else if (stepper.selectedIndex === 1) {
-        this.analytics.guardianDetailsCompleted();
-        this.router.navigate([this.path], { queryParams: { step: 'email-verification' }, replaceUrl: true });
-      }
-      stepper.next();
-    }
+    // if (stepper.selectedIndex === 0 || stepper.selectedIndex === 1) {
+    //   this.checkCitizenSerial();
+    //   this.currentStepId = stepper.selectedIndex;
+    // }
+    // let myElement = 'focus_step_' + stepper.selectedIndex;
+    // console.log(myElement);
+    // this.scrollToTargetAdjusted(myElement);
+    // if (!(await this.checkError(stepper.selectedIndex))) {
+    //   if (stepper.selectedIndex === 0) {
+    //     this.analytics.personalInfoCompleted();
+    //     this.router.navigate([this.path], { queryParams: { step: 'guardian-details' }, replaceUrl: true });
+    //   } else if (stepper.selectedIndex === 1) {
+    //     this.analytics.guardianDetailsCompleted();
+    //     this.router.navigate([this.path], { queryParams: { step: 'email-verification' }, replaceUrl: true });
+    //   }
+    //   stepper.next();
+    // }
+          stepper.next();
+
   }
 
   scrollToTargetAdjusted(elementName: string) {
@@ -1793,7 +1796,7 @@ export class RegistrationComponent implements OnInit {
       }
       this.parentContactData1.relative_relation_name = this.parentContactData1.relative_relation_name.trim();
       this.parentContactData1.mobile = this.parentContactData1.mobile.trim();
-      if (this.showGovCode) {
+      if (this.showGovCode   && !this.isSharqElasema) {
         if (this.parentContactData1.relative_relation_name === "") {
           if (errorStrArr !== "") {
             errorStrArr += "</br>";
@@ -1813,7 +1816,7 @@ export class RegistrationComponent implements OnInit {
           isThereError = true;
         }
 
-        if (this.parentContactData1.mobile === "") {
+        if (!this.isSharqElasema && this.parentContactData1.mobile === "") {
           if (errorStrArr !== "") {
             errorStrArr += "</br>";
           }
@@ -1821,7 +1824,7 @@ export class RegistrationComponent implements OnInit {
           isThereError = true;
         }
 
-        if (this.checkFldIsHidden('enable_validate_on_email_parent_contact_data1')) {
+        if (!this.isSharqElasema && this.checkFldIsHidden('enable_validate_on_email_parent_contact_data1')) {
           if (this.parentContactData1.email === "") {
             if (errorStrArr !== "") {
               errorStrArr += "</br>";
@@ -1832,7 +1835,7 @@ export class RegistrationComponent implements OnInit {
         }
       }
 
-      if (this.parentContactData1.mobile !== "") {
+      if (this.parentContactData1.mobile !== "" && !this.isSharqElasema) {
         if (this.parentContactData1.mobile_country_code === "+2" && this.parentContactData1.mobile.length != 11) {
           if (errorStrArr !== "") {
             errorStrArr += "</br>";
@@ -1847,18 +1850,18 @@ export class RegistrationComponent implements OnInit {
             }
             errorStrArr += "-" + this.i18n.get('corr.ERROR_PARENT_MOBILE_2', 'ERROR_PARENT_MOBILE_2').trim();
             isThereError = true;
-          }
-        }
-      }
+                }
+              }
+            }
 
-      if (this.parentContactData1.email != "") {
-        if (!regexMail.test(this.parentContactData1.email)) {
-          if (errorStrArr !== "") {
-            errorStrArr += "</br>";
-          }
-          errorStrArr += "-" + this.i18n.get('corr.ERROR_CONTACT_EMAIL_PARENT', 'ERROR_CONTACT_EMAIL_PARENT').trim();
-          isThereError = true;
-        }
+            if (!this.isSharqElasema && this.parentContactData1.email != "") {
+              if (!regexMail.test(this.parentContactData1.email)) {
+                if (errorStrArr !== "") {
+                  errorStrArr += "</br>";
+                }
+                errorStrArr += "-" + this.i18n.get('corr.ERROR_CONTACT_EMAIL_PARENT', 'ERROR_CONTACT_EMAIL_PARENT').trim();
+                isThereError = true;
+              }
 
         if (this.checkFldIsHidden('enable_check_duplicated_email') === true) {
           if (this.parentContactData1.email === this.studentContactData.email) {

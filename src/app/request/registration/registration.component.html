@@ -635,13 +635,16 @@
                         </div>
                       </div>
 
-                      <div class="row" style="direction: rtl;">
+                 <!-- haggag hide Legal Guardian Information -->
+                      <ng-container *ngIf="!isSharqElasema">
+                        
+                       <div class="row" style="direction: rtl;">
                         <div class="col">
                           <h3 style="font-weight: bolder; color: #233662; text-align: end;">
                             {{'parentContactData1En' | i18n : 'corr.parentContactData1En'}}
                           </h3>
                         </div>
-                      </div>
+                      </div> 
 
                       <div class="row">
                         <div class="col" style="display: flex; align-items: flex-end;">
@@ -758,6 +761,8 @@
                           </mat-form-field>
                         </div>
                       </div>
+                      </ng-container>
+
 
                       <div class="row" style="direction: rtl;">
                         <div class="col">
@@ -851,8 +856,8 @@
                           </mat-form-field>
                         </div>
                       </div>
-                      <div class="row">
 
+                      <div class="row">
                         <div class="col">
                           <mat-form-field class="full-width">
                             <mat-label> {{'pre_university_degree' | i18n : 'corr.pre_university_degree'}} <span
