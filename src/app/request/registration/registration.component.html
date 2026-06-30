@@ -575,9 +575,9 @@
                   <div class="content">
 
                     <div class="form-group" [ngClass]="{'disabled':isDisabled}">
-
+                  <!-- mother data -->
                       <div class="row" *ngIf="showGovCode && !checkFldIsHidden('mohter_name')">
-                        <div class="col" style="display: flex; align-items: flex-end;">
+                        <div class="col-lg-4" style="display: flex; align-items: flex-end;">
                           <mat-form-field class="full-width">
                             <mat-label>
                               {{'mohterName' | i18n : 'corr.mohterName'}} <span class="is_required"
@@ -586,10 +586,17 @@
                             <input matInput [(ngModel)]="parentContactData3.relative_relation_name" />
                           </mat-form-field>
                         </div>
-                      </div>
+                      
+                        <div class="col-lg-4" style=" display: flex; align-items: center;">
+                          <mat-form-field class="full-width">
+                            <mat-label> {{'Mother email' | i18n : 'corr.motherEmail'}} </mat-label>
+                            &nbsp;
+                            <input matInput [(ngModel)]="parentContactData3.email" type="email"
+                              placeholder="Ex. mohamed@example.com" name="email" />
+                          </mat-form-field>
+                        </div>
 
-                      <div class="row" *ngIf="showGovCode && !checkFldIsHidden('mohter_name')">
-                        <div class="col" style=" display: flex; align-items: center;">
+                        <div class="col-lg-4" style=" display: flex; align-items: center;">
                           <mat-select class="country-code" [(ngModel)]="parentContactData3.mobile_country_code"
                             name="mobile_country_code" (closed)="search_mother_mobile_country_code=''">
 
@@ -625,18 +632,70 @@
                           </mat-form-field>
 
                         </div>
-                        <div class="col" style=" display: flex; align-items: center;">
+                        
+                      </div>
+                <!-- end  mother data -->
+
+                 <!-- father data -->
+                      <div class="row" *ngIf="showGovCode && !checkFldIsHidden('father_name')">
+                        <div class="col -lg-4" style="display: flex; align-items: flex-end;">
                           <mat-form-field class="full-width">
-                            <mat-label> {{'Mother email' | i18n : 'corr.motherEmail'}} </mat-label>
+                            <mat-label>
+                              {{'fatherName' | i18n : 'corr.fatherName'}} <span class="is_required"
+                                *ngIf="!checkFldIsHidden('stop_validate_on_mother_name')">*</span>
+                            </mat-label>
+                            <input matInput [(ngModel)]="fatherContactData4.relative_relation_name" />
+                          </mat-form-field>
+                        </div>
+                            
+                        <div class="col-lg-4" style=" display: flex; align-items: center;">
+                          <mat-form-field class="full-width">
+                            <mat-label> {{'Father email' | i18n : 'corr.fatherEmail'}} </mat-label>
                             &nbsp;
-                            <input matInput [(ngModel)]="parentContactData3.email" type="email"
+                            <input matInput [(ngModel)]="fatherContactData4.email" type="email"
                               placeholder="Ex. mohamed@example.com" name="email" />
                           </mat-form-field>
                         </div>
-                      </div>
 
+                        <div class="col-lg-4" style=" display: flex; align-items: center;">
+                          <mat-select class="country-code" [(ngModel)]="fatherContactData4.mobile_country_code"
+                            name="mobile_country_code" (closed)="search_father_mobile_country_code=''">
+
+                            <div class="row" style="display: flex;flex-wrap: nowrap;margin: 0.5rem;">
+                              <input class="text-search-list" matInput [(ngModel)]="search_father_mobile_country_code"
+                                placeholder="{{ 'Search' | i18n: 'corr.search'}}" (keydown)="handleInput($event)">
+                              <mat-icon style="overflow: unset;color: #1976d2;" matSuffix>search</mat-icon>
+                            </div>
+
+                            <mat-select-trigger
+                              *ngIf="getSelectedCountryCodeLabel(fatherContactData4.mobile_country_code) as selectedLabel">
+                              <span style="display: flex;font-weight: bolder;">
+                                <img loading="lazy" style="max-width: 1.5rem;border-radius: 0.3rem;"
+                                  [src]="selectedLabel.src">
+                                {{ selectedLabel.label }}
+                              </span>
+                            </mat-select-trigger>
+
+                            <mat-option
+                              *ngFor="let option of provider.options | filterAny:search_father_mobile_country_code"
+                              [value]="option.value">
+                              <img loading="lazy" style="max-width: 1.5rem;border-radius: 0.3rem;" [src]="option.src">
+                              {{ option.label }} {{option | i18n_field: 'name'}}
+                            </mat-option>
+                          </mat-select>
+                          &nbsp;
+                          <mat-form-field class="full-width">
+                            <mat-label> {{'Father Mobile' | i18n : 'corr.fatherMobile'}} </mat-label>
+                            &nbsp;
+                            <input matInput [(ngModel)]="fatherContactData4.mobile" name="mobile"
+                              placeholder="01000000000" (keyup)="onPhoneNumberKeyUp($event)" />
+
+                          </mat-form-field>
+                        </div>
+                      </div>
+                <!-- end  father data -->
                  <!-- haggag hide Legal Guardian Information -->
-                      <ng-container *ngIf="!isSharqElasema">
+                      <ng-container *ngIf="isSharqElasema">
                         
                        <div class="row" style="direction: rtl;">
                         <div class="col">

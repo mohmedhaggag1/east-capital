@@ -40,6 +40,18 @@
             "ar": "اسم الأم",
             "en": "Mother Name"
         },
+         "fatherMobile": {
+            "ar": "موبايل الأب",
+            "en": "Father Mobile"
+        },
+        "fatherEmail": {
+            "ar": "بريد الأب الإلكتروني",
+            "en": "Father Email"
+        },
+        "fatherName": {
+            "ar": "اسم الأب",
+            "en": "Father Name"
+        },
         "high_school_final_percentage": {
             "ar": "النسبة المئوية النهائية للثانوية العامة",
             "en": "High School Final Percentage"

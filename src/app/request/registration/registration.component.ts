@@ -58,6 +58,7 @@ export class RegistrationComponent implements OnInit {
   studentContactData: StudentRequestContacts = new StudentRequestContacts();
   parentContactData1: StudentRequestContacts = new StudentRequestContacts();
   parentContactData3: StudentRequestContacts = new StudentRequestContacts();
+  fatherContactData4: StudentRequestContacts = new StudentRequestContacts();
 
   wishesArray: StudentRequestWishes[] = [];
   transformerUniversitiesArr: TransformerUniversities[] = [];
@@ -637,6 +638,13 @@ export class RegistrationComponent implements OnInit {
                 this.parentContactData3.relation_type = 4;
                 formData.append('parentContactData3', JSON.stringify(this.parentContactData3));
               }
+
+              if(!this.checkFldIsHidden('father_name') && this.fatherContactData4.relative_relation_name) {
+                this.fatherContactData4.relative_relation_id = "4";
+                this.fatherContactData4.relation_type = 4;
+                formData.append('fatherContactData4', JSON.stringify(this.fatherContactData4));
+              }
+
               formData.append('wishesArray', JSON.stringify(this.wishesArray));
               formData.append('transformerUniversitiesArr', JSON.stringify(this.transformerUniversitiesArr));
               formData.append('siblingsArr', JSON.stringify(this.siblingsArr));
@@ -1173,10 +1181,13 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_degree_type_code_select') {
       this.comboxArrDegreeType = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArrDegreeType.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_transportation_areas_select') {
       this.comboxArrTransportationAreas = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArrTransportationAreas.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_governorate_code_select') {
       this.comboxArrGovernorateCode = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArrGovernorateCode.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === 'populate_recognized_universities_select') {
       this.comboxArr_recognized_universities = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === 'populate_recognized_collages_select') {
@@ -1195,6 +1206,7 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_nationally_select') {
       this.comboxArrNationality = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+        this.comboxArrNationality.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
       for (let element of this.comboxArrNationality) {
         if (element.additional_data1 === '1') {
           this.studentAc.citizen_serial_type = "1";
@@ -1307,10 +1319,13 @@ export class RegistrationComponent implements OnInit {
       }
     } else if (key === 'populate_country_select') {
       this.comboxArrCountry = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArrCountry.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === "populate_school_select") {
       this.comboxArr_school_id = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArr_school_id.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === "populate_miliarity_region_select") {
       this.comboxArr_miliarity_region = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
+      this.comboxArr_miliarity_region.sort((a, b) => a.name[this.lang].localeCompare(b.name[this.lang]));
     } else if (key === "populate_achievement_select") {
       this.selectedStudentRequestAchievements.comboxArr_achievement = Manipulate.set_fill(new ComboBoxRec(), smartResponse.resultset);
     } else if (key === "populate_study_in_egypt_msg") {
