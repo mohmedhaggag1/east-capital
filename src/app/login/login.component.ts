@@ -119,7 +119,6 @@ export class LoginComponent implements OnInit {
       isThereError = true;
       msg += this.i18n.get("corr.global.ERROR_EMPTY_USERNAME", "ERROR_EMPTY_USERNAME");
       this.startCheckVerify = false;
-      this.submitLoading = false;
     }
 
     if ((typeof this.password === 'undefined') || (this.password === null) || (this.password === '')) {
@@ -129,12 +128,11 @@ export class LoginComponent implements OnInit {
       }
       msg += this.i18n.get("corr.global.ERROR_EMPTY_PASSWORD", "ERROR_EMPTY_PASSWORD");
       this.startCheckVerify = false;
-      this.submitLoading = false;
     }
 
     if (isThereError) {
-      this.ui.error(msg);
       this.submitLoading = false;
+      this.ui.error(msg);
       return;
     } 
 
@@ -170,27 +168,28 @@ export class LoginComponent implements OnInit {
             fingerprintRecord.p = this.password;
             localStorage.setItem('fingerprint-record', this.provider.encrypt(JSON.stringify(fingerprintRecord)));
             setTimeout(() => {
+              this.submitLoading = false;
               SessionProvider.subject_user.next(SessionProvider.user);
               this.ws.checkUserSession();
               this.router.navigate(['view'], { replaceUrl: true });
             }, 1000);
           } else {
+            this.submitLoading = false;
             this.ui.error(this.i18n.get('corr.global.' + response['message'], "Error ... "));
             this.startCheckVerify = false;
-            this.submitLoading = false;
           }
         } catch (error) {
+            this.submitLoading = false;
           SessionProvider.user = new Users();
           SessionProvider.subject_user.next(SessionProvider.user);
           this.ui.error(this.i18n.get("corr.global.EXCEPTION_GETTING_USER_DATA", "EXCEPTION_GETTING_USER_DATA"));
           this.startCheckVerify = false;
-          this.submitLoading = false;
         }
       }, (exception) => {
+        this.submitLoading = false;
         console.trace(exception);
         this.ui.error(this.i18n.get("corr.global.EXCEPTION_GETTING_USER_DATA", "EXCEPTION_GETTING_USER_DATA"));
         this.startCheckVerify = false;
-        this.submitLoading = false;
       });
   }
 

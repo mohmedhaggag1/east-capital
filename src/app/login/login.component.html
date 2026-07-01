@@ -66,6 +66,7 @@
             [disabled]="submitLoading">
 
             {{ submitLoading ? 'Loading...' : 'Sign In' }}
+            <i *ngIf="submitLoading" class='bx bx-loader-circle bx-spin bx-rotate-90 mr-50 fs-20'></i>
 
           </ion-button>
 

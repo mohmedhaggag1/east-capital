@@ -26,7 +26,7 @@
                   <div class="content">
                     <div class="form-group" [ngClass]="{'disabled':isDisabled}">
                       <div class="row">
-                        <div class="col">
+                        <div [ngClass]="{'col':isSharqElasema,'col-6':!isSharqElasema}">
                           <!-- <div class="row">
                             <div class="col"> -->
                           <!-- <mat-label> {{'applyYear' | i18n : 'corr.applyYear'}}
@@ -59,7 +59,7 @@
 
                         </div>
 
-                        <div class="col">
+                        <div [ngClass]="{'col':isSharqElasema,'col-6':!isSharqElasema}">
                           <mat-form-field class="full-width">
                             <mat-label> {{'country' | i18n : 'corr.country'}}<span class="is_required">*</span>
                             </mat-label>
@@ -95,6 +95,17 @@
                           </mat-form-field>
                         </div>
 
+                        <div *ngIf="isSharqElasema" style="display: flex ; align-items: center;" class="col-3">
+                          <mat-radio-group [(ngModel)]="isArabicCountry" style="display: flex; align-items: center;justify-content: space-around;width: 100%;">
+                            <mat-radio-button [value]="true">
+                              {{ 'arabian' | i18n : 'corr.arabian' }}
+                            </mat-radio-button>
+
+                            <mat-radio-button [value]="false">
+                              {{ 'notArabian' | i18n : 'corr.notArabian' }}
+                            </mat-radio-button>
+                          </mat-radio-group>
+                        </div>
                       </div>
 
                       <div class="row" style="direction: rtl;">
@@ -110,14 +121,14 @@
                           <div class="row" style="display: flex; flex-wrap: wrap;">
                             <mat-form-field class="name-mat-form-field" floatLabel="always">
                               <mat-label> {{'first_name' | i18n : 'corr.first_name'}}
-                                 <span *ngIf="showGovCode" class="is_required">*</span>
+                                 <span *ngIf="isArabicCountry" class="is_required">*</span>
                               </mat-label>
                               <input id="txt_first_name_ar" matInput [(ngModel)]="studentAc.first_name_ar"
                                 name="first_name_ar" (keyup)="onArabicKeyUp($event);" />
                             </mat-form-field>
 
                             <mat-form-field class="name-mat-form-field" floatLabel="always">
-                              <mat-label> {{'middle_name' | i18n : 'corr.middle_name'}} <span *ngIf="showGovCode"
+                              <mat-label> {{'middle_name' | i18n : 'corr.middle_name'}} <span *ngIf="isArabicCountry"
                                   class="is_required">*</span>
                               </mat-label>
                               <input matInput [(ngModel)]="studentAc.middle_name_ar" name="middle_name_ar"
@@ -125,7 +136,7 @@
                             </mat-form-field>
 
                             <mat-form-field class="name-mat-form-field" floatLabel="always">
-                              <mat-label> {{'grand_name' | i18n : 'corr.grand_name'}} <span *ngIf="showGovCode"
+                              <mat-label> {{'grand_name' | i18n : 'corr.grand_name'}} <span *ngIf="isArabicCountry"
                                   class="is_required">*</span>
                               </mat-label>
                               <input matInput [(ngModel)]="studentAc.grand_name_ar" name="grand_name_ar"
@@ -133,7 +144,7 @@
                             </mat-form-field>
                             <!-- haggag change surname validation based on nationality -->
                             <mat-form-field class="name-mat-form-field" floatLabel="always">
-                              <mat-label> {{'surname' | i18n : 'corr.surname'}} <span *ngIf="showGovCode" class="is_required">*</span>
+                              <mat-label> {{'surname' | i18n : 'corr.surname'}} <span *ngIf="isArabicCountry" class="is_required">*</span>
                               </mat-label>
                               <input matInput [(ngModel)]="studentAc.surname_ar" name="surname_ar"
                                 (keyup)="onArabicKeyUp($event);" />
@@ -245,7 +256,7 @@
                                 class="is_required">*</span>
                             </mat-label>
                             <mat-select [(ngModel)]="studentAc.birth_country_id" name="birth_country_id"
-                              [disabled]="disabledCitizenSerialType" (closed)="search_birth_country_id=''"
+                              (closed)="search_birth_country_id=''"
                               (selectionChange)="onChangeBirthCountryId();">
                               <!-- // haggag update search country of birth list based on language and search style -->
 
@@ -303,8 +314,9 @@
                             <mat-label>{{'birth_date' | i18n : 'corr.birth_date'}} <span
                                 class="is_required">*</span></mat-label>
                             <input matInput [matDatepicker]="picker1" [(ngModel)]="studentAc.birth_date"
-                              name="birth_date" [disabled]="disabledCitizenSerialType"  [max]="maxBirthDate"                              (ngModelChange)="checkDateOfBirth()" />
+                              name="birth_date"  [max]="maxBirthDate" />
                             <mat-datepicker-toggle matSuffix [for]="picker1">
+                              <img matDatepickerToggleIcon src="assets/images/calendar.svg" alt="calendar icon" />
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
                             <mat-hint *ngIf="studentAc.birth_date && !validateDateOfBirth(studentAc.birth_date)"
@@ -322,6 +334,7 @@
                             <input matInput [matDatepicker]="picker_passport_issuance_date"
                               [(ngModel)]="studentAc.passport_issuance_date" name="passport_issuance_date" />
                             <mat-datepicker-toggle matSuffix [for]="picker_passport_issuance_date">
+                                <img matDatepickerToggleIcon src="assets/images/calendar.svg" alt="calendar icon" />
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker_passport_issuance_date></mat-datepicker>
                           </mat-form-field>
@@ -333,6 +346,7 @@
                             <input matInput [matDatepicker]="picker_passport_expiry_date"
                               [(ngModel)]="studentAc.passport_expiry_date" name="passport_expiry_date" />
                             <mat-datepicker-toggle matSuffix [for]="picker_passport_expiry_date">
+                                <img matDatepickerToggleIcon src="assets/images/calendar.svg" alt="calendar icon" />
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker_passport_expiry_date></mat-datepicker>
                           </mat-form-field>
@@ -695,7 +709,7 @@
                       </div>
                 <!-- end  father data -->
                  <!-- haggag hide Legal Guardian Information -->
-                      <ng-container *ngIf="isSharqElasema">
+                      <ng-container *ngIf="!isSharqElasema">
                         
                        <div class="row" style="direction: rtl;">
                         <div class="col">

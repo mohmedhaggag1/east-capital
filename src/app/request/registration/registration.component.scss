@@ -536,3 +536,11 @@ input[readonly] {
 .relative {
   position: relative;
 }
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #7940ff !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+    background-color: #7940ff !important;
+} 

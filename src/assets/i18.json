@@ -1,5 +1,13 @@
 {
     "corr": {
+        "arabian": {
+            "ar": "عربي",
+            "en": "Arabian"
+        },
+        "notArabian": {
+            "ar": "غير عربي",
+            "en": "Not Arabian"
+        },
         "certificate_country_name": {
             "ar": "اسم بلد الشهادة",
             "en": "Certificate Country Name"

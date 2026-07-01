@@ -154,6 +154,8 @@ export class RegistrationComponent implements OnInit {
   today: Date = new Date();
   maxBirthDate: Date = new Date();
   isSharqElasema : boolean = true;
+  isArabicCountry : boolean = true;
+  
   constructor(
     public provider: DataProvider,
     public i18n: I18N,
@@ -677,24 +679,24 @@ export class RegistrationComponent implements OnInit {
   }
   /// ZidanBack
   async goForward(stepper: MatStepper) {
-    // if (stepper.selectedIndex === 0 || stepper.selectedIndex === 1) {
-    //   this.checkCitizenSerial();
-    //   this.currentStepId = stepper.selectedIndex;
-    // }
-    // let myElement = 'focus_step_' + stepper.selectedIndex;
-    // console.log(myElement);
-    // this.scrollToTargetAdjusted(myElement);
-    // if (!(await this.checkError(stepper.selectedIndex))) {
-    //   if (stepper.selectedIndex === 0) {
-    //     this.analytics.personalInfoCompleted();
-    //     this.router.navigate([this.path], { queryParams: { step: 'guardian-details' }, replaceUrl: true });
-    //   } else if (stepper.selectedIndex === 1) {
-    //     this.analytics.guardianDetailsCompleted();
-    //     this.router.navigate([this.path], { queryParams: { step: 'email-verification' }, replaceUrl: true });
-    //   }
-    //   stepper.next();
-    // }
-          stepper.next();
+    if (stepper.selectedIndex === 0 || stepper.selectedIndex === 1) {
+      this.checkCitizenSerial();
+      this.currentStepId = stepper.selectedIndex;
+    }
+    let myElement = 'focus_step_' + stepper.selectedIndex;
+    console.log(myElement);
+    this.scrollToTargetAdjusted(myElement);
+    if (!(await this.checkError(stepper.selectedIndex))) {
+      if (stepper.selectedIndex === 0) {
+        this.analytics.personalInfoCompleted();
+        this.router.navigate([this.path], { queryParams: { step: 'guardian-details' }, replaceUrl: true });
+      } else if (stepper.selectedIndex === 1) {
+        this.analytics.guardianDetailsCompleted();
+        this.router.navigate([this.path], { queryParams: { step: 'email-verification' }, replaceUrl: true });
+      }
+      stepper.next();
+    }
+          // stepper.next();
 
   }
 
@@ -1601,7 +1603,7 @@ export class RegistrationComponent implements OnInit {
       this.studentAc.grand_name_en = this.studentAc.grand_name_en.trim().replace(/[^\sA-Za-z]/g, '');
       this.studentAc.surname_en = this.studentAc.surname_en.trim().replace(/[^\sA-Za-z]/g, '');
 
-      if (this.showGovCode) {
+      if (this.isArabicCountry) {
         if ((this.studentAc.first_name_ar === "") || (this.studentAc.middle_name_ar === "") || (this.studentAc.grand_name_ar === "") || (this.studentAc.surname_ar === "")  ) {
           if (errorStrArr !== "") {
             errorStrArr += "</br>";
@@ -2175,40 +2177,40 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  // validateDateOfBirth(dateOfBirth: string): boolean {
+  //   if (this.studentAc.citizen_serial_type === '2' && this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')) {
+  //     return true;
+  //   }
+  //   // Parse the string date to a Date object
+  //   const dobDate = new Date(dateOfBirth);
+  //   // Calculate current date
+  //   const currentDate = new Date();
+  //   // Calculate minimum and maximum birth dates based on age range
+  //   const minBirthDate = new Date(currentDate.getFullYear() - Constants.max_age, currentDate.getMonth(), currentDate.getDate());
+  //   const maxBirthDate = new Date(currentDate.getFullYear() - Constants.min_age, currentDate.getMonth(), currentDate.getDate());
+  //   // Check if the provided date of birth falls within the age range
+  //   return dobDate >= minBirthDate && dobDate <= maxBirthDate;
+  // }
+
   validateDateOfBirth(dateOfBirth: string): boolean {
-    if (this.studentAc.citizen_serial_type === '2' && this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')) {
-      return true;
-    }
-    // Parse the string date to a Date object
-    const dobDate = new Date(dateOfBirth);
-    // Calculate current date
-    const currentDate = new Date();
-    // Calculate minimum and maximum birth dates based on age range
-    const minBirthDate = new Date(currentDate.getFullYear() - Constants.max_age, currentDate.getMonth(), currentDate.getDate());
-    const maxBirthDate = new Date(currentDate.getFullYear() - Constants.min_age, currentDate.getMonth(), currentDate.getDate());
-    // Check if the provided date of birth falls within the age range
-    return dobDate >= minBirthDate && dobDate <= maxBirthDate;
+  if (
+    this.studentAc.citizen_serial_type === '2' &&
+    this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')
+  ) {
+    return true;
   }
 
-//   validateDateOfBirth(dateOfBirth: string): boolean {
-//   if (
-//     this.studentAc.citizen_serial_type === '2' &&
-//     this.checkFldIsHidden('stop_validate_on_birthdate_case_foreign_student')
-//   ) {
-//     return true;
-//   }
+  const dobDate = new Date(dateOfBirth);
+  const currentDate = new Date();
 
-//   const dobDate = new Date(dateOfBirth);
-//   const currentDate = new Date();
+  const maxBirthDate = new Date(
+    currentDate.getFullYear() - Constants.min_age,
+    currentDate.getMonth(),
+    currentDate.getDate()
+  );
 
-//   const maxBirthDate = new Date(
-//     currentDate.getFullYear() - Constants.min_age,
-//     currentDate.getMonth(),
-//     currentDate.getDate()
-//   );
-
-//   return dobDate <= maxBirthDate;
-// }
+  return dobDate <= maxBirthDate;
+}
 
   onPhoneNumberKeyUp(event: any) {
     const input = event.target as HTMLInputElement;
